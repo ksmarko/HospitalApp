@@ -1,0 +1,90 @@
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).csprojResolveAssemblyReference.cache
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\MainWindow.g.cs
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\LoginPage.g.cs
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\App.g.cs
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE)_MarkupCompile.cache
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE)_MarkupCompile.lref
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\Save Your Eyes (SYE).exe.config
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\Save Your Eyes (SYE).exe
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\Save Your Eyes (SYE).pdb
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MahApps.Metro.dll
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignColors.dll
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.Wpf.dll
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\System.Windows.Interactivity.dll
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MahApps.Metro.pdb
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MahApps.Metro.xml
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.Wpf.pdb
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.Wpf.xml
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\App.baml
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\MainWindow.baml
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\LoginPage.baml
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).g.resources
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save_Your_Eyes__SYE_.Properties.Resources.resources
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).csproj.GenerateResource.Cache
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).exe
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).pdb
+c:\users\home\documents\visual studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.MahApps.dll
+C:\Users\Home\Documents\Visual Studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\MainPage.g.cs
+C:\Users\Home\Documents\Visual Studio 2017\Projects\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\MainPage.baml
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\Save Your Eyes (SYE).exe.config
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\Save Your Eyes (SYE).exe
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\Save Your Eyes (SYE).pdb
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MahApps.Metro.dll
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignColors.dll
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.MahApps.dll
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\System.Windows.Interactivity.dll
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MahApps.Metro.pdb
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MahApps.Metro.xml
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).csprojResolveAssemblyReference.cache
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\MainPage.g.cs
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\MainWindow.g.cs
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\LoginPage.g.cs
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\App.g.cs
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE)_MarkupCompile.cache
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE)_MarkupCompile.lref
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\App.baml
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\MainPage.baml
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\MainWindow.baml
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\LoginPage.baml
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).g.resources
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save_Your_Eyes__SYE_.Properties.Resources.resources
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).csproj.GenerateResource.Cache
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).exe
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).pdb
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\ProfilePage.g.cs
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\ProfilePage.baml
+D:\КСЮ\Documents\Projects\SYE Proj\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).csproj.CoreCompileInputs.cache
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\Save Your Eyes (SYE).exe.config
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\Save Your Eyes (SYE).exe
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\Save Your Eyes (SYE).pdb
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MahApps.Metro.dll
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignColors.dll
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.MahApps.dll
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\System.Windows.Interactivity.dll
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MahApps.Metro.pdb
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MahApps.Metro.xml
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).csprojResolveAssemblyReference.cache
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\MainPage.g.cs
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\MainWindow.g.cs
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\LoginPage.g.cs
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\ProfilePage.g.cs
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\App.g.cs
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE)_MarkupCompile.cache
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE)_MarkupCompile.lref
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\App.baml
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\MainPage.baml
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\MainWindow.baml
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\LoginPage.baml
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\UI\ProfilePage.baml
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).g.resources
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save_Your_Eyes__SYE_.Properties.Resources.resources
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).csproj.GenerateResource.Cache
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).csproj.CoreCompileInputs.cache
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).exe
+D:\КСЮ\Save Your Eyes (SYE)\Save Your Eyes (SYE)\obj\Debug\Save Your Eyes (SYE).pdb
