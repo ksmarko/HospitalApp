@@ -10,13 +10,16 @@ using Logic.Entities;
 namespace Logic
 {
     public static class DoctorRegistry
-    {        
+    {
+        static int index = 1;
+
         public static void ResetDB()
         {
             using (Data.DContext db = new DContext())
             {
                 db.Database.Delete();
                 db.SaveChanges();
+                index -= index;
             }
         }
 
@@ -25,9 +28,10 @@ namespace Logic
             using (Data.DContext db = new DContext())
             {
                 Doctor doctor = new Doctor(name, surmane, specialization);
-                
+                doctor.Id = index;
                 db.Doctors.Add(doctor);
                 db.SaveChanges();
+                index++;
             }
         }
 
@@ -42,20 +46,7 @@ namespace Logic
                 db.SaveChanges();
             }
         }
-
-        //public static List<string> GetDoctorList()
-        //{
-        //    List<string> docList = new List<string>();
-
-        //    using (Data.DContext db = new DContext())
-        //    {
-        //        foreach (Doctor doc in db.Doctors)
-        //            docList.Add(string.Join(", ", new string[3] {doc.Name, doc.Surname, doc.Specialization }));
-        //    }
-
-        //    return docList;
-        //}
-
+        
         public static List<DoctorL> GetDoctorList()
         {
             List<DoctorL> docList = new List<DoctorL>();
@@ -63,22 +54,39 @@ namespace Logic
             using (Data.DContext db = new DContext())
             {
                 foreach (Doctor doc in db.Doctors)
-                    docList.Add(new DoctorL(doc.Name, doc.Surname, doc.Specialization));
+                    docList.Add(new DoctorL(doc.Id, doc.Name, doc.Surname, doc.Specialization));
             }
 
             return docList;
         }
 
-        public static List<Doctor> FindDoctor(string name, string surname, string specialization, string datetime)
+        public static List<DoctorL> FindDoctor(string name, string surname, string specialization)
         {
-            return null;
+            List<DoctorL> docList = new List<DoctorL>();
+
+            using (Data.DContext db = new DContext())
+            {
+                foreach (Doctor doc in db.Doctors)
+                    if (doc.Name == name || doc.Surname == surname || doc.Specialization == specialization)
+                        docList.Add(new DoctorL(doc.Id, doc.Name, doc.Surname, doc.Specialization));
+            }
+
+            return docList;
         }
 
-        public static void EditDoctorData(int Id, string [] data)
+        public static void EditDoctorData(int id, string name, string surname, string specialization)
         {
-            foreach (var el in data)
+            using (Data.DContext db = new DContext())
             {
+                foreach (Doctor doc in db.Doctors)
+                    if (doc.Id == id)
+                    {
+                        doc.Name = name;
+                        doc.Surname = surname;
+                        doc.Specialization = specialization;
+                    }
 
+                db.SaveChanges();
             }
         }
     }

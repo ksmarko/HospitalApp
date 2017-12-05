@@ -9,3 +9,14 @@ D:\КСЮ\Documents\УРОКИ\НАУ\ООП\Курсач ООП\OOPCousreNAU\Da
 D:\КСЮ\Documents\УРОКИ\НАУ\ООП\Курсач ООП\OOPCousreNAU\Data\bin\Debug\EntityFramework.SqlServer.dll
 D:\КСЮ\Documents\УРОКИ\НАУ\ООП\Курсач ООП\OOPCousreNAU\Data\bin\Debug\EntityFramework.xml
 D:\КСЮ\Documents\УРОКИ\НАУ\ООП\Курсач ООП\OOPCousreNAU\Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\КСЮ\OOPCousreNAU\Data\bin\Debug\Data.dll.config
+D:\КСЮ\OOPCousreNAU\Data\bin\Debug\Data.dll
+D:\КСЮ\OOPCousreNAU\Data\bin\Debug\Data.pdb
+D:\КСЮ\OOPCousreNAU\Data\bin\Debug\EntityFramework.dll
+D:\КСЮ\OOPCousreNAU\Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\КСЮ\OOPCousreNAU\Data\bin\Debug\EntityFramework.xml
+D:\КСЮ\OOPCousreNAU\Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\КСЮ\OOPCousreNAU\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+D:\КСЮ\OOPCousreNAU\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+D:\КСЮ\OOPCousreNAU\Data\obj\Debug\Data.dll
+D:\КСЮ\OOPCousreNAU\Data\obj\Debug\Data.pdb

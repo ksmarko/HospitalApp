@@ -13,11 +13,17 @@ namespace Logic.Entities
         public string Surname { get; set; }
         public string Specialization { get; set; }
 
-        public DoctorL(string name, string surname, string specialization)
+        public DoctorL(int id, string name, string surname, string specialization)
         {
+            this.Id = id;
             this.Name = name;
             this.Surname = surname;
             this.Specialization = specialization;
+        }
+
+        public override string ToString()
+        {
+            return string.Join(" ", Name, Surname);
         }
     }
 }
