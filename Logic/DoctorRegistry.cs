@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data;
 using Data.Entities;
-using Data;
 using Logic.Entities;
+using System.Collections.Generic;
 
 namespace Logic
 {
@@ -15,7 +11,7 @@ namespace Logic
 
         public static void ResetDB()
         {
-            using (Data.DContext db = new DContext())
+            using (DContext db = new DContext())
             {
                 db.Database.Delete();
                 db.SaveChanges();
@@ -23,11 +19,11 @@ namespace Logic
             }
         }
 
-        public static void AddDoctor(string name, string surmane, string specialization)
+        public static void AddDoctor(string name, string surname, string specialization)
         {
-            using (Data.DContext db = new DContext())
+            using (DContext db = new DContext())
             {
-                Doctor doctor = new Doctor(name, surmane, specialization);
+                Doctor doctor = new Doctor(name, surname, specialization);
                 doctor.Id = index;
                 db.Doctors.Add(doctor);
                 db.SaveChanges();
@@ -35,12 +31,12 @@ namespace Logic
             }
         }
 
-        public static void RemoveDoctor(int Id)
+        public static void RemoveDoctor(int id)
         {
             using (Data.DContext db = new DContext())
             {
                 foreach (var el in db.Doctors)
-                    if (el.Id == Id)
+                    if (el.Id == id)
                         db.Doctors.Remove(el);
 
                 db.SaveChanges();

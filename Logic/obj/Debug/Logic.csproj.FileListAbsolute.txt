@@ -40,3 +40,17 @@ D:\КСЮ\Documents\УРОКИ\НАУ\ООП\OOPCousreNAU\Logic\bin\Debug\Data.p
 D:\КСЮ\Documents\УРОКИ\НАУ\ООП\OOPCousreNAU\Logic\bin\Debug\Data.dll.config
 D:\КСЮ\Documents\УРОКИ\НАУ\ООП\OOPCousreNAU\Logic\bin\Debug\EntityFramework.xml
 D:\КСЮ\Documents\УРОКИ\НАУ\ООП\OOPCousreNAU\Logic\bin\Debug\EntityFramework.SqlServer.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\Logic.dll.config
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\Logic.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\Logic.pdb
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\Data.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\EntityFramework.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\EntityFramework.SqlServer.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\Data.pdb
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\Data.dll.config
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\EntityFramework.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\bin\Debug\EntityFramework.SqlServer.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\obj\Debug\Logic.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Logic\obj\Debug\Logic.pdb

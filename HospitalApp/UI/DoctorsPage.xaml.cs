@@ -49,23 +49,31 @@ namespace HospitalApp.UI
         private void AddDoctor(object sender, RoutedEventArgs e)
         {
             AddDoctorWindow wi = new AddDoctorWindow();
-            wi.btnAdd.Visibility = Visibility.Visible;
-            wi.btnSave.Visibility = Visibility.Hidden;
+            wi.btnAddDoc.Visibility = Visibility.Visible;
+            wi.btnSaveDoc.Visibility = Visibility.Hidden;
+            wi.btnAddPat.Visibility = Visibility.Hidden;
             wi.ShowDialog();
             Refresh();
         }
 
         private void RemoveDoctor(object sender, RoutedEventArgs e)
         {
-            string question = "Are you sure to remove doctor " + (grdDoctors.SelectedValue as DoctorL).ToString() + " ?";
-
-            MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            try
             {
-                DoctorRegistry.RemoveDoctor((grdDoctors.SelectedValue as DoctorL).Id);
-                Refresh();
+                string question = "Are you sure to remove doctor " + (grdDoctors.SelectedValue as DoctorL).ToString() + " ?";
+
+                MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    DoctorRegistry.RemoveDoctor((grdDoctors.SelectedValue as DoctorL).Id);
+                    Refresh();
+                }
+                else return;
             }
-            else return;            
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void EditDoctorData(object sender, RoutedEventArgs e)
@@ -77,8 +85,11 @@ namespace HospitalApp.UI
                 wi.txtName.Text = (grdDoctors.SelectedValue as DoctorL).Name;
                 wi.txtSurname.Text = (grdDoctors.SelectedValue as DoctorL).Surname;
                 wi.txtSpec.Text = (grdDoctors.SelectedValue as DoctorL).Specialization;
-                wi.btnAdd.Visibility = Visibility.Hidden;
-                wi.btnSave.Visibility = Visibility.Visible;
+
+                wi.btnAddDoc.Visibility = Visibility.Hidden;
+                wi.btnSaveDoc.Visibility = Visibility.Visible;
+                wi.btnAddPat.Visibility = Visibility.Hidden;
+
                 wi.ShowDialog();
                 Refresh();
             }

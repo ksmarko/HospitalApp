@@ -2,7 +2,6 @@
 
 namespace Data.Entities
 {
-    //TODO: вызывать воответствующие методы из DAL вместо работы со списком
     public sealed class Timetable
     {
         public int Id { get; set; }

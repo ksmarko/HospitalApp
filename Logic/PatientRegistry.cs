@@ -4,23 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Entities;
+using Data;
+using Logic.Entities;
 
 namespace Logic
 {
     public abstract class PatientRegistry
     {
-        List<Patient> patInfoCards = new List<Patient>();
+        static int index = 1;
 
-        public void AddPatient(string name, string surname)
+        public static void AddPatient(string name, string surname)
         {
-            patInfoCards.Add(new Patient(name, surname));
+            using (DContext db = new DContext())
+            {
+                Patient patient = new Patient(name, surname);
+                patient.Id = index;
+                db.Patients.Add(patient);
+                db.SaveChanges();
+                index++;
+            }
         }
 
-        public void RemovePatient(Patient patient)
+        public static void RemovePatient(int id)
         {
-            patInfoCards.Remove(patInfoCards.Find(x => x == patient));
+            using (Data.DContext db = new DContext())
+            {
+                foreach (var el in db.Patients)
+                    if (el.Id == id)
+                        db.Patients.Remove(el);
+
+                db.SaveChanges();
+            }
         }
 
+        public static List<PatientL> GetPatientList()
+        {
+            List<PatientL> patList = new List<PatientL>();
+
+            using (Data.DContext db = new DContext())
+            {
+                foreach (Patient pat in db.Patients)
+                    patList.Add(new PatientL(pat.Id, pat.Name, pat.Surname));
+            }
+
+            return patList;
+        }
 
     }
 }

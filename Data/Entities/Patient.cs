@@ -6,6 +6,8 @@
         public Card card;
         public Timetable timetable;
 
+        public Patient() { }
+
         public Patient(string name, string surname)
         {
             this.Name = name;

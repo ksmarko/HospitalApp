@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Logic;
+using Logic.Entities;
 
 namespace HospitalApp.UI
 {
@@ -21,59 +23,74 @@ namespace HospitalApp.UI
     /// </summary>
     public partial class PatientsPage : Page
     {
-        List<string> partners = new List<string>();
-        string[] adress = new string[10]
-        {
-            "893 Maiden Dr. Oxford, MS 38655",
-            "511 N. Swanson Ave. Perrysburg, OH 43551",
-            "23 Jackson Dr. Middleton, WI 53562",
-            "77 Cactus Ave. Miami Gardens, FL 33056",
-            "943 W. Griffin Street Encino, CA 91316",
-            "8476 Spruce Street Dayton, OH 45420",
-            "147 W. Andover Lane Feasterville Trevose, PA 19053",
-            "117 Vale St. Jenison, MI 49428",
-            "8072 Pineknoll St. Marlton, NJ 08053",
-            "518 Arlington Lane Bay Shore, NY 11706"
-        };
-
-        string[] operators = new string[] { "(099) ", "(098) ", "(066) ", "(067) ", "(063) ", "(095) " };
-
         public PatientsPage()
         {
             InitializeComponent();
         }
 
+        //list.selected index changed
         private void PartnersNavigation(object sender, SelectionChangedEventArgs e)
         {
-            Random rand = new Random(DateTime.Now.Millisecond);
+            txtName.Text = lstPatients.SelectedItem.ToString();
+            txtMail.Text = "e-mail:   " + Regex.Replace(lstPatients.SelectedItem.ToString(), " ", ".").ToLower() + "@job.ca";
+        }
 
-            txtName.Text = lstPartners.SelectedItem.ToString();
-            txtDate.Text = "Incoming date: " + rand.Next(10, 28) + ".0" + rand.Next(1, 9) + ".2017";
-            txtMail.Text = "e-mail:   " + Regex.Replace(lstPartners.SelectedItem.ToString(), " ", ".").ToLower() + "@job.ca";
-            txtPhone.Text = "Phone:   +38 " + operators[rand.Next(0, 5)] + rand.Next(100, 999) + " " + rand.Next(10, 99) + " " + rand.Next(10, 99);
-            txtAdress.Text = "Adress: " + adress[rand.Next(0, 9)];
+        private void RefreshData()
+        {
+            lstPatients.Items.Clear();
+
+            foreach (var el in PatientRegistry.GetPatientList())
+                lstPatients.Items.Add(el);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            partners.Add("Alex Clare");
-            partners.Add("Cinderella Woodberry");
-            partners.Add("Annie Picou");
-            partners.Add("Ophelia Bechtel");
-            partners.Add("Delsie Bartholomew");
-            partners.Add("Daniel Lile");
-            partners.Add("Lizabeth Gleeson");
-            partners.Add("Catrina Mealing");
-            partners.Add("Lelia Labar");
-            partners.Add("Carmelina Sweatman");
-            partners.Add("Doreatha Yohn");
-            partners.Add("Ruthie Beverage");
-            partners.Add("Kerstin Silverberg");
-            partners.Add("Eliza Penny");
-            partners.Add("Berta Alewine");
+            foreach (var el in PatientRegistry.GetPatientList())
+                lstPatients.Items.Add(el);
+        }
 
-            foreach (var el in partners)
-                lstPartners.Items.Add(el);
+        private void AddPatient(object sender, RoutedEventArgs e)
+        {
+            AddDoctorWindow wi = new AddDoctorWindow();
+            wi.Title = "Add patient";
+            wi.txtSpec.Visibility = Visibility.Collapsed;
+            wi.lblSpec.Visibility = Visibility.Collapsed;
+
+            wi.btnAddDoc.Visibility = Visibility.Hidden;
+            wi.btnSaveDoc.Visibility = Visibility.Hidden;
+            wi.btnAddPat.Visibility = Visibility.Visible;
+
+            wi.ShowDialog();
+            RefreshData();
+        }
+
+        private void RemovePatient(object sender, RoutedEventArgs e)
+        {
+            if (lstPatients.SelectedIndex != -1)
+            {
+                string question = "Are you sure to remove patient " + (lstPatients.SelectedValue as PatientL).ToString() + " ?";
+
+                MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    PatientRegistry.RemovePatient((lstPatients.SelectedValue as PatientL).Id);
+                    RefreshData();
+                }
+                else return;
+            }
+            else return;
+        }
+
+        private void PatientsNavigation(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                txtName.Text = (lstPatients.SelectedValue as PatientL).ToString();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

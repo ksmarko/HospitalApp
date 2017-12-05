@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="DoctorRegistry.cs" />
     <Compile Include="Entities\DoctorL.cs" />
+    <Compile Include="Entities\PatientL.cs" />
     <Compile Include="PatientRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

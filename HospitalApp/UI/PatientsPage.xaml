@@ -21,19 +21,47 @@ Loaded="Page_Loaded"
         <Grid Background="#3e3e3e" Width="1" Grid.Column="0" HorizontalAlignment="Right" Opacity="0.5" Margin="0,0,30,0"/>
 
         <StackPanel Orientation="Vertical" Grid.Column="1">
-            <TextBlock Text="Partners:" Margin="10,40,0,10" FontSize="20"/>
-            <ListBox Name="lstPartners" SelectionChanged="PartnersNavigation"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Patients:" Margin="10,40,0,10" HorizontalAlignment="Left" FontSize="20"/>
+
+            <Grid
+						VerticalAlignment="Top"
+						HorizontalAlignment="Right"
+                Margin="20,20,0,0">
+
+                <ToolBar
+							HorizontalAlignment="Right"
+							Background="White"
+							Foreground="#FF555555">
+
+                    <Button
+								Click="AddPatient"
+								ToolTip="Добавить пациента"
+								Cursor="Hand" Foreground="#FF555555">
+
+                        <MaterialUI:PackIcon Kind="Plus"/>
+                    </Button>
+
+                    <Button
+								Click="RemovePatient"
+								ToolTip="Удалить пациента"
+								Cursor="Hand" Foreground="#FF555555">
+
+                        <MaterialUI:PackIcon Kind="Delete"/>
+                    </Button>
+                </ToolBar>
+            </Grid>
+        </StackPanel>
+        <ListBox Name="lstPatients" SelectionChanged="PatientsNavigation"/>
         </StackPanel>
 
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal" Grid.Column="0">
-                <MaterialUI:PackIcon Kind="Account" Name="imgAccount" Height="300" Width="300" Margin="40, 30, 0,0"/>
+                <MaterialUI:PackIcon Kind="Account" Height="300" Width="300" Margin="40, 30, 0,0"/>
                 <StackPanel Orientation="Vertical" Margin="30, 80,0,0" VerticalAlignment="Top">
                     <TextBlock Name="txtName" Text="Alex Clare" FontSize="34" Margin="10"/>
                     <TextBlock Name="txtPhone" Text="Phone:   (099) 675 13 19" Margin="10"/>
-                    <TextBlock Name="txtAdress" Text="Adress:   Bigtown BG23 4YZ: England" Margin="10"/>
                     <TextBlock Name="txtMail" Text="e-mail:   a.clare@job.ca" Margin="10"/>
-                    <TextBlock Name="txtDate" Text="Incoming date:   24.05.2017" Margin="10"/>
                 </StackPanel>
             </StackPanel>
             <TextBlock Text="Contracts:" Margin="90, 0, 0 0" FontSize="20"/>

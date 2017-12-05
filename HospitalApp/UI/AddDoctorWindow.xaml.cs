@@ -53,5 +53,19 @@ namespace HospitalApp.UI
                 return;
             }
         }
+
+        private void AddPatient(object sender, RoutedEventArgs e)
+        {
+            if (txtName.Text != "" && txtSurname.Text != "")
+            {
+                PatientRegistry.AddPatient(txtName.Text, txtSurname.Text);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Enter data", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+        }
     }
 }

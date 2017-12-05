@@ -17,10 +17,11 @@
             <TextBox Name="txtName" Margin="20,5,20,0"/>
             <TextBlock Text="Surname" Margin="20,5,20,0"/>
             <TextBox Name="txtSurname" Margin="20,5,20,0"/>
-            <TextBlock Text="Specialization" Margin="20,5,20,0"/>
+            <TextBlock Name="lblSpec" Text="Specialization" Margin="20,5,20,0"/>
             <TextBox Name="txtSpec" Margin="20,10,20,0"/>
         </StackPanel>
-        <Button Name="btnAdd" Content="Add" Click="AddDoctor" Margin="100,0,100,30" VerticalAlignment="Bottom" Visibility="Visible"/>
-        <Button Name="btnSave" Content="Save" Click="EditDoctorData" Margin="100,0,100,30" VerticalAlignment="Bottom" Visibility="Hidden"/>
+        <Button Name="btnAddDoc" Content="Add" Click="AddDoctor" Margin="100,0,100,30" VerticalAlignment="Bottom" Visibility="Visible"/>
+        <Button Name="btnSaveDoc" Content="Save" Click="EditDoctorData" Margin="100,0,100,30" VerticalAlignment="Bottom" Visibility="Hidden"/>
+        <Button Name="btnAddPat" Content="Add" Click="AddPatient" Margin="100,0,100,30" VerticalAlignment="Bottom" Visibility="Hidden"/>
     </Grid>
 </Window>

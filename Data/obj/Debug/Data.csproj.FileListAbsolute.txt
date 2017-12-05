@@ -20,3 +20,14 @@ D:\КСЮ\OOPCousreNAU\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 D:\КСЮ\OOPCousreNAU\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
 D:\КСЮ\OOPCousreNAU\Data\obj\Debug\Data.dll
 D:\КСЮ\OOPCousreNAU\Data\obj\Debug\Data.pdb
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Debug\Data.dll.config
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Debug\Data.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Debug\Data.pdb
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Debug\EntityFramework.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Debug\EntityFramework.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\obj\Debug\Data.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\obj\Debug\Data.pdb

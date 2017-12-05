@@ -40,21 +40,6 @@
             this.dateTime = datetime;
         }
 
-        public void EditDoctorInfo(string name, string surname, string specialization, string datetime)
-        {
-            if (name != null)
-                this.Name = name;
-
-            if (surname != null)
-                this.Surname = surname;
-
-            if (specialization != null)
-                this.Specialization = specialization;
-
-            if (dateTime != null)
-                this.dateTime = datetime;
-        }
-
         public override string ToString()
         {
             return string.Join(" ", Name, Surname);
