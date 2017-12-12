@@ -2,42 +2,13 @@
 {
     public class Doctor : Human
     {
-        //public int Id { get; set; }
         public string Specialization { get; set; }
-        public string dateTime { get; set; } = "Пн-пт 9:00 - 18:00";
-        public Timetable timeTable;
 
-        public Doctor() { }
+        public Doctor() : base() { }
 
-        public Doctor(string name, string surname, string specialization)
+        public Doctor(string name, string surname, string specialization) : base(name, surname)
         {
-            this.Name = name;
-            this.Surname = surname;
             this.Specialization = specialization;
-        }
-
-        public Doctor(string name, string surname, string specialization, string datetime, Timetable timetable)
-        {
-            this.Name = name;
-            this.Surname = surname;
-            this.Specialization = specialization;
-            this.dateTime = datetime;
-            this.timeTable = timetable;
-        }
-
-        public void AddToTimetable(string datetime, Patient patient)
-        {
-            this.timeTable.Add(datetime, patient);
-        }
-
-        public void RemoveFromTimetable(int id)
-        {
-            this.timeTable.Remove(id);
-        }
-        
-        public void SetDateTime(string datetime)
-        {
-            this.dateTime = datetime;
         }
 
         public override string ToString()

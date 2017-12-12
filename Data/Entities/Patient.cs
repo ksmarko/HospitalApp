@@ -1,43 +1,24 @@
-﻿namespace Data.Entities
+﻿using System.Collections.Generic;
+
+namespace Data.Entities
 {
     public class Patient : Human
     {
-        //public int Id { get; set; }
-        public Card card;
-        public Timetable timetable;
+        public List<Record> Card { get; set; }
 
-        public Patient() { }
-
-        public Patient(string name, string surname)
+        public Patient() : base()
         {
-            this.Name = name;
-            this.Surname = surname;
+            Card = new List<Record>();
         }
 
-        public int AddToCard(string datetime, Doctor doctor, string diagnosis, string therapy)
+        public Patient(string name, string surname) : base(name, surname)
         {
-            card.DateTime.Add(datetime);
-            card.Doctor.Add(doctor);
-            card.Diagnosis.Add(diagnosis);
-            card.Therapy.Add(therapy);
-
-            return card.DateTime.Count - 1;
+            Card = new List<Record>();
         }
 
-        public string FindInCard(int id)
+        public override string ToString()
         {
-            return string.Join(", ", new string[4] 
-            {
-                card.DateTime[id].ToString(),
-                card.Doctor[id].ToString(),
-                card.Diagnosis[id].ToString(),
-                card.Therapy[id].ToString()
-            });
-        }
-
-        public string LastCardRecord()
-        {
-            return FindInCard(card.recordsCount - 1);
+            return string.Join(" ", Name, Surname);
         }
     }
 }

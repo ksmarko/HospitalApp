@@ -9,16 +9,6 @@ namespace Logic
     {
         static int index = 1;
 
-        public static void ResetDB()
-        {
-            using (DContext db = new DContext())
-            {
-                db.Database.Delete();
-                db.SaveChanges();
-                index -= index;
-            }
-        }
-
         public static void AddDoctor(string name, string surname, string specialization)
         {
             using (DContext db = new DContext())
@@ -68,6 +58,18 @@ namespace Logic
             }
 
             return docList;
+        }
+
+        public static DoctorL FindDoctor(int Id)
+        {
+            using (Data.DContext db = new DContext())
+            {
+                foreach (Doctor doc in db.Doctors)
+                    if (doc.Id == Id)
+                        return new DoctorL(doc.Id, doc.Name, doc.Surname, doc.Specialization);
+            }
+
+            return null;
         }
 
         public static void EditDoctorData(int id, string name, string surname, string specialization)

@@ -9,7 +9,7 @@
     TextElement.FontWeight="Medium"
     TextElement.FontSize="14"
               xmlns:MaterialUI="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" Title="Add doctor" Width="385" Height="400" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        mc:Ignorable="d" Title="Add doctor" Width="385" Height="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="40, 10, 40, 0">
             <MaterialUI:PackIcon Kind="Account" Height="100" Width="100" HorizontalAlignment="Center"/>

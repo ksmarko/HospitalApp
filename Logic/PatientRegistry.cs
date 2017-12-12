@@ -50,5 +50,31 @@ namespace Logic
             return patList;
         }
 
+        public static void AddDataToCard(PatientL pat, DoctorL doc, string diagnosis, string therapy, string add)
+        {
+            using (Data.DContext db = new DContext())
+            {
+                Record r = new Record(pat.Id, doc.Id, diagnosis, therapy, add);
+                db.Records.Add(r);
+                db.SaveChanges();
+            }
+
+        }
+
+        public static List<RecordL> GetAllRecords(PatientL pat)
+        {
+            List<RecordL> card = new List<RecordL>();
+
+            using (Data.DContext db = new DContext())
+            {
+                foreach (Record r in db.Records)
+                    if (r.patId == pat.Id)
+                    {
+                        card.Add(new RecordL(r.patId, DoctorRegistry.FindDoctor(r.docId).Specialization, DoctorRegistry.FindDoctor(r.docId).ToString(), r.diagnosis, r.therapy, r.addition));
+                    }
+            }
+
+            return card;
+        }
     }
 }

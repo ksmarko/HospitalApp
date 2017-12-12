@@ -7,6 +7,7 @@
       xmlns:MaterialUI="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
 Loaded="Page_Loaded"
+      IsVisibleChanged="RefreshPage"
       	FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
 	TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       	TextElement.FontWeight="Medium"
@@ -18,7 +19,9 @@ Loaded="Page_Loaded"
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="#3e3e3e" Width="1" Grid.Column="0" HorizontalAlignment="Right" Opacity="0.5" Margin="0,0,30,0"/>
+        <Grid Background="#3e3e3e" Width="1" Grid.Column="0" HorizontalAlignment="Right" Opacity="0.5" Margin="0,0,0,0"/>
+
+        <Button Click="AddRecord" Content="Add record" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0, 0, 0, 20"/>
 
         <StackPanel Orientation="Vertical" Grid.Column="1">
             <StackPanel Orientation="Horizontal">
@@ -56,19 +59,19 @@ Loaded="Page_Loaded"
         </StackPanel>
 
         <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal" Grid.Column="0">
-                <MaterialUI:PackIcon Kind="Account" Height="300" Width="300" Margin="40, 30, 0,0"/>
-                <StackPanel Orientation="Vertical" Margin="30, 80,0,0" VerticalAlignment="Top">
-                    <TextBlock Name="txtName" Text="Alex Clare" FontSize="34" Margin="10"/>
-                    <TextBlock Name="txtPhone" Text="Phone:   (099) 675 13 19" Margin="10"/>
-                    <TextBlock Name="txtMail" Text="e-mail:   a.clare@job.ca" Margin="10"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="0" Height="139">
+                <MaterialUI:PackIcon Kind="Account" Height="100" Width="100" Margin="40, 30, 0,0"/>
+                <StackPanel Orientation="Vertical" Margin="30, 20,0,0" VerticalAlignment="Top">
+                    <TextBlock Name="txtName" FontSize="34" Margin="5" />
+                    <TextBlock Name="txtPhone" Margin="5" />
+                    <TextBlock Name="txtMail" Margin="5" />
                 </StackPanel>
             </StackPanel>
-            <TextBlock Text="Contracts:" Margin="90, 0, 0 0" FontSize="20"/>
-            <TextBlock Text="Contract #1278" Margin="90, 20, 0 0" FontSize="16" FontWeight="Normal" TextDecorations="underline" Cursor="Hand" Foreground="DarkCyan"/>
-            <TextBlock Text="Contract #2390" Margin="90, 10, 0 0" FontSize="16" FontWeight="Normal" TextDecorations="underline" Cursor="Hand" Foreground="DarkCyan"/>
-            <TextBlock Text="Contract #1116" Margin="90, 10, 0 0" FontSize="16" FontWeight="Normal" TextDecorations="underline" Cursor="Hand" Foreground="DarkCyan"/>
-            <TextBlock Text="Contract #0013" Margin="90, 10, 0 0" FontSize="16" FontWeight="Normal" TextDecorations="underline" Cursor="Hand" Foreground="DarkCyan"/>
+            <TextBlock Text="Card:" FontSize="18" Margin="20, 0, 0,10"/>
+            <ScrollViewer Height="200">
+            <DataGrid x:Name="grdCard" Margin="20,10,20,20" AutoGenerateColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" MaxColumnWidth="150" SelectionMode="Single"/>
+            </ScrollViewer>
+
         </StackPanel>
 
     </Grid>

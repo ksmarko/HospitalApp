@@ -35,14 +35,6 @@ namespace HospitalApp.UI
             txtMail.Text = "e-mail:   " + Regex.Replace(lstPatients.SelectedItem.ToString(), " ", ".").ToLower() + "@job.ca";
         }
 
-        private void RefreshData()
-        {
-            lstPatients.Items.Clear();
-
-            foreach (var el in PatientRegistry.GetPatientList())
-                lstPatients.Items.Add(el);
-        }
-
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             foreach (var el in PatientRegistry.GetPatientList())
@@ -61,7 +53,7 @@ namespace HospitalApp.UI
             wi.btnAddPat.Visibility = Visibility.Visible;
 
             wi.ShowDialog();
-            RefreshData();
+            RefreshPage();
         }
 
         private void RemovePatient(object sender, RoutedEventArgs e)
@@ -74,7 +66,7 @@ namespace HospitalApp.UI
                 if (result == MessageBoxResult.Yes)
                 {
                     PatientRegistry.RemovePatient((lstPatients.SelectedValue as PatientL).Id);
-                    RefreshData();
+                    RefreshPage();
                 }
                 else return;
             }
@@ -83,14 +75,45 @@ namespace HospitalApp.UI
 
         private void PatientsNavigation(object sender, SelectionChangedEventArgs e)
         {
-            try
+            if (lstPatients.SelectedIndex != -1)
             {
                 txtName.Text = (lstPatients.SelectedValue as PatientL).ToString();
+                grdCard.ItemsSource = PatientRegistry.GetAllRecords(lstPatients.SelectedValue as PatientL);
             }
-            catch(Exception ex)
+            else
+                grdCard.ItemsSource = null;
+
+        }
+
+        private void AddRecord(object sender, RoutedEventArgs e)
+        {
+            AddRecordWindow wi = new AddRecordWindow();
+            wi.ShowDialog();
+
+            if (lstPatients.SelectedIndex != -1)
             {
-                Console.WriteLine(ex.Message);
+                List<RecordL> re = new List<RecordL>();
+                re = PatientRegistry.GetAllRecords(lstPatients.SelectedValue as PatientL);
+
+                grdCard.ItemsSource = null;
+                grdCard.ItemsSource = re;
             }
+        }
+
+        //page visible changed
+        private void RefreshPage(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            RefreshPage();
+        }
+
+        private void RefreshPage()
+        {
+            lstPatients.Items.Clear();
+
+            foreach (var el in PatientRegistry.GetPatientList())
+                lstPatients.Items.Add(el);
+
+            grdCard.ItemsSource = null;
         }
     }
 }
