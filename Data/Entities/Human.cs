@@ -14,5 +14,10 @@
             this.Name = name;
             this.Surname = surname;
         }
+
+        public override string ToString()
+        {
+            return string.Join(" ", Name, Surname);
+        }
     }
 }

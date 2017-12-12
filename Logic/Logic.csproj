@@ -51,10 +51,10 @@
     <Compile Include="Entities\DoctorL.cs" />
     <Compile Include="Entities\PatientL.cs" />
     <Compile Include="Entities\RecordL.cs" />
+    <Compile Include="Entities\ScheduleL.cs" />
     <Compile Include="PatientRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleManager.cs" />
-    <Compile Include="Settings\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

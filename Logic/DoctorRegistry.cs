@@ -53,7 +53,7 @@ namespace Logic
             using (Data.DContext db = new DContext())
             {
                 foreach (Doctor doc in db.Doctors)
-                    if (doc.Name == name || doc.Surname == surname || doc.Specialization == specialization)
+                    if (doc.Name.Contains(name) || doc.Surname.Contains(surname) || doc.Specialization.Contains(specialization))
                         docList.Add(new DoctorL(doc.Id, doc.Name, doc.Surname, doc.Specialization));
             }
 

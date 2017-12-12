@@ -8,17 +8,11 @@ namespace Data.Entities
 
         public Patient() : base()
         {
-            Card = new List<Record>();
         }
 
         public Patient(string name, string surname) : base(name, surname)
         {
             Card = new List<Record>();
-        }
-
-        public override string ToString()
-        {
-            return string.Join(" ", Name, Surname);
         }
     }
 }

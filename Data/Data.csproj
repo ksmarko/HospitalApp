@@ -52,6 +52,7 @@
     <Compile Include="Entities\Human.cs" />
     <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\Record.cs" />
+    <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

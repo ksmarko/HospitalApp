@@ -10,10 +10,5 @@
         {
             this.Specialization = specialization;
         }
-
-        public override string ToString()
-        {
-            return string.Join(" ", Name, Surname);
-        }
     }
 }

@@ -58,7 +58,6 @@ namespace Logic
                 db.Records.Add(r);
                 db.SaveChanges();
             }
-
         }
 
         public static List<RecordL> GetAllRecords(PatientL pat)
@@ -75,6 +74,32 @@ namespace Logic
             }
 
             return card;
+        }
+
+        public static PatientL FindPatient(int id)
+        {
+            using (Data.DContext db = new DContext())
+            {
+                foreach (Patient pat in db.Patients)
+                    if (pat.Id == id)
+                        return new PatientL(pat.Id, pat.Name, pat.Surname);
+            }
+
+            return null;
+        }
+
+        public static List<PatientL> FindPatient(string name, string surname)
+        {
+            List<PatientL> patients = new List<PatientL>();
+
+            using (Data.DContext db = new DContext())
+            {
+                foreach (Patient pat in db.Patients)
+                    if (pat.Name.Contains(name) || pat.Surname.Contains(surname))
+                        patients.Add(new PatientL(pat.Id, pat.Name, pat.Surname));
+            }
+
+            return patients;
         }
     }
 }
