@@ -54,35 +54,56 @@
         </StackPanel>
 
         <!--Central part-->
-        <MaterialUI:Card Grid.Column="1" Background="White" Margin="0,0,10,10" VerticalAlignment="Stretch">
+        <!--<MaterialUI:Card Grid.Column="1" Grid.ColumnSpan="2" Background="White" Margin="0,0,10,10" VerticalAlignment="Stretch">
             <Grid>
+                --><!-- //start homepage//--><!--
+                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Margin="20, 20, 20, 20">
+                <TextBlock Text="Search" FontSize="20"/>
+                <ComboBox Name="cboxSearch" Margin="0, 10,0,0" Width="300" HorizontalAlignment="Left">
+                    <ComboBoxItem Content="Doctors"/>
+                    <ComboBoxItem Content="Patients"/>
+                </ComboBox>
+                    <TextBlock Text="Name" Margin="0, 10, 0, 0"/>
+                    <TextBox Name="txtName" Width="300" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Surname" Margin="0, 10, 0, 0"/>
+                    <TextBox Name="txtSurname" Width="300" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Specialization" Margin="0, 10, 0, 0"/>
+                    <TextBox Name="txtSpec" Width="300" HorizontalAlignment="Left"/>
+                    <Button Content="Search" Click="Search" Width="120" Margin="0, 20, 0,0"/>
+                </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="2" Grid.ColumnSpan="1">
+                        <ScrollViewer Height="250">
+                            <DataGrid Name="grdResult" AutoGenerateColumns="True"/>
+                        </ScrollViewer>
+                    </StackPanel>
+                </StackPanel>
+                --><!-- //end homepage//--><!--
+            </Grid>
+        </MaterialUI:Card>-->
 
-                <!-- //homepage//-->
-
-                <Frame 
+        <Frame 
                 x:Name="DoctorsPageUI" 
                 Source="/HospitalApp;component/UI/DoctorsPage.xaml" 
-                Margin="0, 0, 0, 0" 
+                Margin="0, 0, 10, 10" 
                 Visibility="Hidden" 
                 IsEnabled="False"
                 Grid.Column="1"/>
 
-                <Frame 
+        <Frame 
                 x:Name="PatientsPageUI" 
                 Source="/HospitalApp;component/UI/PatientsPage.xaml" 
-                Margin="0, 0, 0, 0" 
+                Margin="0, 0, 10, 10" 
                 Visibility="Hidden" 
                 IsEnabled="False"
                 Grid.Column="1"/>
 
-                <Frame 
+        <Frame 
                 x:Name="SettingsPageUI" 
                 Source="/HospitalApp;component/UI/SettingsPage.xaml" 
-                Margin="0, 0, 0, 0" 
+                Margin="0, 0, 10, 10" 
                 Visibility="Hidden" 
                 IsEnabled="False"
                 Grid.Column="1"/>
-            </Grid>
-        </MaterialUI:Card>
     </Grid>
 </Page>

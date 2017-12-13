@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HospitalApp.UI"
+      xmlns:MaterialUI="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
           FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -11,20 +12,43 @@
     TextElement.FontSize="14"
       IsVisibleChanged="RefreshData">
 
-    <Grid Background="White">
-        <TextBlock Text="Doctors:" VerticalAlignment="Top" FontSize="20" Margin="20, 10,0,20" />
-        <ScrollViewer Margin="0,40,0,70">
-            <StackPanel Orientation="Vertical" Margin="20, 10, 0,20">
-                <DataGrid x:Name="grdDoctors" AutoGenerateColumns="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="True">
-                    <DataGrid.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Header="Remove" Click="RemoveDoctor" FontWeight="Medium"/>
-                            <MenuItem Header="Edit data" Click="EditDoctorData" FontWeight="Medium"/>
-                        </ContextMenu>
-                    </DataGrid.ContextMenu>
-                </DataGrid>
-            </StackPanel>
-        </ScrollViewer>
-        <Button Content="Add" Click="AddDoctor" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,25"/>
+    <Grid>
+        <MaterialUI:Card Background="White">
+            <Grid>
+                <TextBlock Text="Doctors:" VerticalAlignment="Top" FontSize="30" Margin="20, 15,200,20" />
+                
+                <!--Tool bar-->
+                <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0">
+                    <ToolBar HorizontalAlignment="Right" Background="White" Foreground="#FF555555">
+                        <Button Click="AddDoctor" ToolTip="Add doctor" Cursor="Hand" Foreground="#FF555555">
+                            <MaterialUI:PackIcon Kind="Plus"/>
+                        </Button>
+                        <Separator/>
+                        <Button Click="FindDoctor" ToolTip="Find doctor" Cursor="Hand" Foreground="#FF555555">
+                            <MaterialUI:PackIcon Kind="AccountSearch"/>
+                        </Button>
+                        <Button Click="ClearSearchResults" ToolTip="Clear" Cursor="Hand" Foreground="#FF555555">
+                            <MaterialUI:PackIcon Kind="Eraser"/>
+                        </Button>
+                    </ToolBar>
+                </Grid>
+
+                <!--Data grid-->
+                <ScrollViewer Margin="0,60,0,20" Height="590">
+                    <StackPanel Orientation="Vertical" Margin="20, 10, 0,20">
+                        <DataGrid x:Name="grdDoctors" AutoGenerateColumns="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="True">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Remove" Click="RemoveDoctor" FontWeight="Medium"/>
+                                    <MenuItem Header="Edit data" Click="EditDoctorData" FontWeight="Medium"/>
+                                    <Separator/>
+                                    <MenuItem Header="Show info" Click="ShowDoctorInfo" FontWeight="Medium"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                        </DataGrid>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </MaterialUI:Card>
     </Grid>
 </Page>

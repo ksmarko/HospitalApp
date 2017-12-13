@@ -1,7 +1,9 @@
 ﻿using Data;
 using Data.Entities;
 using Logic.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Logic
 {
@@ -27,46 +29,41 @@ namespace Logic
             {
                 foreach (var el in db.Doctors)
                     if (el.Id == id)
-                        db.Doctors.Remove(el);
+                        el.available = false;
 
                 db.SaveChanges();
             }
         }
         
-        public static List<DoctorL> GetDoctorList()
+        public static List<DoctorDTO> GetDoctorList()
         {
-            List<DoctorL> docList = new List<DoctorL>();
+            List<DoctorDTO> docList = new List<DoctorDTO>();
 
             using (Data.DContext db = new DContext())
             {
                 foreach (Doctor doc in db.Doctors)
-                    docList.Add(new DoctorL(doc.Id, doc.Name, doc.Surname, doc.Specialization));
+                    if (doc.available == true)
+                        docList.Add(new DoctorDTO(doc.Id, doc.Name, doc.Surname, doc.Specialization));
             }
 
             return docList;
         }
 
-        public static List<DoctorL> FindDoctor(string name, string surname, string specialization)
+        public static List<DoctorDTO> FindDoctor(string name, string surname, string specialization)
         {
-            List<DoctorL> docList = new List<DoctorL>();
-
-            using (Data.DContext db = new DContext())
-            {
-                foreach (Doctor doc in db.Doctors)
-                    if (doc.Name.Contains(name) || doc.Surname.Contains(surname) || doc.Specialization.Contains(specialization))
-                        docList.Add(new DoctorL(doc.Id, doc.Name, doc.Surname, doc.Specialization));
-            }
-
-            return docList;
+            if (!string.IsNullOrEmpty(specialization.Trim()))
+                return GetDoctorList().FindAll(x => x.Name == name && x.Surname == surname && x.Specialization == specialization);
+            else
+                return GetDoctorList().FindAll(x => x.Name == name && x.Surname == surname);
         }
 
-        public static DoctorL FindDoctor(int Id)
+        public static DoctorDTO FindDoctor(int Id)
         {
             using (Data.DContext db = new DContext())
             {
                 foreach (Doctor doc in db.Doctors)
                     if (doc.Id == Id)
-                        return new DoctorL(doc.Id, doc.Name, doc.Surname, doc.Specialization);
+                        return new DoctorDTO(doc.Id, doc.Name, doc.Surname, doc.Specialization);
             }
 
             return null;

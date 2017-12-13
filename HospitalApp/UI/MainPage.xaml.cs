@@ -96,7 +96,6 @@ namespace HospitalApp.UI
 
         private void LoadData(object sender, RoutedEventArgs e)
         {
-            DoctorsPage.instance.docs = DoctorRegistry.GetDoctorList();
         }
     }
 }

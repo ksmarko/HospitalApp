@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace Logic.Entities
 {
-    public class PatientL
+    public class PatientDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
 
-        private List<RecordL> Card { get; set; }
+        private List<RecordDTO> Card { get; set; }
         
-        public PatientL(int id, string name, string surname)
+        public PatientDTO(int id, string name, string surname)
         {
             this.Id = id;
             this.Name = name;
             this.Surname = surname;
-            Card = new List<RecordL>();
+            Card = new List<RecordDTO>();
         }
 
         public override string ToString()

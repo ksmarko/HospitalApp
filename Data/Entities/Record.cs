@@ -27,10 +27,5 @@ namespace Data.Entities
             this.addition = add;
             this.date = DateTime.Now.ToShortDateString();
         }
-
-        public override string ToString()
-        {
-            return String.Join(" ", patId, docId, diagnosis, therapy, addition, date);
-        }
     }
 }

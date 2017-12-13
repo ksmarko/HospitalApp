@@ -25,11 +25,10 @@ namespace HospitalApp.UI
     public partial class DoctorsPage : Page
     {
         public static DoctorsPage instance;
-        public List<DoctorL> docs = DoctorRegistry.GetDoctorList();
+        public List<DoctorDTO> docs = DoctorRegistry.GetDoctorList();
 
         public DoctorsPage()
         {
-            //DoctorRegistry.ResetDB();
             InitializeComponent();
             grdDoctors.ItemsSource = docs;
             instance = this;
@@ -60,12 +59,12 @@ namespace HospitalApp.UI
         {
             try
             {
-                string question = "Are you sure to remove doctor " + (grdDoctors.SelectedValue as DoctorL).ToString() + " ?";
+                string question = "Are you sure to remove doctor " + (grdDoctors.SelectedValue as DoctorDTO).ToString() + " ?";
 
                 MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    DoctorRegistry.RemoveDoctor((grdDoctors.SelectedValue as DoctorL).Id);
+                    DoctorRegistry.RemoveDoctor((grdDoctors.SelectedValue as DoctorDTO).Id);
                     Refresh();
                 }
                 else return;
@@ -82,9 +81,9 @@ namespace HospitalApp.UI
             {
                 AddDoctorWindow wi = new AddDoctorWindow();
                 wi.Title = "Edit doctor's data";
-                wi.txtName.Text = (grdDoctors.SelectedValue as DoctorL).Name;
-                wi.txtSurname.Text = (grdDoctors.SelectedValue as DoctorL).Surname;
-                wi.txtSpec.Text = (grdDoctors.SelectedValue as DoctorL).Specialization;
+                wi.txtName.Text = (grdDoctors.SelectedValue as DoctorDTO).Name;
+                wi.txtSurname.Text = (grdDoctors.SelectedValue as DoctorDTO).Surname;
+                wi.txtSpec.Text = (grdDoctors.SelectedValue as DoctorDTO).Specialization;
 
                 wi.btnAddDoc.Visibility = Visibility.Hidden;
                 wi.btnSaveDoc.Visibility = Visibility.Visible;
@@ -97,6 +96,25 @@ namespace HospitalApp.UI
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void FindDoctor(object sender, RoutedEventArgs e)
+        {
+            SearchWindow wi = new SearchWindow();
+            wi.btnFindDoc.Visibility = Visibility.Visible;
+            wi.btnFindPat.Visibility = Visibility.Hidden;
+
+            wi.ShowDialog();
+        }
+
+        private void ClearSearchResults(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void ShowDoctorInfo(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

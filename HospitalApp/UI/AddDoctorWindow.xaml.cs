@@ -28,7 +28,7 @@ namespace HospitalApp.UI
 
         private void AddDoctor(object sender, RoutedEventArgs e)
         {
-            if (txtName.Text != "" && txtSurname.Text != "" && txtSpec.Text != "")
+            if (!string.IsNullOrEmpty(txtName.Text.Trim())  && !string.IsNullOrEmpty(txtSurname.Text.Trim()) && !string.IsNullOrEmpty(txtSpec.Text.Trim()))
             {
                 DoctorRegistry.AddDoctor(txtName.Text, txtSurname.Text, txtSpec.Text);
                 this.Close();
@@ -44,7 +44,7 @@ namespace HospitalApp.UI
         {
             if (txtName.Text != "" && txtSurname.Text != "" && txtSpec.Text != "")
             {
-                DoctorRegistry.EditDoctorData((DoctorsPage.instance.grdDoctors.SelectedValue as DoctorL).Id, txtName.Text, txtSurname.Text, txtSpec.Text);
+                DoctorRegistry.EditDoctorData((DoctorsPage.instance.grdDoctors.SelectedValue as DoctorDTO).Id, txtName.Text, txtSurname.Text, txtSpec.Text);
                 this.Close();
             }
             else

@@ -37,5 +37,10 @@ namespace HospitalApp
         {
             ShowLoginPageUI(sender, e);
         }
+
+        private void MetroWindow_ContentRendered(object sender, System.EventArgs e)
+        {
+            ShowMainPageUI(null, null);
+        }
     }
 }

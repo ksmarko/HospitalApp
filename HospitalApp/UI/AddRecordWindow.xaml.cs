@@ -28,12 +28,6 @@ namespace HospitalApp.UI
 
         private void AddRecord(object sender, RoutedEventArgs e)
         {
-            if (cboxPatList.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select patient");
-                return;
-            }
-
             if (cboxDocsList.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select doctor");
@@ -46,25 +40,14 @@ namespace HospitalApp.UI
                 return;
             }
 
-            PatientRegistry.AddDataToCard((cboxPatList.SelectedValue as PatientL), cboxDocsList.SelectedValue as DoctorL, txtDiag.Text, txtTher.Text, txtAdd.Text);
+            PatientRegistry.AddDataToCard((PatientsPage.instance.lstPatients.SelectedValue as PatientDTO), cboxDocsList.SelectedValue as DoctorDTO, txtDiag.Text, txtTher.Text, txtAdd.Text);
 
             MessageBox.Show("Record added!");
-
-            //cboxPatList.SelectedIndex = -1;
-            //cboxDocsList.SelectedIndex = -1;
-
-            //txtDiag.Text = "";
-            //txtTher.Text = "";
-            //txtAdd.Text = "";
-
             this.Close();
         }
 
         private void LoadData(object sender, RoutedEventArgs e)
         {
-            foreach (var el in PatientRegistry.GetPatientList())
-                cboxPatList.Items.Add(el);
-
             foreach (var el in DoctorRegistry.GetDoctorList())
                 cboxDocsList.Items.Add(el);
         }

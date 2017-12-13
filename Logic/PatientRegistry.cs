@@ -37,20 +37,20 @@ namespace Logic
             }
         }
 
-        public static List<PatientL> GetPatientList()
+        public static List<PatientDTO> GetPatientList()
         {
-            List<PatientL> patList = new List<PatientL>();
+            List<PatientDTO> patList = new List<PatientDTO>();
 
             using (Data.DContext db = new DContext())
             {
                 foreach (Patient pat in db.Patients)
-                    patList.Add(new PatientL(pat.Id, pat.Name, pat.Surname));
+                    patList.Add(new PatientDTO(pat.Id, pat.Name, pat.Surname));
             }
 
             return patList;
         }
 
-        public static void AddDataToCard(PatientL pat, DoctorL doc, string diagnosis, string therapy, string add)
+        public static void AddDataToCard(PatientDTO pat, DoctorDTO doc, string diagnosis, string therapy, string add)
         {
             using (Data.DContext db = new DContext())
             {
@@ -60,43 +60,41 @@ namespace Logic
             }
         }
 
-        public static List<RecordL> GetAllRecords(PatientL pat)
+        public static List<RecordDTO> GetAllRecords(PatientDTO pat)
         {
-            List<RecordL> card = new List<RecordL>();
+            List<RecordDTO> card = new List<RecordDTO>();
 
             using (Data.DContext db = new DContext())
             {
                 foreach (Record r in db.Records)
                     if (r.patId == pat.Id)
-                    {
-                        card.Add(new RecordL(r.patId, DoctorRegistry.FindDoctor(r.docId).Specialization, DoctorRegistry.FindDoctor(r.docId).ToString(), r.diagnosis, r.therapy, r.addition));
-                    }
+                        card.Add(new RecordDTO(DoctorRegistry.FindDoctor(r.docId).Specialization, DoctorRegistry.FindDoctor(r.docId).ToString(), r.diagnosis, r.therapy, r.addition));
             }
 
             return card;
         }
 
-        public static PatientL FindPatient(int id)
+        public static PatientDTO FindPatient(int id)
         {
             using (Data.DContext db = new DContext())
             {
                 foreach (Patient pat in db.Patients)
                     if (pat.Id == id)
-                        return new PatientL(pat.Id, pat.Name, pat.Surname);
+                        return new PatientDTO(pat.Id, pat.Name, pat.Surname);
             }
 
             return null;
         }
 
-        public static List<PatientL> FindPatient(string name, string surname)
+        public static List<PatientDTO> FindPatient(string name, string surname)
         {
-            List<PatientL> patients = new List<PatientL>();
+            List<PatientDTO> patients = new List<PatientDTO>();
 
             using (Data.DContext db = new DContext())
             {
                 foreach (Patient pat in db.Patients)
-                    if (pat.Name.Contains(name) || pat.Surname.Contains(surname))
-                        patients.Add(new PatientL(pat.Id, pat.Name, pat.Surname));
+                    if (pat.Name == name && pat.Surname == surname)
+                        patients.Add(new PatientDTO(pat.Id, pat.Name, pat.Surname));
             }
 
             return patients;

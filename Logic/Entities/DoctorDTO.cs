@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Logic.Entities
 {
-    public class DoctorL
+    public class DoctorDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Specialization { get; set; }
 
-        public DoctorL(int id, string name, string surname, string specialization)
+        public DoctorDTO(int id, string name, string surname, string specialization)
         {
             this.Id = id;
             this.Name = name;

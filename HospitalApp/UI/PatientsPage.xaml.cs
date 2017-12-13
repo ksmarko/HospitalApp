@@ -23,9 +23,11 @@ namespace HospitalApp.UI
     /// </summary>
     public partial class PatientsPage : Page
     {
+        public static PatientsPage instance;
         public PatientsPage()
         {
             InitializeComponent();
+            instance = this;
         }
 
         //list.selected index changed
@@ -60,12 +62,12 @@ namespace HospitalApp.UI
         {
             if (lstPatients.SelectedIndex != -1)
             {
-                string question = "Are you sure to remove patient " + (lstPatients.SelectedValue as PatientL).ToString() + " ?";
+                string question = "Are you sure to remove patient " + (lstPatients.SelectedValue as PatientDTO).ToString() + " ?";
 
                 MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    PatientRegistry.RemovePatient((lstPatients.SelectedValue as PatientL).Id);
+                    PatientRegistry.RemovePatient((lstPatients.SelectedValue as PatientDTO).Id);
                     RefreshPage();
                 }
                 else return;
@@ -77,8 +79,11 @@ namespace HospitalApp.UI
         {
             if (lstPatients.SelectedIndex != -1)
             {
-                txtName.Text = (lstPatients.SelectedValue as PatientL).ToString();
-                grdCard.ItemsSource = PatientRegistry.GetAllRecords(lstPatients.SelectedValue as PatientL);
+                txtName.Text = (lstPatients.SelectedValue as PatientDTO).ToString();
+                grdCard.ItemsSource = PatientRegistry.GetAllRecords(lstPatients.SelectedValue as PatientDTO);
+
+                grdPatientContent.Visibility = Visibility.Visible;
+                grdEmptyContent.Visibility = Visibility.Hidden;
             }
             else
                 grdCard.ItemsSource = null;
@@ -92,8 +97,8 @@ namespace HospitalApp.UI
 
             if (lstPatients.SelectedIndex != -1)
             {
-                List<RecordL> re = new List<RecordL>();
-                re = PatientRegistry.GetAllRecords(lstPatients.SelectedValue as PatientL);
+                List<RecordDTO> re = new List<RecordDTO>();
+                re = PatientRegistry.GetAllRecords(lstPatients.SelectedValue as PatientDTO);
 
                 grdCard.ItemsSource = null;
                 grdCard.ItemsSource = re;
@@ -114,6 +119,20 @@ namespace HospitalApp.UI
                 lstPatients.Items.Add(el);
 
             grdCard.ItemsSource = null;
+
+            grdPatientContent.Visibility = Visibility.Hidden;
+            grdEmptyContent.Visibility = Visibility.Visible;
+        }
+
+        private void FindPatient(object sender, RoutedEventArgs e)
+        {
+            SearchWindow wi = new SearchWindow();
+            wi.btnFindDoc.Visibility = Visibility.Hidden;
+            wi.btnFindPat.Visibility = Visibility.Visible;
+            wi.txtSpec.Visibility = Visibility.Collapsed;
+            wi.lblSpec.Visibility = Visibility.Collapsed;
+            
+            wi.ShowDialog();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Logic
     {
         static int index = 1;
 
-        public static void AddSchedule(DoctorL doc, PatientL pat, DateTime date, string time)
+        public static void AddSchedule(DoctorDTO doc, PatientDTO pat, DateTime date, string time)
         {
             using (Data.DContext db = new DContext())
             {
@@ -24,39 +24,39 @@ namespace Logic
             }
         }
 
-        public static List<ScheduleL> GetSchedule(DoctorL doctor)
+        public static List<ScheduleDTO> GetSchedule(DoctorDTO doctor)
         {
-            List<ScheduleL> card = new List<ScheduleL>();
+            List<ScheduleDTO> card = new List<ScheduleDTO>();
 
             using (Data.DContext db = new DContext())
             {
                 foreach (Schedule r in db.Schedules)
                     if (r.docId == doctor.Id)
                     {
-                        card.Add(new ScheduleL(r.Id, PatientRegistry.FindPatient(r.docId).ToString(), r.date, r.time));
+                        card.Add(new ScheduleDTO(r.Id, PatientRegistry.FindPatient(r.docId).ToString(), r.date, r.time));
                     }
             }
 
             return card;
         }
 
-        public static List<ScheduleL> GetSchedule(DoctorL doctor, DateTime date)
+        public static List<ScheduleDTO> GetSchedule(DoctorDTO doctor, DateTime date)
         {
-            List<ScheduleL> card = new List<ScheduleL>();
+            List<ScheduleDTO> card = new List<ScheduleDTO>();
 
             using (Data.DContext db = new DContext())
             {
                 foreach (Schedule r in db.Schedules)
                     if (r.docId == doctor.Id && r.date == date)
                     {
-                        card.Add(new ScheduleL(r.Id, PatientRegistry.FindPatient(r.docId).ToString(), r.date, r.time));
+                        card.Add(new ScheduleDTO(r.Id, PatientRegistry.FindPatient(r.docId).ToString(), r.date, r.time));
                     }
             }
 
             return card;
         }
 
-        public static void EditSchedule(int id, DoctorL doc, PatientL pat, DateTime date, string time)
+        public static void EditSchedule(int id, DoctorDTO doc, PatientDTO pat, DateTime date, string time)
         {
             using (DContext db = new DContext())
             {

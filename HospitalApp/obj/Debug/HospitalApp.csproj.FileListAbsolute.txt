@@ -136,3 +136,5 @@ D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\HospitalApp.exe
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\HospitalApp.pdb
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\AddRecordWindow.g.cs
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\AddRecordWindow.baml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\SearchWindow.g.cs
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\SearchWindow.baml

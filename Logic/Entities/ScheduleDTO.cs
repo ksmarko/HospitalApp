@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Logic.Entities
 {
-    public class ScheduleL
+    public class ScheduleDTO
     {
         public int Id { get; set; }
         public string pat { get; set; }
         public DateTime date { get; set; }
         public string time { get; set; }
 
-        public ScheduleL(int id, string pat, DateTime date, string time)
+        public ScheduleDTO(int id, string pat, DateTime date, string time)
         {
             this.Id = id;
             this.pat = pat;
