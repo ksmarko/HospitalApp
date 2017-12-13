@@ -5,7 +5,7 @@ namespace Data
 {
     public class DContext : DbContext
     {
-        public DContext() : base("DbConnection")
+        public DContext(string connectionString) : base(connectionString)
         {
             Database.SetInitializer<DContext>(new DropCreateDatabaseIfModelChanges<DContext>());
         }

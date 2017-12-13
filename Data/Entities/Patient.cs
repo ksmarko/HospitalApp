@@ -2,17 +2,11 @@
 
 namespace Data.Entities
 {
-    public class Patient : Human
+    public class Patient
     {
-        public List<Record> Card { get; set; }
-
-        public Patient() : base()
-        {
-        }
-
-        public Patient(string name, string surname) : base(name, surname)
-        {
-            Card = new List<Record>();
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public ICollection<Record> Card { get; set; }
     }
 }

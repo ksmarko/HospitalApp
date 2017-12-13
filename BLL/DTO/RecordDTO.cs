@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Entities
+namespace BLL.DTO
 {
-    public class Record
+    public class RecordDTO
     {
         public int Id { get; set; }
         public int DoctorId { get; set; }
