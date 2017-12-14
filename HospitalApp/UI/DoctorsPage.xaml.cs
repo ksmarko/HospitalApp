@@ -32,8 +32,7 @@ namespace HospitalApp.UI
         {
             registry = new DoctorRegistry();
             InitializeComponent();
-            docs = registry.GetAll();
-            grdDoctors.ItemsSource = registry.GetAll();
+            Refresh();
             instance = this;
         }
 
@@ -80,18 +79,25 @@ namespace HospitalApp.UI
 
         private void EditDoctorData(object sender, RoutedEventArgs e)
         {
-            AddDoctorWindow wi = new AddDoctorWindow();
-            wi.Title = "Edit doctor's data";
-            wi.txtName.Text = (grdDoctors.SelectedValue as DoctorDTO).Name;
-            wi.txtSurname.Text = (grdDoctors.SelectedValue as DoctorDTO).Surname;
-            wi.txtSpec.Text = (grdDoctors.SelectedValue as DoctorDTO).Specialization;
+            try
+            {
+                AddDoctorWindow wi = new AddDoctorWindow();
+                wi.Title = "Edit doctor's data";
+                wi.txtName.Text = (grdDoctors.SelectedValue as DoctorDTO).Name;
+                wi.txtSurname.Text = (grdDoctors.SelectedValue as DoctorDTO).Surname;
+                wi.txtSpec.Text = (grdDoctors.SelectedValue as DoctorDTO).Specialization;
 
-            wi.btnAddDoc.Visibility = Visibility.Hidden;
-            wi.btnSaveDoc.Visibility = Visibility.Visible;
-            wi.btnAddPat.Visibility = Visibility.Hidden;
+                wi.btnAddDoc.Visibility = Visibility.Hidden;
+                wi.btnSaveDoc.Visibility = Visibility.Visible;
+                wi.btnAddPat.Visibility = Visibility.Hidden;
 
-            wi.ShowDialog();
-            Refresh();
+                wi.ShowDialog();
+                Refresh();
+            }
+            catch (NullReferenceException)
+            {
+                return;
+            }
         }
 
         private void FindDoctor(object sender, RoutedEventArgs e)

@@ -10,7 +10,7 @@ namespace BLL.DTO
     {
         public int Id { get; set; }
         public int PatientId { get; set; }
-        public string Doctor { get; set; }
+        public int DoctorId { get; set; }
         public string Date { get; set; }
         public string Diagnosis { get; set; }
         public string Therapy { get; set; }

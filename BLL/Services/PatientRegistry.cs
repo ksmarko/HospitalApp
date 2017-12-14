@@ -87,7 +87,7 @@ namespace BLL.Services
 
             Record record = new Record
             {
-                Doctor = recordDTO.Doctor,
+                DoctorId = recordDTO.DoctorId,
                 PatientId = recordDTO.PatientId,
                 Date = DateTime.Now.ToShortDateString(),
                 Diagnosis = recordDTO.Diagnosis,

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.DTO;
+using BLL.Services;
 
 namespace BLL.Utilits
 {
@@ -38,7 +39,7 @@ namespace BLL.Utilits
             {
                 Date = DateTime.Now.ToShortDateString(),
                 PatientId = patient.Id,
-                Doctor = doctor.ToString(),
+                DoctorId = doctor.Id,
                 Diagnosis = diagnosis,
                 Therapy = therapy,
                 Addition = addition

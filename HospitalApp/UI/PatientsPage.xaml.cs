@@ -1,5 +1,6 @@
 ﻿using BLL.DTO;
 using BLL.Services;
+using HospitalApp.Utilits;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,17 @@ namespace HospitalApp.UI
                 lstPatients.Items.Add(el);
         }
 
+        private void RefreshCard()
+        {
+            List<RecordView> list = new List<RecordView>();
+
+            foreach (var el in registry.GetRecords(lstPatients.SelectedValue as PatientDTO))
+                list.Add(RecordView.CreateRecordView(el));
+
+            grdCard.ItemsSource = null;
+            grdCard.ItemsSource = list;
+        }
+
         private void AddPatient(object sender, RoutedEventArgs e)
         {
             AddDoctorWindow wi = new AddDoctorWindow();
@@ -82,7 +94,7 @@ namespace HospitalApp.UI
             if (lstPatients.SelectedIndex != -1)
             {
                 txtName.Text = (lstPatients.SelectedValue as PatientDTO).ToString();
-                grdCard.ItemsSource = registry.GetRecords(lstPatients.SelectedValue as PatientDTO);
+                RefreshCard();
 
                 grdPatientContent.Visibility = Visibility.Visible;
                 grdEmptyContent.Visibility = Visibility.Hidden;
@@ -98,15 +110,7 @@ namespace HospitalApp.UI
             wi.ShowDialog();
 
             if (lstPatients.SelectedIndex != -1)
-            {
-                IEnumerable<RecordDTO> re = new List<RecordDTO>();
-                re = registry.GetRecords(lstPatients.SelectedValue as PatientDTO);
-
-                grdCard.ItemsSource = null;
-                grdCard.ItemsSource = re;
-            }
-
-            //RefreshPage();
+                RefreshCard();
         }
 
         //page visible changed
@@ -140,6 +144,11 @@ namespace HospitalApp.UI
         }
 
         private void EditPatient(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Enroll(object sender, RoutedEventArgs e)
         {
 
         }
