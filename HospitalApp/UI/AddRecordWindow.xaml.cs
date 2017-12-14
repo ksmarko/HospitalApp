@@ -1,5 +1,6 @@
-﻿using Logic;
-using Logic.Entities;
+﻿using BLL.DTO;
+using BLL.Services;
+using BLL.Utilits;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,12 @@ namespace HospitalApp.UI
     /// </summary>
     public partial class AddRecordWindow : Window
     {
+        PatientRegistry registry;
+
         public AddRecordWindow()
         {
             InitializeComponent();
+            registry = new PatientRegistry();
         }
 
         private void AddRecord(object sender, RoutedEventArgs e)
@@ -40,15 +44,15 @@ namespace HospitalApp.UI
                 return;
             }
 
-            PatientRegistry.AddDataToCard((PatientsPage.instance.lstPatients.SelectedValue as PatientDTO), cboxDocsList.SelectedValue as DoctorDTO, txtDiag.Text, txtTher.Text, txtAdd.Text);
-
+            registry.AddRecord(ModelCreator.CreateRecord(PatientsPage.instance.lstPatients.SelectedValue as PatientDTO, cboxDocsList.SelectedValue as DoctorDTO, txtDiag.Text, txtTher.Text, txtAdd.Text));
             MessageBox.Show("Record added!");
             this.Close();
         }
 
         private void LoadData(object sender, RoutedEventArgs e)
         {
-            foreach (var el in DoctorRegistry.GetDoctorList())
+            DoctorRegistry doctorRegistry = new DoctorRegistry();
+            foreach (var el in doctorRegistry.GetAll())
                 cboxDocsList.Items.Add(el);
         }
     }

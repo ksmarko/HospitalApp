@@ -4,6 +4,7 @@ using BLL.Infrastructure;
 using BLL.Interfaces;
 using Data.Entities;
 using Data.Interfaces;
+using Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,11 @@ namespace BLL.Services
 {
     public class PatientRegistry : IPatientRegistry
     {
-        IUnitOfWork Database { get; set; }
+        EFUnitOfWork Database { get; set; }
 
-        public PatientRegistry(IUnitOfWork uow)
+        public PatientRegistry()
         {
-            Database = uow;
-            Mapper.Initialize(cfg => cfg.CreateMap<Patient, PatientDTO>());
+            Database = new EFUnitOfWork("DbConnection");
         }
 
         public void Add(PatientDTO entity)
@@ -75,7 +75,7 @@ namespace BLL.Services
         public IEnumerable<PatientDTO> Find(string name, string surname)
         {
             if (String.IsNullOrEmpty(name.Trim()) && String.IsNullOrEmpty(surname.Trim()))
-                throw new ValidationException("Invalid data", "");
+                throw new ArgumentNullException("Invalid data", "");
 
             return Mapper.Map<IEnumerable<Patient>, List<PatientDTO>>(Database.Patients.Find(x => x.Name == name && x.Surname == surname));
         }
@@ -87,9 +87,9 @@ namespace BLL.Services
 
             Record record = new Record
             {
-                DoctorId = recordDTO.DoctorId,
+                Doctor = recordDTO.Doctor,
                 PatientId = recordDTO.PatientId,
-                Date = DateTime.Now,
+                Date = DateTime.Now.ToShortDateString(),
                 Diagnosis = recordDTO.Diagnosis,
                 Therapy = recordDTO.Therapy,
                 Addition = recordDTO.Addition
@@ -101,8 +101,7 @@ namespace BLL.Services
 
         public IEnumerable<RecordDTO> GetRecords(PatientDTO patient)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Record, RecordDTO>());
-            return Mapper.Map<IEnumerable<Record>, List<RecordDTO>>(Database.Records.GetAll().Where(x => x.Id == patient.Id));
+            return Mapper.Map<IEnumerable<Record>, List<RecordDTO>>(Database.Records.GetAll().Where(x => x.PatientId == patient.Id));
         }
     }
 }

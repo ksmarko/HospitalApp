@@ -1,0 +1,15 @@
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\BLL.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\BLL.pdb
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\AutoMapper.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\Data.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\Ninject.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\EntityFramework.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\Data.pdb
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\Data.dll.config
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\AutoMapper.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\Ninject.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\bin\Debug\EntityFramework.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\obj\Debug\BLL.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\BLL\obj\Debug\BLL.pdb

@@ -8,6 +8,7 @@ namespace Data
         public DContext(string connectionString) : base(connectionString)
         {
             Database.SetInitializer<DContext>(new DropCreateDatabaseIfModelChanges<DContext>());
+            //Database.SetInitializer<DContext>(new DropCreateDatabaseAlways<DContext>());
         }
 
         public DbSet<Doctor> Doctors { get; set; }

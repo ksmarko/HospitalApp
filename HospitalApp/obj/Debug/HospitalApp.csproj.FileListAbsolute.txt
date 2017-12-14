@@ -93,14 +93,11 @@ D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\HospitalApp.exe
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\HospitalApp.pdb
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.SqlServer.dll
-D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Logic.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MahApps.Metro.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MaterialDesignColors.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MaterialDesignThemes.Wpf.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\System.Windows.Interactivity.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Data.dll
-D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Logic.pdb
-D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Logic.dll.config
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.xml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.SqlServer.xml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MahApps.Metro.pdb
@@ -138,3 +135,7 @@ D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\AddRecordWind
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\AddRecordWindow.baml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\SearchWindow.g.cs
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\SearchWindow.baml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\BLL.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\AutoMapper.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\BLL.pdb
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\AutoMapper.xml

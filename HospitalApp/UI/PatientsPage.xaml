@@ -39,8 +39,15 @@ Loaded="Page_Loaded"
                         </ToolBar>
                 </Grid>
             </Grid>
-            <ListBox Name="lstPatients" SelectionChanged="PatientsNavigation" Margin="20, 10,20,0"/>
-        </StackPanel>
+                <ListBox Name="lstPatients" SelectionChanged="PatientsNavigation" Margin="20, 10,20,0">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Edit" Click="EditPatient"/>
+                            <MenuItem Header="Remove" Click="RemovePatient"/>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+            </StackPanel>
         </MaterialUI:Card>
 
         <MaterialUI:Card Background="White" Margin="0,0,5,0" Grid.Column="0" Height="670">

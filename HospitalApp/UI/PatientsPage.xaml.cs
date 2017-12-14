@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.DTO;
+using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Logic;
-using Logic.Entities;
 
 namespace HospitalApp.UI
 {
@@ -24,22 +24,24 @@ namespace HospitalApp.UI
     public partial class PatientsPage : Page
     {
         public static PatientsPage instance;
+        PatientRegistry registry;
+
         public PatientsPage()
         {
             InitializeComponent();
             instance = this;
+            registry = new PatientRegistry();
         }
 
         //list.selected index changed
         private void PartnersNavigation(object sender, SelectionChangedEventArgs e)
         {
             txtName.Text = lstPatients.SelectedItem.ToString();
-            txtMail.Text = "e-mail:   " + Regex.Replace(lstPatients.SelectedItem.ToString(), " ", ".").ToLower() + "@job.ca";
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach (var el in PatientRegistry.GetPatientList())
+            foreach (var el in registry.GetAll())
                 lstPatients.Items.Add(el);
         }
 
@@ -67,7 +69,7 @@ namespace HospitalApp.UI
                 MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    PatientRegistry.RemovePatient((lstPatients.SelectedValue as PatientDTO).Id);
+                    registry.Remove(lstPatients.SelectedValue as PatientDTO);
                     RefreshPage();
                 }
                 else return;
@@ -80,7 +82,7 @@ namespace HospitalApp.UI
             if (lstPatients.SelectedIndex != -1)
             {
                 txtName.Text = (lstPatients.SelectedValue as PatientDTO).ToString();
-                grdCard.ItemsSource = PatientRegistry.GetAllRecords(lstPatients.SelectedValue as PatientDTO);
+                grdCard.ItemsSource = registry.GetRecords(lstPatients.SelectedValue as PatientDTO);
 
                 grdPatientContent.Visibility = Visibility.Visible;
                 grdEmptyContent.Visibility = Visibility.Hidden;
@@ -97,12 +99,14 @@ namespace HospitalApp.UI
 
             if (lstPatients.SelectedIndex != -1)
             {
-                List<RecordDTO> re = new List<RecordDTO>();
-                re = PatientRegistry.GetAllRecords(lstPatients.SelectedValue as PatientDTO);
+                IEnumerable<RecordDTO> re = new List<RecordDTO>();
+                re = registry.GetRecords(lstPatients.SelectedValue as PatientDTO);
 
                 grdCard.ItemsSource = null;
                 grdCard.ItemsSource = re;
             }
+
+            //RefreshPage();
         }
 
         //page visible changed
@@ -115,7 +119,7 @@ namespace HospitalApp.UI
         {
             lstPatients.Items.Clear();
 
-            foreach (var el in PatientRegistry.GetPatientList())
+            foreach (var el in registry.GetAll())
                 lstPatients.Items.Add(el);
 
             grdCard.ItemsSource = null;
@@ -133,6 +137,11 @@ namespace HospitalApp.UI
             wi.lblSpec.Visibility = Visibility.Collapsed;
             
             wi.ShowDialog();
+        }
+
+        private void EditPatient(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -173,12 +173,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logic\Logic.csproj">
-      <Project>{c0be6229-9aa2-4d09-94d4-e9b14584687f}</Project>
-      <Name>Logic</Name>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{c04e8093-73f0-43e0-968c-f401b87f924d}</Project>
+      <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Media\icon.ico" />
   </ItemGroup>

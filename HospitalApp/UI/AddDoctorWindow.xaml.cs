@@ -1,6 +1,4 @@
-﻿using Logic;
-using Logic.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BLL.Services;
+using BLL.Utilits;
+using BLL.Interfaces;
+using BLL.DTO;
 
 namespace HospitalApp.UI
 {
@@ -21,8 +23,13 @@ namespace HospitalApp.UI
     /// </summary>
     public partial class AddDoctorWindow : Window
     {
+        DoctorRegistry registry;
+        PatientRegistry patientRegistry;
+
         public AddDoctorWindow()
         {
+            registry = new DoctorRegistry();
+            patientRegistry = new PatientRegistry();
             InitializeComponent();
         }
 
@@ -30,7 +37,7 @@ namespace HospitalApp.UI
         {
             if (!string.IsNullOrEmpty(txtName.Text.Trim())  && !string.IsNullOrEmpty(txtSurname.Text.Trim()) && !string.IsNullOrEmpty(txtSpec.Text.Trim()))
             {
-                DoctorRegistry.AddDoctor(txtName.Text, txtSurname.Text, txtSpec.Text);
+                registry.Add(ModelCreator.CreteDoctor(txtName.Text, txtSurname.Text, txtSpec.Text));
                 this.Close();
             }
             else
@@ -44,7 +51,10 @@ namespace HospitalApp.UI
         {
             if (txtName.Text != "" && txtSurname.Text != "" && txtSpec.Text != "")
             {
-                DoctorRegistry.EditDoctorData((DoctorsPage.instance.grdDoctors.SelectedValue as DoctorDTO).Id, txtName.Text, txtSurname.Text, txtSpec.Text);
+                var doctor = ModelCreator.CreteDoctor(txtName.Text, txtSurname.Text, txtSpec.Text);
+                doctor.Id = (DoctorsPage.instance.grdDoctors.SelectedValue as DoctorDTO).Id;
+
+                registry.Edit(doctor);
                 this.Close();
             }
             else
@@ -58,7 +68,7 @@ namespace HospitalApp.UI
         {
             if (txtName.Text != "" && txtSurname.Text != "")
             {
-                PatientRegistry.AddPatient(txtName.Text, txtSurname.Text);
+                patientRegistry.Add(ModelCreator.CreatePatient(txtName.Text, txtSurname.Text));
                 this.Close();
             }
             else

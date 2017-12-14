@@ -1,4 +1,4 @@
-﻿using Logic;
+﻿using BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,39 +20,41 @@ namespace HospitalApp.UI
     /// </summary>
     public partial class SearchWindow : Window
     {
+        DoctorRegistry registry;
+        PatientRegistry patientRegistry;
         public SearchWindow()
         {
             InitializeComponent();
+            registry = new DoctorRegistry();
+            patientRegistry = new PatientRegistry();
         }
 
         //todo: flexible search
-
         private void FindDoctor(object sender, RoutedEventArgs e)
-        {
-            Validate();
-
-            DoctorsPage.instance.grdDoctors.ItemsSource = null;
-            DoctorsPage.instance.grdDoctors.ItemsSource = DoctorRegistry.FindDoctor(txtName.Text.Trim(), txtSurname.Text.Trim(), txtSpec.Text.Trim());
-            this.Close();
-        }
-
-        //error
-        private void FindPatient(object sender, RoutedEventArgs e)
-        {
-            Validate();
-
-            PatientsPage.instance.lstPatients.Items.Clear();
-            PatientsPage.instance.lstPatients.ItemsSource = PatientRegistry.FindPatient(txtName.Text.Trim(), txtSurname.Text.Trim());
-            this.Close();
-        }
-
-        private void Validate()
         {
             if (string.IsNullOrEmpty(txtName.Text.Trim()) || string.IsNullOrEmpty(txtSurname.Text.Trim()))
             {
                 MessageBox.Show("Enter data");
                 return;
             }
+
+            DoctorsPage.instance.grdDoctors.ItemsSource = null;
+            DoctorsPage.instance.grdDoctors.ItemsSource = registry.Find(txtName.Text.Trim(), txtSurname.Text.Trim());
+
+            this.Close();
+        }
+        
+        private void FindPatient(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtName.Text.Trim()) || string.IsNullOrEmpty(txtSurname.Text.Trim()))
+            {
+                MessageBox.Show("Enter data");
+                return;
+            }
+
+            PatientsPage.instance.lstPatients.Items.Clear();
+            PatientsPage.instance.lstPatients.ItemsSource = patientRegistry.Find(txtName.Text.Trim(), txtSurname.Text.Trim());
+            this.Close();
         }
     }
 }

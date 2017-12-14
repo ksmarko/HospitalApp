@@ -12,5 +12,10 @@ namespace BLL.DTO
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Specialization { get; set; }
+
+        public override string ToString()
+        {
+            return String.Join(" ", Name, Surname);
+        }
     }
 }

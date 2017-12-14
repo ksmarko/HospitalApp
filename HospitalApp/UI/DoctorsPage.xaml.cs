@@ -1,5 +1,5 @@
-﻿using Logic;
-using Logic.Entities;
+﻿using BLL.DTO;
+using BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +24,16 @@ namespace HospitalApp.UI
 
     public partial class DoctorsPage : Page
     {
+        DoctorRegistry registry;
         public static DoctorsPage instance;
-        public List<DoctorDTO> docs = DoctorRegistry.GetDoctorList();
+        public IEnumerable<DoctorDTO> docs;
 
         public DoctorsPage()
         {
+            registry = new DoctorRegistry();
             InitializeComponent();
-            grdDoctors.ItemsSource = docs;
+            docs = registry.GetAll();
+            grdDoctors.ItemsSource = registry.GetAll();
             instance = this;
         }
 
@@ -41,7 +44,7 @@ namespace HospitalApp.UI
 
         private void Refresh()
         {
-            docs = DoctorRegistry.GetDoctorList();
+            docs = registry.GetAll();
             grdDoctors.ItemsSource = docs;
         }
         
@@ -64,7 +67,7 @@ namespace HospitalApp.UI
                 MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    DoctorRegistry.RemoveDoctor((grdDoctors.SelectedValue as DoctorDTO).Id);
+                    registry.Remove(grdDoctors.SelectedValue as DoctorDTO);
                     Refresh();
                 }
                 else return;
@@ -77,25 +80,18 @@ namespace HospitalApp.UI
 
         private void EditDoctorData(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                AddDoctorWindow wi = new AddDoctorWindow();
-                wi.Title = "Edit doctor's data";
-                wi.txtName.Text = (grdDoctors.SelectedValue as DoctorDTO).Name;
-                wi.txtSurname.Text = (grdDoctors.SelectedValue as DoctorDTO).Surname;
-                wi.txtSpec.Text = (grdDoctors.SelectedValue as DoctorDTO).Specialization;
+            AddDoctorWindow wi = new AddDoctorWindow();
+            wi.Title = "Edit doctor's data";
+            wi.txtName.Text = (grdDoctors.SelectedValue as DoctorDTO).Name;
+            wi.txtSurname.Text = (grdDoctors.SelectedValue as DoctorDTO).Surname;
+            wi.txtSpec.Text = (grdDoctors.SelectedValue as DoctorDTO).Specialization;
 
-                wi.btnAddDoc.Visibility = Visibility.Hidden;
-                wi.btnSaveDoc.Visibility = Visibility.Visible;
-                wi.btnAddPat.Visibility = Visibility.Hidden;
+            wi.btnAddDoc.Visibility = Visibility.Hidden;
+            wi.btnSaveDoc.Visibility = Visibility.Visible;
+            wi.btnAddPat.Visibility = Visibility.Hidden;
 
-                wi.ShowDialog();
-                Refresh();
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            wi.ShowDialog();
+            Refresh();
         }
 
         private void FindDoctor(object sender, RoutedEventArgs e)

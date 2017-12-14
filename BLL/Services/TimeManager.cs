@@ -3,6 +3,7 @@ using BLL.DTO;
 using BLL.Interfaces;
 using Data.Entities;
 using Data.Interfaces;
+using Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,11 @@ namespace BLL.Services
 {
     public class TimeManager : IManager
     {
-        IUnitOfWork Database { get; set; }
+        EFUnitOfWork Database { get; set; }
 
-        public TimeManager(IUnitOfWork uow)
+        public TimeManager()
         {
-            Database = uow;
-            Mapper.Initialize(cfg => cfg.CreateMap<Schedule, ScheduleDTO>());
+            Database = new EFUnitOfWork("DbConnection");
         }
 
         public void Add(ScheduleDTO entity)
@@ -78,6 +78,7 @@ namespace BLL.Services
 
             return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.Doctor == doctor));
         }
+        
 
         public void Remove(ScheduleDTO entity)
         {
