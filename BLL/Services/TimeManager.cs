@@ -29,13 +29,15 @@ namespace BLL.Services
             Schedule schedule = new Schedule
             {
                 Doctor = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault(),
-                Patient = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault(),
+                //Patient = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault(),
                 Date = entity.Date,
                 Time = entity.Time
             };
 
             Database.Schedules.Create(schedule);
             Database.Save();
+
+            Console.WriteLine("Added");
         }
 
         public void Dispose()
@@ -51,7 +53,7 @@ namespace BLL.Services
                 throw new ArgumentNullException();
 
             schedule.Doctor = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault();
-            schedule.Patient = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault();
+            //schedule.Patient = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault();
             schedule.Date = entity.Date;
             schedule.Time = entity.Time;
 

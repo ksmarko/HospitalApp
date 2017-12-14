@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\App.xaml
-9-609119071
+101007635004
 
-18-751142763
+201443500822
 21-466314060
-MainWindow.xaml;UI\AddDoctorWindow.xaml;UI\AddRecordWindow.xaml;UI\DoctorsPage.xaml;UI\LoginPage.xaml;UI\MainPage.xaml;UI\PatientsPage.xaml;UI\SearchWindow.xaml;UI\SettingsPage.xaml;
+MainWindow.xaml;UI\HumanManagerWindow.xaml;UI\RecordWindow.xaml;UI\DoctorsPage.xaml;UI\LoginPage.xaml;UI\MainPage.xaml;UI\PatientsPage.xaml;UI\ScheduleWindow.xaml;UI\SearchWindow.xaml;UI\SettingsPage.xaml;
 
 True
 

@@ -47,5 +47,17 @@ namespace BLL.Utilits
 
             return record;
         }
+
+        public static ScheduleDTO CreateSchedule(DoctorDTO doctor, DateTime date, string time)
+        {
+            ScheduleDTO schedule = new ScheduleDTO
+            {
+                DoctorId = doctor.Id,
+                Date = date,
+                Time = time
+            };
+
+            return schedule;
+        }
     }
 }

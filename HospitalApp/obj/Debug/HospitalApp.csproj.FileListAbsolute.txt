@@ -108,7 +108,6 @@ D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Data.pdb
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Data.dll.config
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\HospitalApp.csprojResolveAssemblyReference.cache
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\MainWindow.g.cs
-D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\AddDoctorWindow.g.cs
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\DoctorsPage.g.cs
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\LoginPage.g.cs
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\MainPage.g.cs
@@ -119,7 +118,6 @@ D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\HospitalApp_Mark
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\HospitalApp_MarkupCompile.lref
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\App.baml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\MainWindow.baml
-D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\AddDoctorWindow.baml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\DoctorsPage.baml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\LoginPage.baml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\MainPage.baml
@@ -131,11 +129,15 @@ D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\HospitalApp.cspr
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\HospitalApp.csproj.CoreCompileInputs.cache
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\HospitalApp.exe
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\HospitalApp.pdb
-D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\AddRecordWindow.g.cs
-D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\AddRecordWindow.baml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\SearchWindow.g.cs
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\SearchWindow.baml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\BLL.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\AutoMapper.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\BLL.pdb
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\AutoMapper.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\HumanManagerWindow.g.cs
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\RecordWindow.g.cs
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\HumanManagerWindow.baml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\RecordWindow.baml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\ScheduleWindow.g.cs
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\ScheduleWindow.baml

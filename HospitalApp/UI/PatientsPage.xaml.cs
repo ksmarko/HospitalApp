@@ -59,7 +59,7 @@ namespace HospitalApp.UI
 
         private void AddPatient(object sender, RoutedEventArgs e)
         {
-            AddDoctorWindow wi = new AddDoctorWindow();
+            HumanManagerWindow wi = new HumanManagerWindow();
             wi.Title = "Add patient";
             wi.txtSpec.Visibility = Visibility.Collapsed;
             wi.lblSpec.Visibility = Visibility.Collapsed;
@@ -106,7 +106,7 @@ namespace HospitalApp.UI
 
         private void AddRecord(object sender, RoutedEventArgs e)
         {
-            AddRecordWindow wi = new AddRecordWindow();
+            RecordWindow wi = new RecordWindow();
             wi.ShowDialog();
 
             if (lstPatients.SelectedIndex != -1)

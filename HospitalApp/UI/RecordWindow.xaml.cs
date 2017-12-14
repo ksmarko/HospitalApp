@@ -20,11 +20,11 @@ namespace HospitalApp.UI
     /// <summary>
     /// Логика взаимодействия для AddRecordWindow.xaml
     /// </summary>
-    public partial class AddRecordWindow : Window
+    public partial class RecordWindow : Window
     {
         PatientRegistry registry;
 
-        public AddRecordWindow()
+        public RecordWindow()
         {
             InitializeComponent();
             registry = new PatientRegistry();

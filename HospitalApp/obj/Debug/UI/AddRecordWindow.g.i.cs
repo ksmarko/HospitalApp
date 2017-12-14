@@ -40,7 +40,7 @@ namespace HospitalApp.UI {
     /// <summary>
     /// AddRecordWindow
     /// </summary>
-    public partial class AddRecordWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
+    public partial class RecordWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
         #line 19 "..\..\..\UI\AddRecordWindow.xaml"
@@ -107,7 +107,7 @@ namespace HospitalApp.UI {
             case 1:
             
             #line 13 "..\..\..\UI\AddRecordWindow.xaml"
-            ((HospitalApp.UI.AddRecordWindow)(target)).Loaded += new System.Windows.RoutedEventHandler(this.LoadData);
+            ((HospitalApp.UI.RecordWindow)(target)).Loaded += new System.Windows.RoutedEventHandler(this.LoadData);
             
             #line default
             #line hidden

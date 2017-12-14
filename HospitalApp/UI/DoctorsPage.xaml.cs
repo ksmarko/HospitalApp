@@ -50,7 +50,7 @@ namespace HospitalApp.UI
         
         private void AddDoctor(object sender, RoutedEventArgs e)
         {
-            AddDoctorWindow wi = new AddDoctorWindow();
+            HumanManagerWindow wi = new HumanManagerWindow();
             wi.btnAddDoc.Visibility = Visibility.Visible;
             wi.btnSaveDoc.Visibility = Visibility.Hidden;
             wi.btnAddPat.Visibility = Visibility.Hidden;
@@ -82,7 +82,7 @@ namespace HospitalApp.UI
         {
             try
             {
-                AddDoctorWindow wi = new AddDoctorWindow();
+                HumanManagerWindow wi = new HumanManagerWindow();
                 wi.Title = "Edit doctor's data";
                 wi.txtName.Text = (grdDoctors.SelectedValue as DoctorDTO).Name;
                 wi.txtSurname.Text = (grdDoctors.SelectedValue as DoctorDTO).Surname;

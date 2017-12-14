@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Services;
+using HospitalApp.Utilits;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -95,6 +97,24 @@ namespace HospitalApp.UI
 
         private void LoadData(object sender, RoutedEventArgs e)
         {
+            TimeManager tm = new TimeManager();
+
+            List<ScheduleView> list = new List<ScheduleView>();
+
+            foreach (var el in tm.GetAll())
+                list.Add(ScheduleView.CreateGeneralScheduleView(el));
+
+            grdSchedule.ItemsSource = null;
+            grdSchedule.ItemsSource = list;
+            tm.Dispose();
+        }
+
+        private void addSchedule(object sender, RoutedEventArgs e)
+        {
+            ScheduleWindow wi = new ScheduleWindow();
+            wi.ShowDialog();
+
+            LoadData(null, null);
         }
     }
 }

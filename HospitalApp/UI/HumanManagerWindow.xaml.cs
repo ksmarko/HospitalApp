@@ -21,12 +21,12 @@ namespace HospitalApp.UI
     /// <summary>
     /// Логика взаимодействия для AddDoctorWindow.xaml
     /// </summary>
-    public partial class AddDoctorWindow : Window
+    public partial class HumanManagerWindow : Window
     {
         DoctorRegistry registry;
         PatientRegistry patientRegistry;
 
-        public AddDoctorWindow()
+        public HumanManagerWindow()
         {
             registry = new DoctorRegistry();
             patientRegistry = new PatientRegistry();

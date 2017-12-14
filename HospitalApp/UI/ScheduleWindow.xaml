@@ -1,0 +1,35 @@
+﻿<Window x:Class="HospitalApp.UI.ScheduleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HospitalApp.UI"
+        mc:Ignorable="d"
+    FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextElement.FontWeight="Medium"
+    TextElement.FontSize="14"
+        Loaded="LoadData"
+    Title="Add schedule" Width="700" Height="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Vertical" Margin="40, 10, 40, 0" Grid.Column="0">
+
+            <TextBlock Text="Doctor" Margin="20,15,20,0"/>
+            <ComboBox Name="cboxDocsList" Margin="20,5,20,0"/>
+            <TextBlock Text="Hours" Margin="20,10,20,0"/>
+            <Grid>
+                <ComboBox Name="cboxStartHours" Width="100" HorizontalAlignment="Left" Margin="20, 5, 10, 0"/>
+                <ComboBox Name="cboxEndHours" Width="100" HorizontalAlignment="Right" Margin="0, 5, 20, 0"/>
+            </Grid>
+
+        </StackPanel>
+
+        <Calendar Name="calendar" SelectionMode="SingleDate" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Content="Add schedule" Click="Addshedule" Margin="100,0,30,30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Visible" Grid.Column="0"/>
+    </Grid>
+</Window>
