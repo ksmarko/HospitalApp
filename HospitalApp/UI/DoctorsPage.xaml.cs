@@ -43,7 +43,8 @@ namespace HospitalApp.UI
 
         private void Refresh()
         {
-            docs = registry.GetAll();
+            DoctorRegistry reg = new DoctorRegistry();
+            docs = reg.GetAll();
             grdDoctors.ItemsSource = docs;
         }
         

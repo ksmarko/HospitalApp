@@ -56,9 +56,7 @@ namespace BLL.Services
 
         public void Edit(DoctorDTO entity)
         {
-            //Console.WriteLine("Edit start. Input data: " + entity.Name + " " + entity.Surname + " " + entity.Specialization);
             Doctor doctor = Database.Doctors.Find(x => x.Id == entity.Id).FirstOrDefault();
-            //Console.WriteLine("Doctor find. Data: " + doctor.Name + " " + doctor.Surname + " " + doctor.Specialization);
             
             if (doctor == null)
                 throw new ArgumentNullException();
@@ -66,15 +64,9 @@ namespace BLL.Services
             doctor.Name = entity.Name;
             doctor.Surname = entity.Surname;
             doctor.Specialization = entity.Specialization;
-
-            //Console.WriteLine("Info edit. Data: " + doctor.Name + " " + doctor.Surname + " " + doctor.Specialization);
-
+            
             Database.Doctors.Update(doctor);
-
-            //Console.WriteLine("Database updated: " + Database.Doctors.Find(x => x.Id == doctor.Id).FirstOrDefault().Name + Database.Doctors.Find(x => x.Id == doctor.Id).FirstOrDefault().Surname);
             Database.Save();
-            //Console.WriteLine("Database saved: " + Database.Doctors.Find(x => x.Id == doctor.Id).FirstOrDefault().Name + Database.Doctors.Find(x => x.Id == doctor.Id).FirstOrDefault().Surname);
-
         }
 
         public void Dispose()
