@@ -137,12 +137,26 @@ namespace HospitalApp.UI
 
             cboxDoctorsList.Items.Clear();
             foreach (var el in dr.GetAll())
-                cboxDoctorsList.Items.Add(el.ToString());
+                cboxDoctorsList.Items.Add(el);
         }
 
         private void FindScheduleForDoctor(object sender, RoutedEventArgs e)
         {
+            DoctorDTO doctor = cboxDoctorsList.SelectedValue as DoctorDTO;
+            var date = dpDate.SelectedDate.Value;
 
+            TimeManager tm = new TimeManager();
+            
+            List<ScheduleView> list = new List<ScheduleView>();
+
+            foreach (var el in tm.GetAll())
+            {
+                if (el.Doctor == doctor.Id && el.Date == date)
+                    list.Add(ScheduleView.CreateRecordView(el));
+            }
+
+            grdSchedule.ItemsSource = null;
+            grdSchedule.ItemsSource = list;
         }
     }
 }

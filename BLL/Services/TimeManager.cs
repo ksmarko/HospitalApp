@@ -46,13 +46,9 @@ namespace BLL.Services
         public void Edit(ScheduleDTO entity)
         {
             Schedule schedule = Database.Schedules.Find(x => x.Id == entity.Id).FirstOrDefault();
-
-            //---------------------------------------------------
-            Console.WriteLine("EDIT \nentity id :" + entity.Id  + " " + entity.Time + "\nShedules: ");
-
+            
             foreach (var el in GetAll())
                 Console.WriteLine(el.Id + "  " + el.Time);
-            //--------------------------------------------------
 
             if (schedule == null)
                 throw new ArgumentNullException();
