@@ -114,7 +114,7 @@ namespace HospitalApp.UI
             List<ScheduleView> list = new List<ScheduleView>();
 
             foreach (var el in tm.GetAll())
-                list.Add(ScheduleView.CreateRecordView(el));
+                list.Add(ScheduleView.CreateScheduleView(el));
 
             grdSchedule.ItemsSource = null;
             grdSchedule.ItemsSource = list;
@@ -126,8 +126,7 @@ namespace HospitalApp.UI
         {
             ScheduleWindow wi = new ScheduleWindow();
             wi.ShowDialog();
-
-
+            
             ClearSearchResults(null, null);
         }
 
@@ -165,7 +164,7 @@ namespace HospitalApp.UI
             foreach (var el in tm.GetAll())
             {
                 if (el.Doctor == doctor.Id && el.Date == date)
-                    list.Add(ScheduleView.CreateRecordView(el));
+                    list.Add(ScheduleView.CreateScheduleView(el));
             }
 
             grdSchedule.ItemsSource = null;

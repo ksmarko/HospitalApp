@@ -10,26 +10,23 @@ namespace HospitalApp.Utilits
 {
     public class ScheduleView
     {
-        public int Id { get; set; }
         public string Doctor { get; set; }
-        //public string Patient { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
 
-        public static ScheduleView CreateRecordView(ScheduleDTO recordDTO)
+        public static ScheduleView CreateScheduleView(ScheduleDTO scheduleDTO)
         {
             DoctorRegistry registry = new DoctorRegistry();
-            var doc = registry.Find(recordDTO.Doctor).ToString();
+            var doc = registry.Find(scheduleDTO.Doctor).ToString();
 
-            ScheduleView recordView = new ScheduleView()
+            ScheduleView scheduleView = new ScheduleView()
             {
-                Id = recordDTO.Id,
                 Doctor = doc,
-                Date = recordDTO.Date.ToShortDateString(),
-                Time = recordDTO.Time
+                Date = scheduleDTO.Date.ToShortDateString(),
+                Time = scheduleDTO.Time
             };
 
-            return recordView;
+            return scheduleView;
         }
     }
 }
