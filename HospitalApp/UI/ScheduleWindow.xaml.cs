@@ -81,17 +81,17 @@ namespace HospitalApp.UI
                         MessageBox.Show("Schedule edited!");
                         break;
                     }
-                    //else
-                    //{
-                    //    tm.Add(schedule);
-                    //    MessageBox.Show("Schedule added!");
-                    //    break;
-                    //}
-            //else
-            //{
+                    else
+                    {
+                        tm.Add(schedule);
+                        MessageBox.Show("Schedule added!");
+                        break;
+                    }
+            else
+            {
                 tm.Add(schedule);
                 MessageBox.Show("Schedule added!");
-            //}
+            }
 
             this.Close();
         }

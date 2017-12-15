@@ -31,7 +31,8 @@ namespace BLL.Services
                 Doctor = Database.Doctors.Find(x => x.Id == entity.Doctor).FirstOrDefault().Id,
                 //PatientId = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault().Id,
                 Date = entity.Date,
-                Time = entity.Time
+                Time = entity.Time,
+                Addition = entity.Addition
             };
 
             Database.Schedules.Create(schedule);
