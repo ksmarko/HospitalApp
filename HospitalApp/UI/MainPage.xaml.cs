@@ -119,8 +119,7 @@ namespace HospitalApp.UI
             grdSchedule.ItemsSource = null;
             grdSchedule.ItemsSource = list;
 
-            LoadDoctorsList();
-            
+            LoadDoctorsList();            
         }
 
         private void addSchedule(object sender, RoutedEventArgs e)
@@ -128,7 +127,7 @@ namespace HospitalApp.UI
             ScheduleWindow wi = new ScheduleWindow();
             wi.ShowDialog();
 
-            LoadData(null, null);
+            ClearSearchResults(null, null);
         }
 
         private void LoadDoctorsList()
@@ -136,12 +135,25 @@ namespace HospitalApp.UI
             DoctorRegistry dr = new DoctorRegistry();
 
             cboxDoctorsList.Items.Clear();
+
             foreach (var el in dr.GetAll())
                 cboxDoctorsList.Items.Add(el);
         }
 
         private void FindScheduleForDoctor(object sender, RoutedEventArgs e)
         {
+            if (cboxDoctorsList.SelectedIndex == -1)
+            {
+                MessageBox.Show("Select doctor");
+                return;
+            }
+
+            if (dpDate.SelectedDate == null)
+            {
+                MessageBox.Show("Select date");
+                return;
+            }
+
             DoctorDTO doctor = cboxDoctorsList.SelectedValue as DoctorDTO;
             var date = dpDate.SelectedDate.Value;
 
@@ -157,6 +169,13 @@ namespace HospitalApp.UI
 
             grdSchedule.ItemsSource = null;
             grdSchedule.ItemsSource = list;
+        }
+
+        private void ClearSearchResults(object sender, RoutedEventArgs e)
+        {
+            LoadData(sender, e);
+            cboxDoctorsList.SelectedIndex = -1;
+            dpDate.SelectedDate = null;
         }
     }
 }
