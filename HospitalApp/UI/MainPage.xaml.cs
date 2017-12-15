@@ -23,11 +23,9 @@ namespace HospitalApp.UI
     /// </summary>
     public partial class MainPage : Page
     {
-        TimeManager tm;
         public MainPage()
         {
             InitializeComponent();
-            tm = new TimeManager();
         }
 
         private void Selected(int pos)
@@ -99,14 +97,24 @@ namespace HospitalApp.UI
         #endregion
 
         private void LoadData(object sender, RoutedEventArgs e)
-        { 
+        {
+            TimeManager tm = new TimeManager();
             List<ScheduleView> list = new List<ScheduleView>();
 
             foreach (var el in tm.GetAll())
+            {
                 list.Add(ScheduleView.CreateRecordView(el));
+                Console.WriteLine("SCHEDULE: " + el.Id + " " + el.Time);
+            }
 
             grdSchedule.ItemsSource = null;
             grdSchedule.ItemsSource = list;
+
+            DoctorRegistry dr = new DoctorRegistry();
+
+            cboxDoctorsList.Items.Clear();
+            foreach (var el in dr.GetAll())
+                cboxDoctorsList.Items.Add(el.ToString());
         }
 
         private void addSchedule(object sender, RoutedEventArgs e)
@@ -114,18 +122,28 @@ namespace HospitalApp.UI
             ScheduleWindow wi = new ScheduleWindow();
             wi.ShowDialog();
 
+            List<ScheduleView> list = new List<ScheduleView>();
             LoadData(null, null);
         }
 
         private void VisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            List<ScheduleView> list = new List<ScheduleView>();
+            //refresh cboxDoctorsList
+        }
 
-            foreach (var el in tm.GetAll())
-                list.Add(ScheduleView.CreateRecordView(el));
+        private void FindScheduleForDoctor(object sender, RoutedEventArgs e)
+        {
+            //ID!!!!!!!!!!!!!!!!!!!!!!
 
-            grdSchedule.ItemsSource = null;
-            grdSchedule.ItemsSource = list;
+            //grdSchedule.ItemsSource = null;
+            //List<ScheduleView> list = new List<ScheduleView>();
+
+            //foreach (var el in tm.GetAll().Where(x => x.Doctor == (cboxDoctorsList.SelectedValue as DoctorDTO).Id 
+            //&& x.Date == dpDate.SelectedDate.Value))
+            //    list.Add(ScheduleView.CreateRecordView(el));
+
+            //grdSchedule.ItemsSource = null;
+            //grdSchedule.ItemsSource = list;
         }
     }
 }
