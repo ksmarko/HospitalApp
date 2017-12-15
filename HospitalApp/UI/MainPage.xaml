@@ -54,7 +54,7 @@
         </StackPanel>
 
         <!--Central part-->
-        <MaterialUI:Card Grid.Column="1" Grid.ColumnSpan="2" Background="White" Margin="0,0,10,10" VerticalAlignment="Stretch">
+        <MaterialUI:Card Name="grdMain" Grid.Column="1" Grid.ColumnSpan="2" Background="White" Margin="0,0,10,10" VerticalAlignment="Stretch">
             <Grid>
                 <ComboBox Name="cboxDoctorsList" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                 <DatePicker Name="dpDate" VerticalAlignment="Top" HorizontalAlignment="Center"/>

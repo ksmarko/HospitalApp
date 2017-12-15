@@ -37,7 +37,7 @@ namespace HospitalApp.UI
         {
             switch (lstMenu.SelectedIndex)
             {
-                case 0: ShowHomeUI(null, null); Selected(0); break;
+                case 0: ShowHomeUI(null, null); Selected(0); LoadData(null, null); break;
                 case 1: ShowHomeUI(null, null); ShowDoctorsUI(null, null); Selected(1); break;
                 case 2: ShowHomeUI(null, null); ShowPatientsUI(null, null); Selected(2); break;
                 case 3: ShowHomeUI(null, null); ShowSettingsUI(null, null); Selected(3); break;
@@ -48,6 +48,9 @@ namespace HospitalApp.UI
 
         private void ShowDoctorsUI(object sender, RoutedEventArgs e)
         {
+            grdMain.Visibility = Visibility.Hidden;
+            grdMain.IsEnabled = false;
+
             DoctorsPageUI.IsEnabled = true;
             DoctorsPageUI.Visibility = Visibility.Visible;
 
@@ -60,6 +63,9 @@ namespace HospitalApp.UI
 
         private void ShowHomeUI(object sender, RoutedEventArgs e)
         {
+            grdMain.Visibility = Visibility.Visible;
+            grdMain.IsEnabled = true;
+
             DoctorsPageUI.IsEnabled = false;
             DoctorsPageUI.Visibility = Visibility.Hidden;
 
@@ -72,6 +78,9 @@ namespace HospitalApp.UI
 
         private void ShowPatientsUI(object sender, RoutedEventArgs e)
         {
+            grdMain.Visibility = Visibility.Hidden;
+            grdMain.IsEnabled = false;
+
             DoctorsPageUI.IsEnabled = false;
             DoctorsPageUI.Visibility = Visibility.Hidden;
 
@@ -84,6 +93,9 @@ namespace HospitalApp.UI
 
         private void ShowSettingsUI(object sender, RoutedEventArgs e)
         {
+            grdMain.Visibility = Visibility.Hidden;
+            grdMain.IsEnabled = false;
+
             DoctorsPageUI.IsEnabled = false;
             DoctorsPageUI.Visibility = Visibility.Hidden;
 
@@ -102,10 +114,7 @@ namespace HospitalApp.UI
             List<ScheduleView> list = new List<ScheduleView>();
 
             foreach (var el in tm.GetAll())
-            {
                 list.Add(ScheduleView.CreateRecordView(el));
-                Console.WriteLine("SCHEDULE: " + el.Id + " " + el.Time);
-            }
 
             grdSchedule.ItemsSource = null;
             grdSchedule.ItemsSource = list;
@@ -120,11 +129,6 @@ namespace HospitalApp.UI
             wi.ShowDialog();
 
             LoadData(null, null);
-        }
-
-        private void VisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            LoadDoctorsList();
         }
 
         private void LoadDoctorsList()
