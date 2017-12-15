@@ -114,7 +114,7 @@ namespace HospitalApp.UI
             List<ScheduleView> list = new List<ScheduleView>();
 
             foreach (var el in tm.GetAll())
-                list.Add(ScheduleView.CreateScheduleView(el));
+                    list.Add(ScheduleView.CreateScheduleView(el));
 
             grdSchedule.ItemsSource = null;
             grdSchedule.ItemsSource = list;
@@ -125,6 +125,11 @@ namespace HospitalApp.UI
         private void addSchedule(object sender, RoutedEventArgs e)
         {
             ScheduleWindow wi = new ScheduleWindow();
+            wi.Title = "Add schedule";
+            wi.grdDocShedule.Visibility = Visibility.Visible;
+            wi.grdEnroll.Visibility = Visibility.Collapsed;
+            wi.btnAddSchedule.Visibility = Visibility.Visible;
+            wi.btnEnroll.Visibility = Visibility.Hidden;
             wi.ShowDialog();
             
             ClearSearchResults(null, null);

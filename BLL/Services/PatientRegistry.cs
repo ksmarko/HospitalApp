@@ -80,6 +80,11 @@ namespace BLL.Services
             return Mapper.Map<IEnumerable<Patient>, List<PatientDTO>>(Database.Patients.Find(x => x.Name == name && x.Surname == surname));
         }
 
+        public PatientDTO Find(int id)
+        {
+            return Mapper.Map<Patient, PatientDTO>(Database.Patients.Get(id));
+        }
+
         public void AddRecord(RecordDTO recordDTO)
         {
             if (recordDTO == null)

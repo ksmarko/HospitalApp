@@ -8,27 +8,30 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Utilits
 {
-    public class ScheduleView
+    public class EnrollView
     {
         public string Doctor { get; set; }
+        public string Patient { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
-        public string Addition { get; set; }
 
-        public static ScheduleView CreateScheduleView(ScheduleDTO scheduleDTO)
+        public static EnrollView CreateEnrollView(ScheduleDTO scheduleDTO)
         {
             DoctorRegistry registry = new DoctorRegistry();
             var doc = registry.Find(scheduleDTO.Doctor).ToString();
 
-            ScheduleView scheduleView = new ScheduleView()
+            PatientRegistry patientRegistry = new PatientRegistry();
+            var pat = patientRegistry.Find(scheduleDTO.PatientId).ToString();
+
+            EnrollView enrollView = new EnrollView()
             {
                 Doctor = doc,
+                Patient = pat,
                 Date = scheduleDTO.Date.ToShortDateString(),
-                Time = scheduleDTO.Time,
-                Addition = scheduleDTO.Addition
+                Time = scheduleDTO.Time
             };
 
-            return scheduleView;
+            return enrollView;
         }
     }
 }

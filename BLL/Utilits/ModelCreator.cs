@@ -54,10 +54,27 @@ namespace BLL.Utilits
             {
                 Doctor = doctorId,
                 Date = date,
-                Time = time
+                Time = time,
+                Addition = "Timetable"
             };
 
             return schedule;
+        }
+
+        public static ScheduleDTO CreateEnroll(int doctorId, int patientId, DateTime date, string time)
+        {
+            PatientRegistry registry = new PatientRegistry();
+            PatientDTO patient = registry.Find(patientId);
+
+            ScheduleDTO enroll = new ScheduleDTO
+            {
+                Doctor = doctorId,
+                Date = date,
+                Time = time,
+                Addition = "Note: " + patient.ToString()
+            };
+
+            return enroll;
         }
     }
 }

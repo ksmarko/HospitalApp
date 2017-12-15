@@ -11,8 +11,10 @@ namespace Data.Entities
     public class Schedule
     {
         public int Id { get; set; }
+        public int PatientId { get; set; }
         public int Doctor { get; set; }
         public DateTime Date { get; set; }
         public string Time { get; set; }
+        public string Addition { get; set; }
     }
 }

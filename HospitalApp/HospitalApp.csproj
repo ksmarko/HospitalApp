@@ -103,6 +103,7 @@
     <Compile Include="UI\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilits\EnrollView.cs" />
     <Compile Include="Utilits\RecordView.cs" />
     <Compile Include="Utilits\ScheduleView.cs" />
     <Page Include="MainWindow.xaml">

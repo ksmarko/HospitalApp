@@ -23,12 +23,9 @@ namespace HospitalApp.UI
     /// </summary>
     public partial class ScheduleWindow : Window
     {
-        //TimeManager tm;
-
         public ScheduleWindow()
         {
             InitializeComponent();
-            //tm = new TimeManager();
         }
 
         private void LoadData(object sender, RoutedEventArgs e)
@@ -37,7 +34,7 @@ namespace HospitalApp.UI
             foreach (var el in doctorRegistry.GetAll())
                 cboxDocsList.Items.Add(el);
 
-            for (int i = 8; i < 19; i++)
+            for (int i = 8; i < 20; i++)
             {
                 cboxStartHours.Items.Add(i + ":00");
                 cboxEndHours.Items.Add(i + ":00");
@@ -47,6 +44,7 @@ namespace HospitalApp.UI
         private void Addshedule(object sender, RoutedEventArgs e)
         {
             TimeManager tm = new TimeManager();
+
             if (cboxDocsList.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select doctor");
@@ -65,12 +63,15 @@ namespace HospitalApp.UI
                 return;
             }
 
-            var schedule = ModelCreator.CreateSchedule((cboxDocsList.SelectedValue as DoctorDTO).Id,
+            DoctorDTO doctor = cboxDocsList.SelectedValue as DoctorDTO;
+
+            var schedule = ModelCreator.CreateSchedule(doctor.Id,
                 dpDate.SelectedDate.Value,
                 string.Join(" - ", cboxStartHours.SelectedItem.ToString(), cboxEndHours.SelectedItem.ToString()));
 
-            var docschedule = tm.GetByDoctor(cboxDocsList.SelectedValue as DoctorDTO);
+            var docschedule = tm.GetByDoctor(doctor);
 
+            //edit this shit
             if (docschedule.Count() > 0)
                 foreach (var el in docschedule)
                     if (el.Date == dpDate.SelectedDate.Value)
@@ -80,29 +81,31 @@ namespace HospitalApp.UI
                         MessageBox.Show("Schedule edited!");
                         break;
                     }
-                    else
-                    {
-                        tm.Add(schedule);
-                        MessageBox.Show("Schedule added!");
-                        break;
-                    }
-            else
-            {
-                Console.WriteLine("NOT NULL");
+                    //else
+                    //{
+                    //    tm.Add(schedule);
+                    //    MessageBox.Show("Schedule added!");
+                    //    break;
+                    //}
+            //else
+            //{
                 tm.Add(schedule);
                 MessageBox.Show("Schedule added!");
-            }
+            //}
 
             this.Close();
         }
 
         private void Enroll(object sender, RoutedEventArgs e)
         {
+            TimeManager tm = new TimeManager();
             DoctorDTO doctor = cboxDocsList.SelectedValue as DoctorDTO;
             var date = dpDate.SelectedDate.Value;
-            
 
+            var schedule = ModelCreator.CreateEnroll(doctor.Id, (PatientsPage.instance.lstPatients.SelectedValue as PatientDTO).Id,
+                date, cboxTime.SelectedItem.ToString());
 
+            tm.Add(schedule);
 
             MessageBox.Show("Enroll");
             this.Close();
@@ -111,30 +114,42 @@ namespace HospitalApp.UI
         private void UpdateTime(DoctorDTO doctor, DateTime date)
         {
             //добавление в комбобокс значений из диапазона графика
-            cboxTime.Items.Clear();
-
-            string time = MainPage.GetDoctorShedules(doctor, date).FirstOrDefault().Time;
-            char[] arr = new char[] { ' ', '-', ' ' };
-
-            string [] tStart = time.Split(arr, StringSplitOptions.RemoveEmptyEntries);
-
-            int start = Convert.ToInt32(tStart[0].Substring(0, tStart[0].Length - 3));
-            int end = Convert.ToInt32(tStart[1].Substring(0, tStart[1].Length - 3));
-
-            for (int i = start; i < end; i++)
+            try
             {
-                cboxTime.Items.Add(i + ":00");
-                cboxTime.Items.Add(i + ":30");
+                cboxTime.Items.Clear();
+
+                string time = MainPage.GetDoctorShedules(doctor, date).FirstOrDefault().Time;
+                char[] arr = new char[] { ' ', '-', ' ' };
+
+                string[] tStart = time.Split(arr, StringSplitOptions.RemoveEmptyEntries);
+
+                int start = Convert.ToInt32(tStart[0].Substring(0, tStart[0].Length - 3));
+                int end = Convert.ToInt32(tStart[1].Substring(0, tStart[1].Length - 3));
+
+                for (int i = start; i < end; i++)
+                {
+                    cboxTime.Items.Add(i + ":00");
+                    cboxTime.Items.Add(i + ":30");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine(ex.HelpLink);
+                return;
             }
         }
 
         //date changed
         private void UpdateTime(object sender, SelectionChangedEventArgs e)
         {
-            DoctorDTO doctor = cboxDocsList.SelectedValue as DoctorDTO;
-            var date = dpDate.SelectedDate.Value;
+            if (this.Title == "Enroll")
+            {
+                DoctorDTO doctor = cboxDocsList.SelectedValue as DoctorDTO;
+                var date = dpDate.SelectedDate.Value;
 
-            UpdateTime(doctor, date);
+                UpdateTime(doctor, date);
+            }
+            else return;
         }
     }
 }
