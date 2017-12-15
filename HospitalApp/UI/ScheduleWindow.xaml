@@ -19,17 +19,20 @@
         
         <StackPanel Orientation="Vertical" Margin="40, 10, 40, 0" Grid.Column="0">
 
-            <TextBlock Text="Doctor" Margin="20,15,20,0"/>
-            <ComboBox Name="cboxDocsList" Margin="20,5,20,0"/>
-            <TextBlock Text="Hours" Margin="20,10,20,0"/>
-            <Grid>
-                <ComboBox Name="cboxStartHours" Width="100" HorizontalAlignment="Left" Margin="20, 5, 10, 0"/>
-                <ComboBox Name="cboxEndHours" Width="100" HorizontalAlignment="Right" Margin="0, 5, 20, 0"/>
+            <TextBlock Text="Doctor" Margin="0,15,0,0"/>
+            <ComboBox Name="cboxDocsList" Margin="0,5,0,0"/>
+            <TextBlock Text="Date" Margin="0,15,20,0"/>
+            <DatePicker Name="dpDate" SelectedDateChanged="UpdateTime" SelectedDateFormat="Short" Margin="0,5,0,0"/>
+            <TextBlock Text="Time" Margin="0,10,0,0"/>
+            <Grid Name="grdDocShedule" Visibility="Collapsed">
+                <ComboBox Name="cboxStartHours" Width="100" HorizontalAlignment="Left" Margin="0, 5, 10, 0"/>
+                <ComboBox Name="cboxEndHours" Width="100" HorizontalAlignment="Right" Margin="0, 5, 0, 0"/>
             </Grid>
-            <TextBlock Text="Date" Margin="20,15,20,0"/>
-            <DatePicker Name="dpDate" SelectedDateFormat="Short" Margin="20,5,20,0"/>
-
+            <Grid Name="grdEnroll">
+                <ComboBox Name="cboxTime" Width="100" HorizontalAlignment="Left" Margin="0, 5, 10, 0"/>
+            </Grid>
         </StackPanel>
-        <Button Content="Add schedule" Click="Addshedule" Margin="100,0,30,30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Visible" Grid.Column="0"/>
+        <Button Name="btnAddSchedule" Content="Add schedule" Width="120" Click="Addshedule" Margin="100,0,40,30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Visible" Grid.Column="0"/>
+        <Button Name="btnEnroll" Content="Enroll" Click="Enroll" Width="120" Margin="100,0,40,30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Visible" Grid.Column="0"/>
     </Grid>
 </Window>

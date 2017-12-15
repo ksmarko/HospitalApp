@@ -150,7 +150,13 @@ namespace HospitalApp.UI
 
         private void Enroll(object sender, RoutedEventArgs e)
         {
-
+            ScheduleWindow wi = new ScheduleWindow();
+            wi.Title = "Enroll";
+            wi.grdDocShedule.Visibility = Visibility.Collapsed;
+            wi.grdEnroll.Visibility = Visibility.Visible;
+            wi.btnAddSchedule.Visibility = Visibility.Hidden;
+            wi.btnEnroll.Visibility = Visibility.Visible;
+            wi.ShowDialog();
         }
     }
 }

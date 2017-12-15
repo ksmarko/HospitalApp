@@ -95,5 +95,46 @@ namespace HospitalApp.UI
 
             this.Close();
         }
+
+        private void Enroll(object sender, RoutedEventArgs e)
+        {
+            DoctorDTO doctor = cboxDocsList.SelectedValue as DoctorDTO;
+            var date = dpDate.SelectedDate.Value;
+            
+
+
+
+            MessageBox.Show("Enroll");
+            this.Close();
+        }
+
+        private void UpdateTime(DoctorDTO doctor, DateTime date)
+        {
+            //добавление в комбобокс значений из диапазона графика
+            cboxTime.Items.Clear();
+
+            string time = MainPage.GetDoctorShedules(doctor, date).FirstOrDefault().Time;
+            char[] arr = new char[] { ' ', '-', ' ' };
+
+            string [] tStart = time.Split(arr, StringSplitOptions.RemoveEmptyEntries);
+
+            int start = Convert.ToInt32(tStart[0].Substring(0, tStart[0].Length - 3));
+            int end = Convert.ToInt32(tStart[1].Substring(0, tStart[1].Length - 3));
+
+            for (int i = start; i < end; i++)
+            {
+                cboxTime.Items.Add(i + ":00");
+                cboxTime.Items.Add(i + ":30");
+            }
+        }
+
+        //date changed
+        private void UpdateTime(object sender, SelectionChangedEventArgs e)
+        {
+            DoctorDTO doctor = cboxDocsList.SelectedValue as DoctorDTO;
+            var date = dpDate.SelectedDate.Value;
+
+            UpdateTime(doctor, date);
+        }
     }
 }

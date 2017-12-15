@@ -157,8 +157,14 @@ namespace HospitalApp.UI
             DoctorDTO doctor = cboxDoctorsList.SelectedValue as DoctorDTO;
             var date = dpDate.SelectedDate.Value;
 
+            grdSchedule.ItemsSource = null;
+            grdSchedule.ItemsSource = GetDoctorShedules(doctor, date);
+        }
+
+        public static List<ScheduleView> GetDoctorShedules(DoctorDTO doctor, DateTime date)
+        {
             TimeManager tm = new TimeManager();
-            
+
             List<ScheduleView> list = new List<ScheduleView>();
 
             foreach (var el in tm.GetAll())
@@ -167,8 +173,7 @@ namespace HospitalApp.UI
                     list.Add(ScheduleView.CreateScheduleView(el));
             }
 
-            grdSchedule.ItemsSource = null;
-            grdSchedule.ItemsSource = list;
+            return list;
         }
 
         private void ClearSearchResults(object sender, RoutedEventArgs e)
