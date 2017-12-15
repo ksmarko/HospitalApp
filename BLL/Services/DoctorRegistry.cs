@@ -90,6 +90,11 @@ namespace BLL.Services
             return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.Find(x => x.Name == name && x.Surname == surname));
         }
 
+        public DoctorDTO Find(int id)
+        {
+            return Mapper.Map<Doctor, DoctorDTO>(Database.Doctors.Get(id));
+        }
+
         public IEnumerable<DoctorDTO> FindSpecialization(string specialization)
         {
             if (String.IsNullOrEmpty(specialization.Trim()))

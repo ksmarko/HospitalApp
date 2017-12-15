@@ -28,8 +28,8 @@ namespace BLL.Services
             
             Schedule schedule = new Schedule
             {
-                Doctor = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault(),
-                //Patient = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault(),
+                DoctorId = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault().Id,
+                //PatientId = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault().Id,
                 Date = entity.Date,
                 Time = entity.Time
             };
@@ -37,7 +37,7 @@ namespace BLL.Services
             Database.Schedules.Create(schedule);
             Database.Save();
 
-            Console.WriteLine("Added");
+            Console.WriteLine("shedule Added to database");
         }
 
         public void Dispose()
@@ -52,8 +52,8 @@ namespace BLL.Services
             if (schedule == null)
                 throw new ArgumentNullException();
 
-            schedule.Doctor = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault();
-            //schedule.Patient = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault();
+            schedule.DoctorId = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault().Id;
+            //schedule.PatientId = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault().Id;
             schedule.Date = entity.Date;
             schedule.Time = entity.Time;
 
@@ -78,7 +78,7 @@ namespace BLL.Services
             if (doctor == null)
                 throw new ArgumentNullException();
 
-            return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.Doctor == doctor));
+            return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.DoctorId == doctor.Id));
         }
         
 

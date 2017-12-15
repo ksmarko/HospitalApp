@@ -141,3 +141,5 @@ D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\HumanManagerW
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\RecordWindow.baml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\ScheduleWindow.g.cs
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\ScheduleWindow.baml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Ninject.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Ninject.xml

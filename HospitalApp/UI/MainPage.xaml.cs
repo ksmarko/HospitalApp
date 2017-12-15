@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.DTO;
+using BLL.Services;
 using HospitalApp.Utilits;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,11 @@ namespace HospitalApp.UI
     /// </summary>
     public partial class MainPage : Page
     {
+        TimeManager tm;
         public MainPage()
         {
             InitializeComponent();
+            tm = new TimeManager();
         }
 
         private void Selected(int pos)
@@ -96,17 +99,14 @@ namespace HospitalApp.UI
         #endregion
 
         private void LoadData(object sender, RoutedEventArgs e)
-        {
-            TimeManager tm = new TimeManager();
-
+        { 
             List<ScheduleView> list = new List<ScheduleView>();
 
             foreach (var el in tm.GetAll())
-                list.Add(ScheduleView.CreateGeneralScheduleView(el));
+                list.Add(ScheduleView.CreateRecordView(el));
 
             grdSchedule.ItemsSource = null;
             grdSchedule.ItemsSource = list;
-            tm.Dispose();
         }
 
         private void addSchedule(object sender, RoutedEventArgs e)
@@ -115,6 +115,17 @@ namespace HospitalApp.UI
             wi.ShowDialog();
 
             LoadData(null, null);
+        }
+
+        private void VisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            List<ScheduleView> list = new List<ScheduleView>();
+
+            foreach (var el in tm.GetAll())
+                list.Add(ScheduleView.CreateRecordView(el));
+
+            grdSchedule.ItemsSource = null;
+            grdSchedule.ItemsSource = list;
         }
     }
 }
