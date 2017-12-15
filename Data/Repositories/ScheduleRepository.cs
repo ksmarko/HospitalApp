@@ -21,6 +21,7 @@ namespace Data.Repositories
         public void Create(Schedule schedule)
         {
             db.Schedules.Add(schedule);
+            Console.WriteLine("Rep ID " + schedule.Id);
         }
 
         public void Delete(int id)

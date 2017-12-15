@@ -15,6 +15,5 @@ namespace Data
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Record> Records { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
-
     }
 }

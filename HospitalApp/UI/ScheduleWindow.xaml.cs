@@ -23,12 +23,12 @@ namespace HospitalApp.UI
     /// </summary>
     public partial class ScheduleWindow : Window
     {
-        TimeManager tm;
+        //TimeManager tm;
 
         public ScheduleWindow()
         {
             InitializeComponent();
-            tm = new TimeManager();
+            //tm = new TimeManager();
         }
 
         private void LoadData(object sender, RoutedEventArgs e)
@@ -46,6 +46,7 @@ namespace HospitalApp.UI
 
         private void Addshedule(object sender, RoutedEventArgs e)
         {
+            TimeManager tm = new TimeManager();
             if (cboxDocsList.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select doctor");
@@ -63,12 +64,34 @@ namespace HospitalApp.UI
                 MessageBox.Show("Please select date");
                 return;
             }
-            
-            tm.Add(ModelCreator.CreateSchedule((cboxDocsList.SelectedValue as DoctorDTO).Id, 
-                dpDate.SelectedDate.Value, 
-                string.Join(" - ", cboxStartHours.SelectedItem.ToString(), cboxEndHours.SelectedItem.ToString())));
 
-            MessageBox.Show("Schedule added!");
+            var schedule = ModelCreator.CreateSchedule((cboxDocsList.SelectedValue as DoctorDTO).Id,
+                dpDate.SelectedDate.Value,
+                string.Join(" - ", cboxStartHours.SelectedItem.ToString(), cboxEndHours.SelectedItem.ToString()));
+
+            var docschedule = tm.GetByDoctor(cboxDocsList.SelectedValue as DoctorDTO);
+
+            if (docschedule.Count() > 0)
+                foreach (var el in docschedule)
+                    if (el.Date == dpDate.SelectedDate.Value)
+                    {
+                        tm.Edit(schedule);
+                        MessageBox.Show("Schedule edited!");
+                        break;
+                    }
+                    else
+                    {
+                        tm.Add(schedule);
+                        MessageBox.Show("Schedule added!");
+                        break;
+                    }
+            else
+            {
+                Console.WriteLine("NOT NULL");
+                tm.Add(schedule);
+                MessageBox.Show("Schedule added!");
+            }
+
             this.Close();
         }
     }
