@@ -75,6 +75,7 @@ namespace HospitalApp.UI
                 foreach (var el in docschedule)
                     if (el.Date == dpDate.SelectedDate.Value)
                     {
+                        schedule.Id = el.Id;
                         tm.Edit(schedule);
                         MessageBox.Show("Schedule edited!");
                         break;

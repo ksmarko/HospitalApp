@@ -28,7 +28,7 @@ namespace BLL.Services
             
             Schedule schedule = new Schedule
             {
-                DoctorId = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault().Id,
+                Doctor = Database.Doctors.Find(x => x.Id == entity.Doctor).FirstOrDefault().Id,
                 //PatientId = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault().Id,
                 Date = entity.Date,
                 Time = entity.Time
@@ -36,8 +36,6 @@ namespace BLL.Services
 
             Database.Schedules.Create(schedule);
             Database.Save();
-
-            Console.WriteLine("shedule Added to database");
         }
 
         public void Dispose()
@@ -49,10 +47,17 @@ namespace BLL.Services
         {
             Schedule schedule = Database.Schedules.Find(x => x.Id == entity.Id).FirstOrDefault();
 
+            //---------------------------------------------------
+            Console.WriteLine("EDIT \nentity id :" + entity.Id  + " " + entity.Time + "\nShedules: ");
+
+            foreach (var el in GetAll())
+                Console.WriteLine(el.Id + "  " + el.Time);
+            //--------------------------------------------------
+
             if (schedule == null)
                 throw new ArgumentNullException();
 
-            schedule.DoctorId = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault().Id;
+            schedule.Doctor = Database.Doctors.Find(x => x.Id == entity.Doctor).FirstOrDefault().Id;
             //schedule.PatientId = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault().Id;
             schedule.Date = entity.Date;
             schedule.Time = entity.Time;
@@ -78,7 +83,7 @@ namespace BLL.Services
             if (doctor == null)
                 throw new ArgumentNullException();
 
-            return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.DoctorId == doctor.Id));
+            return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.Doctor == doctor.Id));
         }
         
 

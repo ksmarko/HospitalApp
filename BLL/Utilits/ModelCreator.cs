@@ -52,7 +52,7 @@ namespace BLL.Utilits
         {
             ScheduleDTO schedule = new ScheduleDTO
             {
-                DoctorId = doctorId,
+                Doctor = doctorId,
                 Date = date,
                 Time = time
             };

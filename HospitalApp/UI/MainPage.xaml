@@ -56,6 +56,9 @@
         <!--Central part-->
         <MaterialUI:Card Grid.Column="1" Grid.ColumnSpan="2" Background="White" Margin="0,0,10,10" VerticalAlignment="Stretch">
             <Grid>
+                <ComboBox Name="cboxDoctorsList" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <DatePicker Name="dpDate" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                <Button Content="Find" VerticalAlignment="Top" HorizontalAlignment="Right" Click="FindScheduleForDoctor"/>
                 <ScrollViewer Height="300" VerticalAlignment="Top" Margin="0,20, 0,0">
                     <DataGrid x:Name="grdSchedule" Margin="20,10,20,20" AutoGenerateColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" SelectionMode="Single"/>
                 </ScrollViewer>
