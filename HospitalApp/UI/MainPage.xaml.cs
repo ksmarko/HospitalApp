@@ -127,6 +127,7 @@ namespace HospitalApp.UI
             ScheduleWindow wi = new ScheduleWindow();
             wi.ShowDialog();
 
+
             ClearSearchResults(null, null);
         }
 
