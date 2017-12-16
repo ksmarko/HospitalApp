@@ -76,40 +76,40 @@ namespace HospitalApp.UI
             //TODO: edit hell
             #region hell
             //edit this shit
-            //if (docschedule.Count() > 0)
-            //    foreach (var el in docschedule)
-            //        if (el.Date == dpDate.SelectedDate.Value)
-            //        {
-            //            schedule.Id = el.Id;
-            //            try
-            //            {
-            //                tm.Edit(schedule);
-            //            }
-            //            catch (BLL.Infrastructure.ValidationException)
-            //            {
-            //                var result = MessageBox.Show("You can lost patients. Continue?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            //                if (result == MessageBoxResult.Yes)
-            //                {
-            //                    tm.EditAnyway(schedule);
-            //                    MessageBox.Show("Schedule edited!");
-            //                }
-            //                else return;
+            if (docschedule.Count() > 0)
+                foreach (var el in docschedule)
+                    if (el.Date == dpDate.SelectedDate.Value)
+                    {
+                        schedule.Id = el.Id;
+                        try
+                        {
+                            tm.Edit(schedule);
+                        }
+                        catch (BLL.Infrastructure.ValidationException)
+                        {
+                            var result = MessageBox.Show("You can lost patients. Continue?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                tm.EditAnyway(schedule);
+                                MessageBox.Show("Schedule edited!");
+                            }
+                            else return;
 
-            //            }
-            //            //MessageBox.Show("Schedule edited!");
-            //            //break;
-            //        }
-            //        else
-            //        {
-            //            tm.Add(schedule);
-            //            MessageBox.Show("Schedule added!");
-            //            break;
-            //        }
-            //else
-            //{
-            //    tm.Add(schedule);
-            //    MessageBox.Show("Schedule added!");
-            //}
+                        }
+                        //MessageBox.Show("Schedule edited!");
+                        //break;
+                    }
+                    else
+                    {
+                        tm.Add(schedule);
+                        MessageBox.Show("Schedule added!");
+                        break;
+                    }
+            else
+            {
+                tm.Add(schedule);
+                MessageBox.Show("Schedule added!");
+            }
             #endregion
 
             this.Close();
@@ -163,7 +163,7 @@ namespace HospitalApp.UI
 
                 string[] tStart = time.Split(arr, StringSplitOptions.RemoveEmptyEntries);
 
-                //ошика обрезания
+                //ошибка обрезания
                 int start = Convert.ToInt32(tStart[0].Substring(0, tStart[0].Length - 3));
                 int end = Convert.ToInt32(tStart[1].Substring(0, tStart[1].Length - 3));
 

@@ -26,7 +26,7 @@ namespace BLL.Services
         {
             if (entity == null)
                 throw new ArgumentNullException();
-            
+
             Schedule schedule = new Schedule
             {
                 DoctorId = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault().Id,
@@ -48,7 +48,7 @@ namespace BLL.Services
         public void Edit(ScheduleDTO entity)
         {
             Schedule schedule = Database.Schedules.Find(x => x.Id == entity.Id).FirstOrDefault();
-            
+
             if (schedule == null)
                 throw new ArgumentNullException();
 
@@ -71,6 +71,14 @@ namespace BLL.Services
             schedule.Date = entity.Date;
             schedule.Time = entity.Time;
 
+            if (schedule.Addition == "Timetable")
+            {
+                var list = Database.Schedules.Find(x => x.DoctorId == schedule.DoctorId && TimeParsing(entity.Time).Contains(x.Time));
+
+                foreach (var el in list)
+                    Database.Schedules.Delete(el.Id);
+            }
+
             Database.Schedules.Update(schedule);
             Database.Save();
         }
@@ -89,7 +97,7 @@ namespace BLL.Services
 
             return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.DoctorId == doctor.Id));
         }
-        
+
         public void Remove(ScheduleDTO entity)
         {
             Remove(entity.Id);
@@ -115,8 +123,38 @@ namespace BLL.Services
             if (schedule == null)
                 throw new ArgumentNullException();
 
+            //удаление записей на указанное время
+            if (schedule.Addition == "Timetable")
+            {
+                var list = Database.Schedules.Find(x => x.DoctorId == schedule.DoctorId && TimeParsing(schedule.Time).Contains(x.Time));
+
+                foreach (var el in list)
+                    Database.Schedules.Delete(el.Id);
+            }
+
             Database.Schedules.Delete(schedule.Id);
             Database.Save();
+        }
+
+        private List<string> TimeParsing(string time)
+        {
+            List<string> hours = new List<string>();
+            ;
+            char[] arr = new char[] { ' ', '-', ' ' };
+
+            string[] tStart = time.Split(arr, StringSplitOptions.RemoveEmptyEntries);
+
+            //ошибка обрезания
+            int start = Convert.ToInt32(tStart[0].Substring(0, tStart[0].Length - 3));
+            int end = Convert.ToInt32(tStart[1].Substring(0, tStart[1].Length - 3));
+
+            for (int i = start; i < end + 1; i++)
+            {
+                hours.Add(i + ":00");
+                hours.Add(i + ":30");
+            }
+
+            return hours;
         }
     }
 }
