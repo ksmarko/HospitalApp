@@ -52,6 +52,7 @@
     <Compile Include="DTO\RecordDTO.cs" />
     <Compile Include="DTO\ScheduleDTO.cs" />
     <Compile Include="Infrastructure\ServiceModule.cs" />
+    <Compile Include="Infrastructure\ValidationException.cs" />
     <Compile Include="Interfaces\IDoctorRegistry.cs" />
     <Compile Include="Interfaces\IManager.cs" />
     <Compile Include="Interfaces\IPatientRegistry.cs" />

@@ -22,31 +22,34 @@ Loaded="Page_Loaded"
         <Button Click="AddRecord" Content="Add record" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0, 0, 0, 20"/>
 
         <MaterialUI:Card Background="White" Margin="0,0,0,0" Grid.Column="1" Height="670">
-        <StackPanel Orientation="Vertical">
             <Grid>
-                <TextBlock Text="Patients:" Margin="20,40,0,10" HorizontalAlignment="Left" FontSize="20"/>
-                <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20,20,0,0">
-                    <ToolBar HorizontalAlignment="Right" Background="White" Foreground="#FF555555">
-                        <Button Click="AddPatient" ToolTip="Add patient" Cursor="Hand" Foreground="#FF555555">
-                            <MaterialUI:PackIcon Kind="Plus"/>
-                        </Button>
-                        <Button Click="RemovePatient" ToolTip="Remove patient" Cursor="Hand" Foreground="#FF555555">
-                            <MaterialUI:PackIcon Kind="Delete"/>
-                        </Button>
-                            <Button Click="FindPatient" ToolTip="Find patient" Cursor="Hand" Foreground="#FF555555">
-                                <MaterialUI:PackIcon Kind="AccountSearch"/>
-                            </Button>
-                        </ToolBar>
-                </Grid>
+                <StackPanel Orientation="Vertical">
+                    <Grid>
+                        <TextBlock Text="Patients:" Margin="20,40,0,10" HorizontalAlignment="Left" FontSize="20"/>
+                        <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20,20,0,0">
+                            <ToolBar HorizontalAlignment="Right" Background="White" Foreground="#FF555555">
+                                <Button Click="RemovePatient" ToolTip="Remove patient" Cursor="Hand" Foreground="#FF555555">
+                                    <MaterialUI:PackIcon Kind="Delete"/>
+                                </Button>
+                                <Button Click="FindPatient" ToolTip="Find patient" Cursor="Hand" Foreground="#FF555555">
+                                    <MaterialUI:PackIcon Kind="AccountSearch"/>
+                                </Button>
+                                <Button Click="ClearSearchResults" ToolTip="Clear" Cursor="Hand" Foreground="#FF555555">
+                                    <MaterialUI:PackIcon Kind="Eraser"/>
+                                </Button>
+                            </ToolBar>
+                        </Grid>
+                    </Grid>
+                    <ListBox Name="lstPatients" Height="480" SelectionChanged="PatientsNavigation" Margin="20, 10,20,0">
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Remove" Click="RemovePatient"/>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                </StackPanel>
+                <Button Content="Add patient" Click="AddPatient" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0, 0, 0, 20"/>
             </Grid>
-                <ListBox Name="lstPatients" SelectionChanged="PatientsNavigation" Margin="20, 10,20,0">
-                    <ListBox.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Header="Remove" Click="RemovePatient"/>
-                        </ContextMenu>
-                    </ListBox.ContextMenu>
-                </ListBox>
-            </StackPanel>
         </MaterialUI:Card>
 
         <MaterialUI:Card Background="White" Margin="0,0,5,0" Grid.Column="0" Height="670">

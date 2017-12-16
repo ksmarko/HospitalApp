@@ -57,7 +57,7 @@ namespace HospitalApp.UI
                 return;
             }
 
-            if (this.dpDate.SelectedDate == null)
+            if (dpDate.SelectedDate == null)
             {
                 MessageBox.Show("Please select date");
                 return;
@@ -98,6 +98,24 @@ namespace HospitalApp.UI
 
         private void Enroll(object sender, RoutedEventArgs e)
         {
+            if (cboxDocsList.SelectedIndex == -1)
+            {
+                MessageBox.Show("Select doctor");
+                return;
+            }
+
+            if (this.dpDate.SelectedDate == null)
+            {
+                MessageBox.Show("Please select date");
+                return;
+            }
+
+            if (cboxTime.SelectedIndex == -1)
+            {
+                MessageBox.Show("Select time");
+                return;
+            }
+
             TimeManager tm = new TimeManager();
             DoctorDTO doctor = cboxDocsList.SelectedValue as DoctorDTO;
             var date = dpDate.SelectedDate.Value;

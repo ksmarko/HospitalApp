@@ -59,7 +59,19 @@
                         <Button Content="Find" Width="120" Margin="20, 0,0, 0" Click="FindScheduleForDoctor"/>
                     </StackPanel>
                     <ScrollViewer Height="480" VerticalAlignment="Top" Margin="0,20, 0,0">
-                    <DataGrid x:Name="grdSchedule" AutoGenerateColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" SelectionMode="Single"/>
+                        <DataGrid x:Name="grdSchedule" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" SelectionMode="Single">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Doctor" MinWidth="120" Binding="{Binding Path=Doctor}"/>
+                                <DataGridTextColumn Header="Date" MinWidth="100" Binding="{Binding Path=Date}"/>
+                                <DataGridTextColumn Header="Time" MinWidth="100" Binding="{Binding Path=Time}"/>
+                                <DataGridTextColumn Header="Addition" MinWidth="175" Binding="{Binding Path=Addition}"/>
+                            </DataGrid.Columns>
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Remove" Click="RemoveSchedule" FontWeight="Medium"/>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                        </DataGrid>
                 </ScrollViewer>
                 </StackPanel>
                 <Button Content="Add schedule" Click="addSchedule" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20, 20" Width="120"/>

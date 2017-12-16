@@ -121,6 +121,7 @@ namespace HospitalApp.UI
 
         private void RefreshPage()
         {
+            lstPatients.ItemsSource = null;
             lstPatients.Items.Clear();
 
             foreach (var el in registry.GetAll())
@@ -143,11 +144,6 @@ namespace HospitalApp.UI
             wi.ShowDialog();
         }
 
-        private void EditPatient(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void Enroll(object sender, RoutedEventArgs e)
         {
             ScheduleWindow wi = new ScheduleWindow();
@@ -157,6 +153,11 @@ namespace HospitalApp.UI
             wi.btnAddSchedule.Visibility = Visibility.Hidden;
             wi.btnEnroll.Visibility = Visibility.Visible;
             wi.ShowDialog();
+        }
+
+        private void ClearSearchResults(object sender, RoutedEventArgs e)
+        {
+            RefreshPage();
         }
     }
 }

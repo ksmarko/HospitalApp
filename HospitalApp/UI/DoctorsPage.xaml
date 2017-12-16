@@ -36,7 +36,12 @@
                 <!--Data grid-->
                 <ScrollViewer Margin="0,60,0,20" Height="590">
                     <StackPanel Orientation="Vertical" Margin="20, 10, 0,20">
-                        <DataGrid x:Name="grdDoctors" AutoGenerateColumns="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="True">
+                        <DataGrid x:Name="grdDoctors" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name" MinWidth="100" Binding="{Binding Path=Name}"/>
+                                <DataGridTextColumn Header="Surname" MinWidth="100" Binding="{Binding Path=Surname}"/>
+                                <DataGridTextColumn Header="Specialization" MinWidth="100" Binding="{Binding Path=Specialization}"/>
+                            </DataGrid.Columns>
                             <DataGrid.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Remove" Click="RemoveDoctor" FontWeight="Medium"/>

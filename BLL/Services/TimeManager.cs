@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BLL.DTO;
+using BLL.Infrastructure;
 using BLL.Interfaces;
 using Data.Entities;
 using Data.Interfaces;
@@ -29,7 +30,6 @@ namespace BLL.Services
             Schedule schedule = new Schedule
             {
                 Doctor = Database.Doctors.Find(x => x.Id == entity.Doctor).FirstOrDefault().Id,
-                //PatientId = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault().Id,
                 Date = entity.Date,
                 Time = entity.Time,
                 Addition = entity.Addition
@@ -55,7 +55,6 @@ namespace BLL.Services
                 throw new ArgumentNullException();
 
             schedule.Doctor = Database.Doctors.Find(x => x.Id == entity.Doctor).FirstOrDefault().Id;
-            //schedule.PatientId = Database.Patients.Find(x => x.Id == entity.PatientId).FirstOrDefault().Id;
             schedule.Date = entity.Date;
             schedule.Time = entity.Time;
 
@@ -68,10 +67,10 @@ namespace BLL.Services
             return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll());
         }
 
-        public IEnumerable<ScheduleDTO> GetByDate(DateTime date)
-        {
-            return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.Date == date));
-        }
+        //public IEnumerable<ScheduleDTO> GetByDate(DateTime date)
+        //{
+        //    return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.Date == date));
+        //}
 
         public IEnumerable<ScheduleDTO> GetByDoctor(DoctorDTO doctorDTO)
         {
@@ -87,6 +86,17 @@ namespace BLL.Services
         public void Remove(ScheduleDTO entity)
         {
             Schedule schedule = Database.Schedules.Find(x => x.Id == entity.Id).FirstOrDefault();
+
+            if (schedule == null)
+                throw new ArgumentNullException();
+            
+            Database.Schedules.Delete(schedule.Id);
+            Database.Save();
+        }
+
+        public void Remove(int id)
+        {
+            Schedule schedule = Database.Schedules.Find(x => x.Id == id).FirstOrDefault();
 
             if (schedule == null)
                 throw new ArgumentNullException();

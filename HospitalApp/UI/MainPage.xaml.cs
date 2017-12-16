@@ -1,5 +1,6 @@
 ﻿using BLL.DTO;
 using BLL.Services;
+using BLL.Utilits;
 using HospitalApp.Utilits;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,8 @@ namespace HospitalApp.UI
             grdSchedule.ItemsSource = null;
             grdSchedule.ItemsSource = list;
 
+            dpDate.SelectedDate = null;
+
             LoadDoctorsList();            
         }
 
@@ -161,6 +164,44 @@ namespace HospitalApp.UI
             LoadData(sender, e);
             cboxDoctorsList.SelectedIndex = -1;
             dpDate.SelectedDate = null;
+        }
+
+        private void RemoveSchedule(object sender, RoutedEventArgs e)
+        {
+            TimeManager tm = new TimeManager();
+            try
+            {
+                var schedule = (grdSchedule.SelectedValue as ScheduleView);
+
+                if (schedule.Addition != "Timetable")
+                {
+                    string question = "Are you sure to remove schedule for patient " + schedule.Addition.Substring(schedule.Addition.LastIndexOf(':') + 2) + " ?";
+
+                    MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        tm.Remove(schedule.Id);
+                        LoadData(null, null);
+                    }
+                    else return;
+                }
+                else
+                {
+                    string question = "Are you sure to remove schedule for doctor " + schedule.Doctor + "?";
+
+                    MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        tm.Remove(schedule.Id);
+                        LoadData(null, null);
+                    }
+                    else return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ namespace HospitalApp.Utilits
 {
     public class ScheduleView
     {
+        public int Id { get; set; }
         public string Doctor { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
@@ -22,6 +23,7 @@ namespace HospitalApp.Utilits
 
             ScheduleView scheduleView = new ScheduleView()
             {
+                Id = scheduleDTO.Id,
                 Doctor = doc,
                 Date = scheduleDTO.Date.ToShortDateString(),
                 Time = scheduleDTO.Time,

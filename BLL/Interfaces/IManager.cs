@@ -10,6 +10,5 @@ namespace BLL.Interfaces
     interface IManager : IRegistry<ScheduleDTO>
     {
         IEnumerable<ScheduleDTO> GetByDoctor(DoctorDTO doctorDTO);
-        IEnumerable<ScheduleDTO> GetByDate(DateTime date);
     }
 }
