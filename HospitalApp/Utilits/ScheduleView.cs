@@ -19,12 +19,14 @@ namespace HospitalApp.Utilits
         public static ScheduleView CreateScheduleView(ScheduleDTO scheduleDTO)
         {
             DoctorRegistry registry = new DoctorRegistry();
-            var doc = registry.Find(scheduleDTO.Doctor).ToString();
+
+            //null
+            var doc = registry.Find(scheduleDTO.DoctorId);
 
             ScheduleView scheduleView = new ScheduleView()
             {
                 Id = scheduleDTO.Id,
-                Doctor = doc,
+                Doctor = doc.Name,
                 Date = scheduleDTO.Date.ToShortDateString(),
                 Time = scheduleDTO.Time,
                 Addition = scheduleDTO.Addition

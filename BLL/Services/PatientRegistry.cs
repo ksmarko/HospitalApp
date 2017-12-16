@@ -68,6 +68,13 @@ namespace BLL.Services
             if (patient == null)
                 throw new ArgumentNullException();
 
+            //-------------
+            var list = Database.Schedules.Find(x => x.PatientId == patient.Id);
+
+            foreach (var el in list)
+                Database.Schedules.Delete(el.Id);
+            //------------
+
             Database.Patients.Delete(patient.Id);
             Database.Save();
         }

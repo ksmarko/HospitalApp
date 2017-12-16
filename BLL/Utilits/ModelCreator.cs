@@ -52,7 +52,7 @@ namespace BLL.Utilits
         {
             ScheduleDTO schedule = new ScheduleDTO
             {
-                Doctor = doctorId,
+                DoctorId = doctorId,
                 Date = date,
                 Time = time,
                 Addition = "Timetable"
@@ -68,7 +68,8 @@ namespace BLL.Utilits
 
             ScheduleDTO enroll = new ScheduleDTO
             {
-                Doctor = doctorId,
+                PatientId = patientId,
+                DoctorId = doctorId,
                 Date = date,
                 Time = time,
                 Addition = "Note: " + patient.ToString()

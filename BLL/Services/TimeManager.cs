@@ -29,7 +29,8 @@ namespace BLL.Services
             
             Schedule schedule = new Schedule
             {
-                Doctor = Database.Doctors.Find(x => x.Id == entity.Doctor).FirstOrDefault().Id,
+                DoctorId = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault().Id,
+                PatientId = entity.PatientId,
                 Date = entity.Date,
                 Time = entity.Time,
                 Addition = entity.Addition
@@ -54,7 +55,7 @@ namespace BLL.Services
             if (schedule == null)
                 throw new ArgumentNullException();
 
-            schedule.Doctor = Database.Doctors.Find(x => x.Id == entity.Doctor).FirstOrDefault().Id;
+            schedule.DoctorId = Database.Doctors.Find(x => x.Id == entity.DoctorId).FirstOrDefault().Id;
             schedule.Date = entity.Date;
             schedule.Time = entity.Time;
 
@@ -74,19 +75,12 @@ namespace BLL.Services
             if (doctor == null)
                 throw new ArgumentNullException();
 
-            return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.Doctor == doctor.Id));
+            return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.DoctorId == doctor.Id));
         }
         
-
         public void Remove(ScheduleDTO entity)
         {
-            Schedule schedule = Database.Schedules.Find(x => x.Id == entity.Id).FirstOrDefault();
-
-            if (schedule == null)
-                throw new ArgumentNullException();
-            
-            Database.Schedules.Delete(schedule.Id);
-            Database.Save();
+            Remove(entity.Id);
         }
 
         public void Remove(int id)

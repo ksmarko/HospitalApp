@@ -30,6 +30,8 @@ namespace HospitalApp.UI
 
         private void LoadData(object sender, RoutedEventArgs e)
         {
+            dpDate.DisplayDateStart = DateTime.Today.AddDays(1);
+
             DoctorRegistry doctorRegistry = new DoctorRegistry();
             foreach (var el in doctorRegistry.GetAll())
                 cboxDocsList.Items.Add(el);
@@ -134,25 +136,43 @@ namespace HospitalApp.UI
             //добавление в комбобокс значений из диапазона графика
             try
             {
+                cboxTime.ItemsSource = null;
                 cboxTime.Items.Clear();
+
+                List<string> timeVariants = new List<string>();
 
                 string time = MainPage.GetDoctorShedules(doctor, date).FirstOrDefault().Time;
                 char[] arr = new char[] { ' ', '-', ' ' };
 
                 string[] tStart = time.Split(arr, StringSplitOptions.RemoveEmptyEntries);
 
+                //ошика обрезания
                 int start = Convert.ToInt32(tStart[0].Substring(0, tStart[0].Length - 3));
                 int end = Convert.ToInt32(tStart[1].Substring(0, tStart[1].Length - 3));
 
                 for (int i = start; i < end; i++)
                 {
-                    cboxTime.Items.Add(i + ":00");
-                    cboxTime.Items.Add(i + ":30");
+                    timeVariants.Add(i + ":00");
+                    timeVariants.Add(i + ":30");
                 }
+
+                TimeManager tm = new TimeManager();
+                
+                foreach (var el in tm.GetByDoctor(doctor)) //возвращает все записи врача
+                {
+                    timeVariants.RemoveAll(x => x == el.Time);
+                }
+
+                cboxTime.ItemsSource = timeVariants;
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)
             {
-                Console.WriteLine(ex.HelpLink);
+                Console.WriteLine("Null ref in UpdateTime");
+                return;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Error with substrings");
                 return;
             }
         }

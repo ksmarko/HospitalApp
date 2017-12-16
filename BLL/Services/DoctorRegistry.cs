@@ -50,7 +50,7 @@ namespace BLL.Services
             if (doctor == null)
                 throw new ArgumentNullException();
 
-            foreach (var el in Database.Schedules.GetAll().Where(x => x.Doctor == doctor.Id))
+            foreach (var el in Database.Schedules.GetAll().Where(x => x.DoctorId == doctor.Id))
                 Database.Schedules.Delete(el.Id);
 
             Database.Doctors.Delete(doctor.Id);

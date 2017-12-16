@@ -86,6 +86,8 @@ namespace HospitalApp.UI
 
         private void LoadData(object sender, RoutedEventArgs e)
         {
+            dpDate.DisplayDateStart = DateTime.Today.AddDays(1);
+
             TimeManager tm = new TimeManager();
             List<ScheduleView> list = new List<ScheduleView>();
 
@@ -152,7 +154,7 @@ namespace HospitalApp.UI
 
             foreach (var el in tm.GetAll())
             {
-                if (el.Doctor == doctor.Id && el.Date == date)
+                if (el.DoctorId == doctor.Id && el.Date == date)
                     list.Add(ScheduleView.CreateScheduleView(el));
             }
 
