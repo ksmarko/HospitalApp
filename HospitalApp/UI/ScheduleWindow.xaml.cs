@@ -1,7 +1,7 @@
 ﻿using BLL.DTO;
 using BLL.Services;
 using BLL.Utilits;
-using HospitalApp.Utilits;
+using HospitalApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,27 +73,44 @@ namespace HospitalApp.UI
 
             var docschedule = tm.GetByDoctor(doctor);
 
+            //TODO: edit hell
+            #region hell
             //edit this shit
-            if (docschedule.Count() > 0)
-                foreach (var el in docschedule)
-                    if (el.Date == dpDate.SelectedDate.Value)
-                    {
-                        schedule.Id = el.Id;
-                        tm.Edit(schedule);
-                        MessageBox.Show("Schedule edited!");
-                        break;
-                    }
-                    else
-                    {
-                        tm.Add(schedule);
-                        MessageBox.Show("Schedule added!");
-                        break;
-                    }
-            else
-            {
-                tm.Add(schedule);
-                MessageBox.Show("Schedule added!");
-            }
+            //if (docschedule.Count() > 0)
+            //    foreach (var el in docschedule)
+            //        if (el.Date == dpDate.SelectedDate.Value)
+            //        {
+            //            schedule.Id = el.Id;
+            //            try
+            //            {
+            //                tm.Edit(schedule);
+            //            }
+            //            catch (BLL.Infrastructure.ValidationException)
+            //            {
+            //                var result = MessageBox.Show("You can lost patients. Continue?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            //                if (result == MessageBoxResult.Yes)
+            //                {
+            //                    tm.EditAnyway(schedule);
+            //                    MessageBox.Show("Schedule edited!");
+            //                }
+            //                else return;
+
+            //            }
+            //            //MessageBox.Show("Schedule edited!");
+            //            //break;
+            //        }
+            //        else
+            //        {
+            //            tm.Add(schedule);
+            //            MessageBox.Show("Schedule added!");
+            //            break;
+            //        }
+            //else
+            //{
+            //    tm.Add(schedule);
+            //    MessageBox.Show("Schedule added!");
+            //}
+            #endregion
 
             this.Close();
         }

@@ -97,8 +97,8 @@
     <Compile Include="UI\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utilits\RecordView.cs" />
-    <Compile Include="Utilits\ScheduleView.cs" />
+    <Compile Include="Views\RecordView.cs" />
+    <Compile Include="Views\ScheduleView.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

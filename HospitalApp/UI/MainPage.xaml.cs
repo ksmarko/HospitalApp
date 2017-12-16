@@ -1,7 +1,8 @@
 ﻿using BLL.DTO;
+using BLL.Infrastructure;
 using BLL.Services;
 using BLL.Utilits;
-using HospitalApp.Utilits;
+using HospitalApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -171,38 +172,22 @@ namespace HospitalApp.UI
         private void RemoveSchedule(object sender, RoutedEventArgs e)
         {
             TimeManager tm = new TimeManager();
+            var schedule = grdSchedule.SelectedValue as ScheduleView;
+
             try
             {
-                var schedule = (grdSchedule.SelectedValue as ScheduleView);
-
-                if (schedule.Addition != "Timetable")
-                {
-                    string question = "Are you sure to remove schedule for patient " + schedule.Addition.Substring(schedule.Addition.LastIndexOf(':') + 2) + " ?";
-
-                    MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        tm.Remove(schedule.Id);
-                        LoadData(null, null);
-                    }
-                    else return;
-                }
-                else
-                {
-                    string question = "Are you sure to remove schedule for doctor " + schedule.Doctor + "?";
-
-                    MessageBoxResult result = MessageBox.Show(question, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        tm.Remove(schedule.Id);
-                        LoadData(null, null);
-                    }
-                    else return;
-                }
+                tm.Remove(schedule.Id);
+                LoadData(null, null);
             }
-            catch (Exception ex)
+            catch (ValidationException)
             {
-                Console.WriteLine(ex.Message);
+                var result = MessageBox.Show("You can lost patients. Continue?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    tm.RemoveAnyway(schedule.Id);
+                    LoadData(null, null);
+                }
+                else return;
             }
         }
     }

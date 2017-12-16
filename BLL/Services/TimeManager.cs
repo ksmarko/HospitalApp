@@ -49,8 +49,20 @@ namespace BLL.Services
         {
             Schedule schedule = Database.Schedules.Find(x => x.Id == entity.Id).FirstOrDefault();
             
-            foreach (var el in GetAll())
-                Console.WriteLine(el.Id + "  " + el.Time);
+            if (schedule == null)
+                throw new ArgumentNullException();
+
+            //------------------
+            if (schedule.Addition == "Timetable")
+                throw new ValidationException("Doctor's timetable", "");
+
+            EditAnyway(entity);
+            //-------------------
+        }
+
+        public void EditAnyway(ScheduleDTO entity)
+        {
+            Schedule schedule = Database.Schedules.Find(x => x.Id == entity.Id).FirstOrDefault();
 
             if (schedule == null)
                 throw new ArgumentNullException();
@@ -84,6 +96,19 @@ namespace BLL.Services
         }
 
         public void Remove(int id)
+        {
+            Schedule schedule = Database.Schedules.Find(x => x.Id == id).FirstOrDefault();
+
+            if (schedule == null)
+                throw new ArgumentNullException();
+
+            if (schedule.Addition == "Timetable")
+                throw new ValidationException("Possible loss of patients", "");
+
+            RemoveAnyway(id);
+        }
+
+        public void RemoveAnyway(int id)
         {
             Schedule schedule = Database.Schedules.Find(x => x.Id == id).FirstOrDefault();
 

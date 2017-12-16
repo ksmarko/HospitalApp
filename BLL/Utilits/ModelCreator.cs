@@ -72,7 +72,7 @@ namespace BLL.Utilits
                 DoctorId = doctorId,
                 Date = date,
                 Time = time,
-                Addition = "Note: " + patient.ToString()
+                Addition = "Patient: " + patient.ToString()
             };
 
             return enroll;

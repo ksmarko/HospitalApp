@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HospitalApp.Utilits
+namespace HospitalApp.Views
 {
     public class ScheduleView
     {
@@ -19,8 +19,7 @@ namespace HospitalApp.Utilits
         public static ScheduleView CreateScheduleView(ScheduleDTO scheduleDTO)
         {
             DoctorRegistry registry = new DoctorRegistry();
-
-            //null
+            
             var doc = registry.Find(scheduleDTO.DoctorId);
 
             ScheduleView scheduleView = new ScheduleView()
