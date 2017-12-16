@@ -67,11 +67,6 @@ namespace BLL.Services
             return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll());
         }
 
-        //public IEnumerable<ScheduleDTO> GetByDate(DateTime date)
-        //{
-        //    return Mapper.Map<IEnumerable<Schedule>, List<ScheduleDTO>>(Database.Schedules.GetAll().Where(x => x.Date == date));
-        //}
-
         public IEnumerable<ScheduleDTO> GetByDoctor(DoctorDTO doctorDTO)
         {
             Doctor doctor = Database.Doctors.Find(x => x.Id == doctorDTO.Id).FirstOrDefault();
