@@ -85,9 +85,6 @@
     <Compile Include="UI\DoctorsPage.xaml.cs">
       <DependentUpon>DoctorsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -99,9 +96,6 @@
     </Compile>
     <Compile Include="UI\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilits\EnrollView.cs" />
     <Compile Include="Utilits\RecordView.cs" />
@@ -130,10 +124,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\LoginPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UI\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,10 +137,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\SearchWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

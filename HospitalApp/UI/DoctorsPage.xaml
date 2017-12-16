@@ -41,8 +41,6 @@
                                 <ContextMenu>
                                     <MenuItem Header="Remove" Click="RemoveDoctor" FontWeight="Medium"/>
                                     <MenuItem Header="Edit data" Click="EditDoctorData" FontWeight="Medium"/>
-                                    <Separator/>
-                                    <MenuItem Header="Show info" Click="ShowDoctorInfo" FontWeight="Medium"/>
                                 </ContextMenu>
                             </DataGrid.ContextMenu>
                         </DataGrid>

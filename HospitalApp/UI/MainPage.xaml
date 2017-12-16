@@ -44,27 +44,21 @@
                         <TextBlock Text="PATIENTS" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListBoxItem>
-                <ListBoxItem Height="60" Padding="20,8,8,8">
-                    <StackPanel Orientation="Horizontal">
-                        <MaterialUI:PackIcon Foreground="#FF323232" Kind="Settings" Height="40" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Text="SETTINGS" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </ListBoxItem>
             </ListBox>
         </StackPanel>
 
         <!--Central part-->
         <MaterialUI:Card Name="grdMain" Grid.Column="1" Grid.ColumnSpan="2" Background="White" Margin="0,0,10,10" VerticalAlignment="Stretch">
             <Grid>
-                <StackPanel Orientation="Vertical" Margin="20, 20, 20, 20">
-                    <TextBlock Text="Shedule: " FontSize="20"/>
+                <StackPanel Orientation="Vertical" Margin="20, 15, 20, 20">
+                    <TextBlock Text="Shedule: " FontSize="30"/>
                     <StackPanel Orientation="Horizontal" Margin="0, 10,0,0">
                         <ComboBox Name="cboxDoctorsList" Width="300" HorizontalAlignment="Left"/>
                         <DatePicker Name="dpDate" Margin="20, 0,0 0" Width="150"/>
-                        <Button Content="Find" Margin="50, 0,0, 0" Click="FindScheduleForDoctor"/>
-                        <MenuItem Header="Clear" Margin="20, 0,0, 0" Click="ClearSearchResults"/>
+                        <MenuItem Header="Clear" Width="120" HorizontalContentAlignment="Center" Margin="50, 0,0, 0" Click="ClearSearchResults" VerticalContentAlignment="Center"/>
+                        <Button Content="Find" Width="120" Margin="20, 0,0, 0" Click="FindScheduleForDoctor"/>
                     </StackPanel>
-                    <ScrollViewer Height="300" VerticalAlignment="Top" Margin="0,20, 0,0">
+                    <ScrollViewer Height="480" VerticalAlignment="Top" Margin="0,20, 0,0">
                     <DataGrid x:Name="grdSchedule" AutoGenerateColumns="True" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" SelectionMode="Single"/>
                 </ScrollViewer>
                 </StackPanel>
@@ -83,14 +77,6 @@
         <Frame 
                 x:Name="PatientsPageUI" 
                 Source="/HospitalApp;component/UI/PatientsPage.xaml" 
-                Margin="0, 0, 10, 10" 
-                Visibility="Hidden" 
-                IsEnabled="False"
-                Grid.Column="1"/>
-
-        <Frame 
-                x:Name="SettingsPageUI" 
-                Source="/HospitalApp;component/UI/SettingsPage.xaml" 
                 Margin="0, 0, 10, 10" 
                 Visibility="Hidden" 
                 IsEnabled="False"

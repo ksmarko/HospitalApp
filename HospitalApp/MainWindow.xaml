@@ -71,45 +71,6 @@
             Width="112" 
             FontWeight="Normal"/>
 
-        <MaterialUI:PopupBox
-			HorizontalAlignment="Left"
-			Width="40" Foreground="#3e3e3e">
-
-            <StackPanel>
-                <MenuItem Header="Language">
-                    <MenuItem.Icon>
-                        <MaterialUI:PackIcon Kind="Translate"/>
-                    </MenuItem.Icon>
-
-                    <MenuItem Header="English"/>
-                    <MenuItem Header="Русский"/>
-                    <MenuItem Header="Українська"/>
-                </MenuItem>
-
-                <MenuItem Header="Settings">
-                    <MenuItem.Icon>
-                        <MaterialUI:PackIcon Kind="Settings"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-
-                <MenuItem Header="Log Out" Click="LogOutMethod">
-                    <MenuItem.Icon>
-                        <MaterialUI:PackIcon Kind="Logout"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </StackPanel>
-        </MaterialUI:PopupBox>
-
-        <Frame 
-            x:Name="LoginPageUI" 
-            Source="UI/LoginPage.xaml" 
-            Margin="50, 0, 50, 0" 
-            Visibility="Hidden" 
-            IsEnabled="False" 
-            HorizontalContentAlignment="Center" 
-            Grid.Column="1" 
-            Grid.Row="1"/>
-
         <Frame 
             x:Name="MainPageUI" 
             Source="UI/MainPage.xaml" 

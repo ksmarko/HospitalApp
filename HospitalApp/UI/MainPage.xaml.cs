@@ -40,7 +40,6 @@ namespace HospitalApp.UI
                 case 0: ShowHomeUI(null, null); Selected(0); LoadData(null, null); break;
                 case 1: ShowHomeUI(null, null); ShowDoctorsUI(null, null); Selected(1); break;
                 case 2: ShowHomeUI(null, null); ShowPatientsUI(null, null); Selected(2); break;
-                case 3: ShowHomeUI(null, null); ShowSettingsUI(null, null); Selected(3); break;
             }
         }
 
@@ -56,9 +55,6 @@ namespace HospitalApp.UI
 
             PatientsPageUI.IsEnabled = false;
             PatientsPageUI.Visibility = Visibility.Hidden;
-
-            SettingsPageUI.IsEnabled = false;
-            SettingsPageUI.Visibility = Visibility.Hidden;
         }
 
         private void ShowHomeUI(object sender, RoutedEventArgs e)
@@ -71,9 +67,6 @@ namespace HospitalApp.UI
 
             PatientsPageUI.IsEnabled = false;
             PatientsPageUI.Visibility = Visibility.Hidden;
-
-            SettingsPageUI.IsEnabled = false;
-            SettingsPageUI.Visibility = Visibility.Hidden;
         }
 
         private void ShowPatientsUI(object sender, RoutedEventArgs e)
@@ -86,24 +79,6 @@ namespace HospitalApp.UI
 
             PatientsPageUI.IsEnabled = true;
             PatientsPageUI.Visibility = Visibility.Visible;
-
-            SettingsPageUI.IsEnabled = false;
-            SettingsPageUI.Visibility = Visibility.Hidden;
-        }
-
-        private void ShowSettingsUI(object sender, RoutedEventArgs e)
-        {
-            grdMain.Visibility = Visibility.Hidden;
-            grdMain.IsEnabled = false;
-
-            DoctorsPageUI.IsEnabled = false;
-            DoctorsPageUI.Visibility = Visibility.Hidden;
-
-            PatientsPageUI.IsEnabled = false;
-            PatientsPageUI.Visibility = Visibility.Hidden;
-
-            SettingsPageUI.IsEnabled = true;
-            SettingsPageUI.Visibility = Visibility.Visible;
         }
 
         #endregion

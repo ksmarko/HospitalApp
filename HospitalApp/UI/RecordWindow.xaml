@@ -22,7 +22,7 @@
             <TextBlock Text="Therapy" Margin="20,5,20,0"/>
             <TextBox Name="txtTher" Margin="20,10,20,20"/>
             <TextBlock Text="Addition" Margin="20,5,20,0"/>
-            <TextBox Name="txtAdd" Margin="20,5,20,0" MaxLines="20" TextWrapping="Wrap" Height="70" Style="{x:Null}"/>
+            <TextBox Name="txtAdd" Margin="20,5,20,0" MaxLines="20" TextWrapping="Wrap" AcceptsReturn="True" Height="70" Style="{x:Null}"/>
 
         </StackPanel>
         <Button Content="Add Record" Click="AddRecord" Margin="100,0,100,30" VerticalAlignment="Bottom" Visibility="Visible"/>
