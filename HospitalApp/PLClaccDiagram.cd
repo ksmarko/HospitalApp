@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HospitalApp.UI.DoctorsPage">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQCAAAAAABUACAgAAAAAAQAAADAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\DoctorsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HospitalApp.UI.HumanManagerWindow">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAEACAAAAAAAAAAAECAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\HumanManagerWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HospitalApp.UI.MainPage">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQKBEAAAAAQAAAAIgCAACAAAAAAAIAAAAAAAAAAAAI=</HashCode>
+      <FileName>UI\MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HospitalApp.UI.PatientsPage">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAoAAAAAEAICAAEAAAAQAA0BAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>UI\PatientsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HospitalApp.UI.RecordWindow">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\RecordWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HospitalApp.UI.ScheduleWindow">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAQAAAEAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\ScheduleWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HospitalApp.UI.SearchWindow">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\SearchWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HospitalApp.Views.RecordView">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAABAAAAQAAAAAgQBAAAAAAAAAAA=</HashCode>
+      <FileName>Views\RecordView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalApp.Views.ScheduleView">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAwQBAAAAAAAAAQA=</HashCode>
+      <FileName>Views\ScheduleView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HospitalApp.MainWindow">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAABAABAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

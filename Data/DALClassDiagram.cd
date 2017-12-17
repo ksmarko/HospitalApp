@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Data.Entities.Doctor">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Entities\Doctor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Entities.Patient">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Entities.Record">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAABAAAABAAAAAAAACAgABAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Record.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Entities.Schedule">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAAAAAACAgABAAAAAAAAAQA=</HashCode>
+      <FileName>Entities\Schedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Repositories.DoctorRepository" Collapsed="true">
+    <Position X="4.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\DoctorRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Data.Repositories.EFUnitOfWork">
+    <Position X="6.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAAIQAACAQAAAAAAEAAAAAAEAAAAIABgAAgAAAAAA=</HashCode>
+      <FileName>Repositories\EFUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Data.Repositories.PatientRepository" Collapsed="true">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\PatientRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Data.Repositories.RecordRepository" Collapsed="true">
+    <Position X="6" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\RecordRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Data.Repositories.ScheduleRepository" Collapsed="true">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ScheduleRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Data.DContext">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAABgAAAAAAAAA=</HashCode>
+      <FileName>DContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Data.Interfaces.IRepository&lt;T&gt;">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Data.Interfaces.IUnitOfWork">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAIAAAAAAAAAAAAAAAAAAAEAAAAAABgAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

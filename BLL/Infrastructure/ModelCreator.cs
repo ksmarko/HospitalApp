@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BLL.DTO;
 using BLL.Services;
 
-namespace BLL.Utilits
+namespace BLL.Infrastructure
 {
     public class ModelCreator
     {

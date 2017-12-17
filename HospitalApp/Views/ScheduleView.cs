@@ -25,7 +25,7 @@ namespace HospitalApp.Views
             ScheduleView scheduleView = new ScheduleView()
             {
                 Id = scheduleDTO.Id,
-                Doctor = doc.Name,
+                Doctor = doc.ToString(),
                 Date = scheduleDTO.Date.ToShortDateString(),
                 Time = scheduleDTO.Time,
                 Addition = scheduleDTO.Addition

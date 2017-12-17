@@ -15,7 +15,7 @@ namespace HospitalApp
     {
         private void AppStartUp(object sender, StartupEventArgs e)
         {
-            BLL.Utilits.AutoMapperConfig.Initialize();
+            BLL.Infrastructure.AutoMapperConfig.Initialize();
         }
     }
 }

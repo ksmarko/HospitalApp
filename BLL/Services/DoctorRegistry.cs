@@ -19,7 +19,7 @@ namespace BLL.Services
         
         public DoctorRegistry()
         {
-            Database = new EFUnitOfWork("DbConnection");
+            Database = new EFUnitOfWork();
         }
 
         public IEnumerable<DoctorDTO> GetAll()

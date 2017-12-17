@@ -1,6 +1,6 @@
 ﻿using BLL.DTO;
 using BLL.Services;
-using BLL.Utilits;
+using BLL.Infrastructure;
 using HospitalApp.Views;
 using System;
 using System.Collections.Generic;
@@ -156,26 +156,12 @@ namespace HospitalApp.UI
                 cboxTime.ItemsSource = null;
                 cboxTime.Items.Clear();
 
-                List<string> timeVariants = new List<string>();
+                TimeManager tm = new TimeManager();
 
                 string time = MainPage.GetDoctorShedules(doctor, date).FirstOrDefault().Time;
-                char[] arr = new char[] { ' ', '-', ' ' };
-
-                string[] tStart = time.Split(arr, StringSplitOptions.RemoveEmptyEntries);
-
-                //ошибка обрезания
-                int start = Convert.ToInt32(tStart[0].Substring(0, tStart[0].Length - 3));
-                int end = Convert.ToInt32(tStart[1].Substring(0, tStart[1].Length - 3));
-
-                for (int i = start; i < end; i++)
-                {
-                    timeVariants.Add(i + ":00");
-                    timeVariants.Add(i + ":30");
-                }
-
-                TimeManager tm = new TimeManager();
+                List<string> timeVariants = tm.TimeParsing(time);
                 
-                foreach (var el in tm.GetByDoctor(doctor)) //возвращает все записи врача
+                foreach (var el in tm.GetByDoctor(doctor))
                 {
                     timeVariants.RemoveAll(x => x == el.Time);
                 }
@@ -187,7 +173,7 @@ namespace HospitalApp.UI
                 Console.WriteLine("Null ref in UpdateTime");
                 return;
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ValidationException)
             {
                 Console.WriteLine("Error with substrings");
                 return;

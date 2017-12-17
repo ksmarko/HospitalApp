@@ -21,6 +21,11 @@ namespace Data.Repositories
             db = new DContext(connectionString);
         }
 
+        public EFUnitOfWork()
+        {
+            db = new DContext("Hospital13App");
+        }
+
         public IRepository<Doctor> Doctors
         {
             get

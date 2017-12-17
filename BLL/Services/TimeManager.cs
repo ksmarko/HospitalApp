@@ -19,7 +19,7 @@ namespace BLL.Services
 
         public TimeManager()
         {
-            Database = new EFUnitOfWork("DbConnection");
+            Database = new EFUnitOfWork();
         }
 
         public void Add(ScheduleDTO entity)
@@ -53,7 +53,7 @@ namespace BLL.Services
                 throw new ArgumentNullException();
 
             //------------------
-            if (schedule.Addition == "Timetable")
+            if (schedule.PatientId == 0)
                 throw new ValidationException("Doctor's timetable", "");
 
             EditAnyway(entity);
@@ -71,7 +71,7 @@ namespace BLL.Services
             schedule.Date = entity.Date;
             schedule.Time = entity.Time;
 
-            if (schedule.Addition == "Timetable")
+            if (schedule.PatientId == 0)
             {
                 var list = Database.Schedules.Find(x => x.DoctorId == schedule.DoctorId && TimeParsing(entity.Time).Contains(x.Time));
 
@@ -110,7 +110,7 @@ namespace BLL.Services
             if (schedule == null)
                 throw new ArgumentNullException();
 
-            if (schedule.Addition == "Timetable")
+            if (schedule.PatientId == 0)
                 throw new ValidationException("Possible loss of patients", "");
 
             RemoveAnyway(id);
@@ -124,9 +124,9 @@ namespace BLL.Services
                 throw new ArgumentNullException();
 
             //удаление записей на указанное время
-            if (schedule.Addition == "Timetable")
+            if (schedule.PatientId == 0)
             {
-                var list = Database.Schedules.Find(x => x.DoctorId == schedule.DoctorId && TimeParsing(schedule.Time).Contains(x.Time));
+                var list = Database.Schedules.Find(x => x.DoctorId == schedule.DoctorId && TimeParsing(schedule.Time).Contains(x.Time) && x.Date == schedule.Date);
 
                 foreach (var el in list)
                     Database.Schedules.Delete(el.Id);
@@ -136,15 +136,17 @@ namespace BLL.Services
             Database.Save();
         }
 
-        private List<string> TimeParsing(string time)
+        public List<string> TimeParsing(string time)
         {
+            if (string.IsNullOrEmpty(time.Trim()))
+                throw new ValidationException("Invalid time string", "");
+
             List<string> hours = new List<string>();
-            ;
+            
             char[] arr = new char[] { ' ', '-', ' ' };
 
             string[] tStart = time.Split(arr, StringSplitOptions.RemoveEmptyEntries);
-
-            //ошибка обрезания
+            
             int start = Convert.ToInt32(tStart[0].Substring(0, tStart[0].Length - 3));
             int end = Convert.ToInt32(tStart[1].Substring(0, tStart[1].Length - 3));
 

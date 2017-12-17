@@ -19,7 +19,7 @@ namespace BLL.Services
 
         public PatientRegistry()
         {
-            Database = new EFUnitOfWork("DbConnection");
+            Database = new EFUnitOfWork();
         }
 
         public void Add(PatientDTO entity)

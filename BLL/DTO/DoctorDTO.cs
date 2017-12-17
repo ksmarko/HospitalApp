@@ -15,7 +15,7 @@ namespace BLL.DTO
 
         public override string ToString()
         {
-            return String.Join(" ", Name, Surname);
+            return String.Join(" ", Name, Surname, "(" + Specialization + ")");
         }
     }
 }

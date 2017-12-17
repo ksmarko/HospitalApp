@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="BLL.DTO.DoctorDTO">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQABAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>DTO\DoctorDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.DTO.PatientDTO">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DTO\PatientDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.DTO.RecordDTO">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAABAAAABAAAAAAAACAgABAAAAAAAAAAA=</HashCode>
+      <FileName>DTO\RecordDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.DTO.ScheduleDTO">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAAAAAACAgABAAAAAAAAAQA=</HashCode>
+      <FileName>DTO\ScheduleDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Infrastructure.ServiceModule">
+    <Position X="10" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\ServiceModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Infrastructure.ValidationException">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Infrastructure\ValidationException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Services.DoctorRegistry" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAGIAAAAAAAAABAAAAAAIAAACAgAABAAAAAA=</HashCode>
+      <FileName>Services\DoctorRegistry.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.617" />
+  </Class>
+  <Class Name="BLL.Services.PatientRegistry" Collapsed="true">
+    <Position X="9.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAIAAAOAAAAAAAAAABAAAAAAIAAACAgAAAAAAAAA=</HashCode>
+      <FileName>Services\PatientRegistry.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Services.TimeManager" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAGCAAAAAAAABBAAAAAAAAAACAgAgAQAAAAA=</HashCode>
+      <FileName>Services\TimeManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.Infrastructure.AutoMapperConfig">
+    <Position X="4.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\AutoMapperConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Infrastructure.ModelCreator">
+    <Position X="8.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAEAAAAAAAAQAAAAAAAAAAAAAAIAAAAAIA=</HashCode>
+      <FileName>Infrastructure\ModelCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BLL.Interfaces.IDoctorRegistry">
+    <Position X="5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Interfaces\IDoctorRegistry.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BLL.Interfaces.IManager">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Interfaces\IManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BLL.Interfaces.IPatientRegistry">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAIAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IPatientRegistry.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BLL.Interfaces.IRegistry&lt;T&gt;">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAAAAAAABAAAAAAAAAACAgAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IRegistry.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

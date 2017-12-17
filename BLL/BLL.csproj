@@ -61,8 +61,8 @@
     <Compile Include="Services\DoctorRegistry.cs" />
     <Compile Include="Services\PatientRegistry.cs" />
     <Compile Include="Services\TimeManager.cs" />
-    <Compile Include="Utilits\AutoMapperConfig.cs" />
-    <Compile Include="Utilits\ModelCreator.cs" />
+    <Compile Include="Infrastructure\AutoMapperConfig.cs" />
+    <Compile Include="Infrastructure\ModelCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
@@ -71,8 +71,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="BLLClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Utilits\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
