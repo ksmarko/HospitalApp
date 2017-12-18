@@ -77,13 +77,13 @@ namespace BLL.Services
             Database.Dispose();
         }
 
-        public IEnumerable<DoctorDTO> FindAllData(string name, string surname)
-        {
-            if (String.IsNullOrEmpty(name.Trim()) && String.IsNullOrEmpty(surname.Trim()))
-                throw new ArgumentNullException();
+        //public IEnumerable<DoctorDTO> FindAllData(string name, string surname)
+        //{
+        //    if (String.IsNullOrEmpty(name.Trim()) && String.IsNullOrEmpty(surname.Trim()))
+        //        throw new ArgumentNullException();
 
-            return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.Find(x => x.Name == name && x.Surname == surname));
-        }
+        //    return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.Find(x => x.Name == name && x.Surname == surname));
+        //}
 
         public IEnumerable<DoctorDTO> Find(string name, string surname)
         {

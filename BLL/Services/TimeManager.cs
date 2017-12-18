@@ -136,7 +136,7 @@ namespace BLL.Services
             Database.Save();
         }
 
-        public List<string> TimeParsing(string time)
+        public IEnumerable<string> TimeParsing(string time)
         {
             if (string.IsNullOrEmpty(time.Trim()))
                 throw new ValidationException("Invalid time string", "");

@@ -159,7 +159,7 @@ namespace HospitalApp.UI
                 TimeManager tm = new TimeManager();
 
                 string time = MainPage.GetDoctorShedules(doctor, date).FirstOrDefault().Time;
-                List<string> timeVariants = tm.TimeParsing(time);
+                List<string> timeVariants = tm.TimeParsing(time).ToList();
                 
                 foreach (var el in tm.GetByDoctor(doctor))
                 {

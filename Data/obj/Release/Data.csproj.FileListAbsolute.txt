@@ -1,0 +1,11 @@
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Release\Data.dll.config
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Release\Data.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Release\Data.pdb
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Release\EntityFramework.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Release\EntityFramework.SqlServer.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Release\EntityFramework.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\bin\Release\EntityFramework.SqlServer.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\obj\Release\Data.csprojResolveAssemblyReference.cache
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\obj\Release\Data.csproj.CoreCompileInputs.cache
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\obj\Release\Data.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\Data\obj\Release\Data.pdb

@@ -17,11 +17,6 @@ using System.Windows.Shapes;
 
 namespace HospitalApp.UI
 {
-    /*
-    todo:
-    1. убрать с grdDoctors колонку с индексом
-    */
-
     public partial class DoctorsPage : Page
     {
         DoctorRegistry registry;
@@ -113,11 +108,6 @@ namespace HospitalApp.UI
         private void ClearSearchResults(object sender, RoutedEventArgs e)
         {
             Refresh();
-        }
-
-        private void ShowDoctorInfo(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

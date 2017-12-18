@@ -31,6 +31,7 @@ Loaded="Page_Loaded"
                                 <Button Click="RemovePatient" ToolTip="Remove patient" Cursor="Hand" Foreground="#FF555555">
                                     <MaterialUI:PackIcon Kind="Delete"/>
                                 </Button>
+                                <Separator/>
                                 <Button Click="FindPatient" ToolTip="Find patient" Cursor="Hand" Foreground="#FF555555">
                                     <MaterialUI:PackIcon Kind="AccountSearch"/>
                                 </Button>

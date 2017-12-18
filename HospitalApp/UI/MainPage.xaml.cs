@@ -1,7 +1,6 @@
 ﻿using BLL.DTO;
 using BLL.Infrastructure;
 using BLL.Services;
-using BLL.Infrastructure;
 using HospitalApp.Views;
 using System;
 using System.Collections.Generic;
@@ -103,7 +102,7 @@ namespace HospitalApp.UI
             LoadDoctorsList();            
         }
 
-        private void addSchedule(object sender, RoutedEventArgs e)
+        private void AddSchedule(object sender, RoutedEventArgs e)
         {
             ScheduleWindow wi = new ScheduleWindow();
             wi.Title = "Add schedule";
