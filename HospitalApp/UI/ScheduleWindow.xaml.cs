@@ -73,9 +73,6 @@ namespace HospitalApp.UI
 
             var docschedule = tm.GetByDoctor(doctor);
 
-            //TODO: edit hell
-            #region hell
-            //edit this shit
             if (docschedule.Count() > 0)
                 foreach (var el in docschedule)
                     if (el.Date == dpDate.SelectedDate.Value)
@@ -85,7 +82,7 @@ namespace HospitalApp.UI
                         {
                             tm.Edit(schedule);
                         }
-                        catch (BLL.Infrastructure.ValidationException)
+                        catch (ValidationException)
                         {
                             var result = MessageBox.Show("You can lost patients. Continue?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Question);
                             if (result == MessageBoxResult.Yes)
@@ -96,8 +93,7 @@ namespace HospitalApp.UI
                             else return;
 
                         }
-                        //MessageBox.Show("Schedule edited!");
-                        //break;
+                        break;
                     }
                     else
                     {
@@ -110,7 +106,6 @@ namespace HospitalApp.UI
                 tm.Add(schedule);
                 MessageBox.Show("Schedule added!");
             }
-            #endregion
 
             this.Close();
         }
