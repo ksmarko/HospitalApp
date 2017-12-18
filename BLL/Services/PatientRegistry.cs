@@ -1,15 +1,14 @@
-﻿using AutoMapper;
-using BLL.DTO;
-using BLL.Infrastructure;
-using BLL.Interfaces;
-using Data.Entities;
-using Data.Interfaces;
-using Data.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+
+using AutoMapper;
+
+using BLL.DTO;
+using BLL.Interfaces;
+
+using Data.Entities;
+using Data.Repositories;
 
 namespace BLL.Services
 {
@@ -67,13 +66,9 @@ namespace BLL.Services
 
             if (patient == null)
                 throw new ArgumentNullException();
-
-            //-------------
-            var list = Database.Schedules.Find(x => x.PatientId == patient.Id);
-
-            foreach (var el in list)
+            
+            foreach (var el in Database.Schedules.Find(x => x.PatientId == patient.Id))
                 Database.Schedules.Delete(el.Id);
-            //------------
 
             Database.Patients.Delete(patient.Id);
             Database.Save();

@@ -92,14 +92,12 @@ D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\HospitalApp.exe.
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\HospitalApp.exe
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\HospitalApp.pdb
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.dll
-D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.SqlServer.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MahApps.Metro.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MaterialDesignColors.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MaterialDesignThemes.Wpf.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\System.Windows.Interactivity.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Data.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.xml
-D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.SqlServer.xml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MahApps.Metro.pdb
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MahApps.Metro.xml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\MaterialDesignThemes.Wpf.pdb
@@ -139,3 +137,5 @@ D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\ScheduleWindo
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\obj\Debug\UI\ScheduleWindow.baml
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Ninject.dll
 D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\Ninject.xml
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.SqlServer.dll
+D:\КСЮ\Documents\Projects\OOPCousreNAU\HospitalApp\bin\Debug\EntityFramework.SqlServer.xml

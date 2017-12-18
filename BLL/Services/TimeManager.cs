@@ -1,15 +1,15 @@
-﻿using AutoMapper;
-using BLL.DTO;
-using BLL.Infrastructure;
-using BLL.Interfaces;
-using Data.Entities;
-using Data.Interfaces;
-using Data.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+
+using AutoMapper;
+
+using BLL.DTO;
+using BLL.Interfaces;
+using BLL.Infrastructure;
+
+using Data.Entities;
+using Data.Repositories;
 
 namespace BLL.Services
 {
@@ -51,13 +51,11 @@ namespace BLL.Services
 
             if (schedule == null)
                 throw new ArgumentNullException();
-
-            //------------------
+            
             if (schedule.PatientId == 0)
-                throw new ValidationException("Doctor's timetable", "");
+                throw new ValidationException("It's doctor's timetable", "");
 
             EditAnyway(entity);
-            //-------------------
         }
 
         public void EditAnyway(ScheduleDTO entity)
@@ -122,8 +120,7 @@ namespace BLL.Services
 
             if (schedule == null)
                 throw new ArgumentNullException();
-
-            //удаление записей на указанное время
+            
             if (schedule.PatientId == 0)
             {
                 var list = Database.Schedules.Find(x => x.DoctorId == schedule.DoctorId && TimeParsing(schedule.Time).Contains(x.Time) && x.Date == schedule.Date);

@@ -1,13 +1,10 @@
-﻿using Data.Entities;
-using Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Collections.Generic;
+
+using Data.Entities;
+using Data.Interfaces;
 
 namespace Data.Repositories
 {
@@ -28,6 +25,7 @@ namespace Data.Repositories
         public void Delete(int id)
         {
             Schedule schedule = db.Schedules.Find(id);
+
             if (schedule != null)
                 db.Schedules.Remove(schedule);
         }

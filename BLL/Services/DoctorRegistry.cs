@@ -1,15 +1,14 @@
-﻿using AutoMapper;
-using BLL.DTO;
-using BLL.Infrastructure;
-using BLL.Interfaces;
-using Data.Entities;
-using Data.Interfaces;
-using Data.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+
+using AutoMapper;
+
+using BLL.DTO;
+using BLL.Interfaces;
+
+using Data.Entities;
+using Data.Repositories;
 
 namespace BLL.Services
 {
@@ -59,8 +58,6 @@ namespace BLL.Services
             foreach (var el in Database.Schedules.GetAll().Where(x => x.DoctorId == doctor.Id))
                 Database.Schedules.Delete(el.Id);
 
-            //Database.Doctors.Delete(doctor.Id);
-
             doctor.IsEnabled = false;
 
             Database.Doctors.Update(doctor);
@@ -94,8 +91,7 @@ namespace BLL.Services
             
             return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.Find(x => x.Name == name && x.Surname == surname && x.IsEnabled == true));
         }
-
-        //?
+        
         public DoctorDTO Find(int id)
         {
             return Mapper.Map<Doctor, DoctorDTO>(Database.Doctors.Get(id));

@@ -1,27 +1,14 @@
-﻿using BLL.DTO;
-using BLL.Services;
-using HospitalApp.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Collections.Generic;
+
+using BLL.DTO;
+using BLL.Services;
+
+using HospitalApp.Views;
 
 namespace HospitalApp.UI
 {
-    /// <summary>
-    /// Логика взаимодействия для PatientsPage.xaml
-    /// </summary>
     public partial class PatientsPage : Page
     {
         public static PatientsPage instance;
@@ -33,13 +20,7 @@ namespace HospitalApp.UI
             instance = this;
             registry = new PatientRegistry();
         }
-
-        //list.selected index changed
-        //private void PartnersNavigation(object sender, SelectionChangedEventArgs e)
-        //{
-        //    txtName.Text = lstPatients.SelectedItem.ToString();
-        //}
-
+        
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             foreach (var el in registry.GetAll())
@@ -113,7 +94,6 @@ namespace HospitalApp.UI
                 RefreshCard();
         }
 
-        //page visible changed
         private void RefreshPage(object sender, DependencyPropertyChangedEventArgs e)
         {
             RefreshPage();

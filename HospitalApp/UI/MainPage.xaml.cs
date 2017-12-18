@@ -1,27 +1,16 @@
-﻿using BLL.DTO;
-using BLL.Infrastructure;
-using BLL.Services;
-using HospitalApp.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Collections.Generic;
+
+using BLL.DTO;
+using BLL.Services;
+using BLL.Infrastructure;
+
+using HospitalApp.Views;
 
 namespace HospitalApp.UI
 {
-    /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
-    /// </summary>
     public partial class MainPage : Page
     {
         public MainPage()
@@ -140,7 +129,7 @@ namespace HospitalApp.UI
             }
 
             DoctorDTO doctor = cboxDoctorsList.SelectedValue as DoctorDTO;
-            var date = dpDate.SelectedDate.Value;
+            DateTime date = dpDate.SelectedDate.Value;
 
             grdSchedule.ItemsSource = null;
             grdSchedule.ItemsSource = GetDoctorShedules(doctor, date);
@@ -149,14 +138,11 @@ namespace HospitalApp.UI
         public static List<ScheduleView> GetDoctorShedules(DoctorDTO doctor, DateTime date)
         {
             TimeManager tm = new TimeManager();
-
             List<ScheduleView> list = new List<ScheduleView>();
 
             foreach (var el in tm.GetAll())
-            {
                 if (el.DoctorId == doctor.Id && el.Date == date)
                     list.Add(ScheduleView.CreateScheduleView(el));
-            }
 
             return list;
         }

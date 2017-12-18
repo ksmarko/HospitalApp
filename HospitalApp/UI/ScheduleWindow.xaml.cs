@@ -1,26 +1,15 @@
-﻿using BLL.DTO;
-using BLL.Services;
-using BLL.Infrastructure;
-using HospitalApp.Views;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Collections.Generic;
+
+using BLL.DTO;
+using BLL.Services;
+using BLL.Infrastructure;
 
 namespace HospitalApp.UI
 {
-    /// <summary>
-    /// Логика взаимодействия для ScheduleWindow.xaml
-    /// </summary>
     public partial class ScheduleWindow : Window
     {
         public ScheduleWindow()
@@ -30,13 +19,16 @@ namespace HospitalApp.UI
 
         private void LoadData(object sender, RoutedEventArgs e)
         {
+            int startHours = 8;
+            int endHours = 20;
+
             dpDate.DisplayDateStart = DateTime.Today.AddDays(1);
 
             DoctorRegistry doctorRegistry = new DoctorRegistry();
             foreach (var el in doctorRegistry.GetAvailable())
                 cboxDocsList.Items.Add(el);
 
-            for (int i = 8; i < 20; i++)
+            for (int i = startHours; i < endHours; i++)
             {
                 cboxStartHours.Items.Add(i + ":00");
                 cboxEndHours.Items.Add(i + ":00");
@@ -74,6 +66,7 @@ namespace HospitalApp.UI
             var docschedule = tm.GetByDoctor(doctor);
 
             if (docschedule.Count() > 0)
+            {
                 foreach (var el in docschedule)
                     if (el.Date == dpDate.SelectedDate.Value)
                     {
@@ -91,7 +84,6 @@ namespace HospitalApp.UI
                                 MessageBox.Show("Schedule edited!");
                             }
                             else return;
-
                         }
                         break;
                     }
@@ -101,6 +93,7 @@ namespace HospitalApp.UI
                         MessageBox.Show("Schedule added!");
                         break;
                     }
+            }
             else
             {
                 tm.Add(schedule);
@@ -132,7 +125,7 @@ namespace HospitalApp.UI
 
             TimeManager tm = new TimeManager();
             DoctorDTO doctor = cboxDocsList.SelectedValue as DoctorDTO;
-            var date = dpDate.SelectedDate.Value;
+            DateTime date = dpDate.SelectedDate.Value;
 
             var schedule = ModelCreator.CreateEnroll(doctor.Id, (PatientsPage.instance.lstPatients.SelectedValue as PatientDTO).Id,
                 date, cboxTime.SelectedItem.ToString());
@@ -145,7 +138,6 @@ namespace HospitalApp.UI
 
         private void UpdateTime(DoctorDTO doctor, DateTime date)
         {
-            //добавление в комбобокс значений из диапазона графика
             try
             {
                 cboxTime.ItemsSource = null;
@@ -174,8 +166,7 @@ namespace HospitalApp.UI
                 return;
             }
         }
-
-        //date changed
+        
         private void UpdateTime(object sender, SelectionChangedEventArgs e)
         {
             if (this.Title == "Enroll")

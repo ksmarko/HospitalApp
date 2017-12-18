@@ -1,9 +1,6 @@
-﻿using BLL.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
+using BLL.DTO;
 
 namespace BLL.Interfaces
 {

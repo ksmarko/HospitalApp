@@ -1,11 +1,10 @@
-﻿using Data.Entities;
-using Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Collections.Generic;
+
+using Data.Entities;
+using Data.Interfaces;
 
 namespace Data.Repositories
 {
@@ -46,6 +45,7 @@ namespace Data.Repositories
         public void Delete(int id)
         {
             Patient patient = db.Patients.Find(id);
+
             if (patient != null)
                 db.Patients.Remove(patient);
         }

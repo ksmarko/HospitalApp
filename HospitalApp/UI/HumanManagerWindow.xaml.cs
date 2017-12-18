@@ -1,34 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+
+using BLL.DTO;
 using BLL.Services;
 using BLL.Infrastructure;
-using BLL.Interfaces;
-using BLL.DTO;
 
 namespace HospitalApp.UI
 {
-    /// <summary>
-    /// Логика взаимодействия для AddDoctorWindow.xaml
-    /// </summary>
     public partial class HumanManagerWindow : Window
     {
-        DoctorRegistry registry;
+        DoctorRegistry doctorRegistry;
         PatientRegistry patientRegistry;
 
         public HumanManagerWindow()
         {
-            registry = new DoctorRegistry();
+            doctorRegistry = new DoctorRegistry();
             patientRegistry = new PatientRegistry();
             InitializeComponent();
         }
@@ -37,7 +22,7 @@ namespace HospitalApp.UI
         {
             if (!string.IsNullOrEmpty(txtName.Text.Trim())  && !string.IsNullOrEmpty(txtSurname.Text.Trim()) && !string.IsNullOrEmpty(txtSpec.Text.Trim()))
             {
-                registry.Add(ModelCreator.CreteDoctor(txtName.Text, txtSurname.Text, txtSpec.Text));
+                doctorRegistry.Add(ModelCreator.CreteDoctor(txtName.Text, txtSurname.Text, txtSpec.Text));
                 this.Close();
             }
             else
@@ -49,12 +34,12 @@ namespace HospitalApp.UI
 
         private void EditDoctorData(object sender, RoutedEventArgs e)
         {
-            if (txtName.Text != "" && txtSurname.Text != "" && txtSpec.Text != "")
+            if (!string.IsNullOrEmpty(txtName.Text.Trim()) && !string.IsNullOrEmpty(txtSurname.Text.Trim()) && !string.IsNullOrEmpty(txtSpec.Text.Trim()))
             {
                 var doctor = ModelCreator.CreteDoctor(txtName.Text, txtSurname.Text, txtSpec.Text);
                 doctor.Id = (DoctorsPage.instance.grdDoctors.SelectedValue as DoctorDTO).Id;
 
-                registry.Edit(doctor);
+                doctorRegistry.Edit(doctor);
                 this.Close();
             }
             else
@@ -66,7 +51,7 @@ namespace HospitalApp.UI
 
         private void AddPatient(object sender, RoutedEventArgs e)
         {
-            if (txtName.Text != "" && txtSurname.Text != "")
+            if (!string.IsNullOrEmpty(txtName.Text.Trim()) && !string.IsNullOrEmpty(txtSurname.Text.Trim()))
             {
                 patientRegistry.Add(ModelCreator.CreatePatient(txtName.Text, txtSurname.Text));
                 this.Close();

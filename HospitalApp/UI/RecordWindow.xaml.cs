@@ -1,25 +1,11 @@
-﻿using BLL.DTO;
+﻿using System.Windows;
+
+using BLL.DTO;
 using BLL.Services;
 using BLL.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace HospitalApp.UI
 {
-    /// <summary>
-    /// Логика взаимодействия для AddRecordWindow.xaml
-    /// </summary>
     public partial class RecordWindow : Window
     {
         PatientRegistry registry;
@@ -52,6 +38,7 @@ namespace HospitalApp.UI
         private void LoadData(object sender, RoutedEventArgs e)
         {
             DoctorRegistry doctorRegistry = new DoctorRegistry();
+
             foreach (var el in doctorRegistry.GetAvailable())
                 cboxDocsList.Items.Add(el);
         }

@@ -1,31 +1,20 @@
-﻿using BLL.DTO;
-using BLL.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Collections.Generic;
+
+using BLL.DTO;
+using BLL.Services;
 
 namespace HospitalApp.UI
 {
     public partial class DoctorsPage : Page
     {
-        DoctorRegistry registry;
         public static DoctorsPage instance;
         public IEnumerable<DoctorDTO> docs;
 
         public DoctorsPage()
         {
-            registry = new DoctorRegistry();
             InitializeComponent();
             Refresh();
             instance = this;
@@ -52,9 +41,11 @@ namespace HospitalApp.UI
             wi.ShowDialog();
             Refresh();
         }
-
+        
         private void RemoveDoctor(object sender, RoutedEventArgs e)
         {
+            DoctorRegistry registry = new DoctorRegistry();
+
             try
             {
                 string question = "Are you sure to remove doctor " + (grdDoctors.SelectedValue as DoctorDTO).ToString() + " ?";
@@ -67,12 +58,12 @@ namespace HospitalApp.UI
                 }
                 else return;
             }
-            catch(Exception ex)
+            catch(NullReferenceException)
             {
-                Console.WriteLine(ex.Message);
+                return;
             }
         }
-
+        
         private void EditDoctorData(object sender, RoutedEventArgs e)
         {
             try
