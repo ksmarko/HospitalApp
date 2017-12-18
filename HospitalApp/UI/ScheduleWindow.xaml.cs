@@ -33,7 +33,7 @@ namespace HospitalApp.UI
             dpDate.DisplayDateStart = DateTime.Today.AddDays(1);
 
             DoctorRegistry doctorRegistry = new DoctorRegistry();
-            foreach (var el in doctorRegistry.GetAll())
+            foreach (var el in doctorRegistry.GetAvailable())
                 cboxDocsList.Items.Add(el);
 
             for (int i = 8; i < 20; i++)

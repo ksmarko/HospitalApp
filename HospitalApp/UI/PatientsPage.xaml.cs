@@ -35,10 +35,10 @@ namespace HospitalApp.UI
         }
 
         //list.selected index changed
-        private void PartnersNavigation(object sender, SelectionChangedEventArgs e)
-        {
-            txtName.Text = lstPatients.SelectedItem.ToString();
-        }
+        //private void PartnersNavigation(object sender, SelectionChangedEventArgs e)
+        //{
+        //    txtName.Text = lstPatients.SelectedItem.ToString();
+        //}
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

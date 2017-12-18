@@ -22,7 +22,7 @@ namespace HospitalApp.Views
 
             RecordView recordView = new RecordView()
             {
-                Doctor = registry.GetAll().Where(x => x.Id == recordDTO.DoctorId).FirstOrDefault().ToString(),
+                Doctor = registry.GetAll().Where(x => x.Id == recordDTO.DoctorId ).FirstOrDefault().ToString(),
                 Date = recordDTO.Date,
                 Diagnosis = recordDTO.Diagnosis,
                 Therapy = recordDTO.Therapy,

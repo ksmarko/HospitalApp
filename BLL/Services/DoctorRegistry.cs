@@ -26,6 +26,11 @@ namespace BLL.Services
         {
             return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.GetAll());
         }
+
+        public IEnumerable<DoctorDTO> GetAvailable()
+        {
+            return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.GetAll().Where(x => x.IsEnabled == true));
+        }
         
         public void Add(DoctorDTO entity)
         {
@@ -36,7 +41,8 @@ namespace BLL.Services
             {
                 Name = entity.Name,
                 Surname = entity.Surname,
-                Specialization = entity.Specialization
+                Specialization = entity.Specialization,
+                IsEnabled = true
             };
 
             Database.Doctors.Create(doctor);
@@ -53,7 +59,11 @@ namespace BLL.Services
             foreach (var el in Database.Schedules.GetAll().Where(x => x.DoctorId == doctor.Id))
                 Database.Schedules.Delete(el.Id);
 
-            Database.Doctors.Delete(doctor.Id);
+            //Database.Doctors.Delete(doctor.Id);
+
+            doctor.IsEnabled = false;
+
+            Database.Doctors.Update(doctor);
             Database.Save();
         }
 
@@ -77,22 +87,15 @@ namespace BLL.Services
             Database.Dispose();
         }
 
-        //public IEnumerable<DoctorDTO> FindAllData(string name, string surname)
-        //{
-        //    if (String.IsNullOrEmpty(name.Trim()) && String.IsNullOrEmpty(surname.Trim()))
-        //        throw new ArgumentNullException();
-
-        //    return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.Find(x => x.Name == name && x.Surname == surname));
-        //}
-
         public IEnumerable<DoctorDTO> Find(string name, string surname)
         {
             if (String.IsNullOrEmpty(name.Trim()) && String.IsNullOrEmpty(surname.Trim()))
                 throw new ArgumentNullException();
             
-            return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.Find(x => x.Name == name && x.Surname == surname));
+            return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.Find(x => x.Name == name && x.Surname == surname && x.IsEnabled == true));
         }
 
+        //?
         public DoctorDTO Find(int id)
         {
             return Mapper.Map<Doctor, DoctorDTO>(Database.Doctors.Get(id));
@@ -103,7 +106,7 @@ namespace BLL.Services
             if (String.IsNullOrEmpty(specialization.Trim()))
                 throw new ArgumentNullException();
             
-            return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.Find(x => x.Specialization == specialization));
+            return Mapper.Map<IEnumerable<Doctor>, List<DoctorDTO>>(Database.Doctors.Find(x => x.Specialization == specialization && x.IsEnabled == true));
         }
     }
 }

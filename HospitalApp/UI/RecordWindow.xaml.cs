@@ -52,7 +52,7 @@ namespace HospitalApp.UI
         private void LoadData(object sender, RoutedEventArgs e)
         {
             DoctorRegistry doctorRegistry = new DoctorRegistry();
-            foreach (var el in doctorRegistry.GetAll())
+            foreach (var el in doctorRegistry.GetAvailable())
                 cboxDocsList.Items.Add(el);
         }
     }

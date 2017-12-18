@@ -121,7 +121,7 @@ namespace HospitalApp.UI
 
             cboxDoctorsList.Items.Clear();
 
-            foreach (var el in dr.GetAll())
+            foreach (var el in dr.GetAvailable())
                 cboxDoctorsList.Items.Add(el);
         }
 

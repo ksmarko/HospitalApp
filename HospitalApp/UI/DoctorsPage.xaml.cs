@@ -39,7 +39,7 @@ namespace HospitalApp.UI
         private void Refresh()
         {
             DoctorRegistry reg = new DoctorRegistry();
-            docs = reg.GetAll();
+            docs = reg.GetAvailable();
             grdDoctors.ItemsSource = docs;
         }
         
